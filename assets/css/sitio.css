@@ -388,7 +388,10 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
   text-transform: uppercase; color: var(--a4a-gris-claro);
 }
 .idiomas__enlace {
-  padding: .375rem .75rem; border-radius: 999px;
+  /* min-height 44px: es el tamaño mínimo que se puede tocar con el dedo sin
+     fallar. Con el relleno de antes se quedaba en 38 px. */
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: .375rem .9375rem; border-radius: 999px;
   border: 1px solid var(--borde); text-decoration: none;
 }
 .idiomas__enlace:hover { border-color: var(--a4a-gris); text-decoration: none; }
