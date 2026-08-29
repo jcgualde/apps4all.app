@@ -23,11 +23,13 @@
 .vertical-comercios { --color-linea: var(--a4a-verde-comercios); }
 .vertical-fiestas   { --color-linea: var(--a4a-coral-fiestas); }
 .vertical-salud     { --color-linea: var(--a4a-morado-producto); }
+.vertical-juegos    { --color-linea: var(--a4a-magenta-juegos); }
 
 /* El 4 toma el color de su línea. Es lo único que cambia entre verticales. */
 .vertical-comercios .a4a-cuatro,
 .vertical-fiestas .a4a-cuatro,
-.vertical-salud .a4a-cuatro { color: var(--color-linea); }
+.vertical-salud .a4a-cuatro,
+.vertical-juegos .a4a-cuatro { color: var(--color-linea); }
 
 /* --------------------------------------------------------------------------
    Base
@@ -145,24 +147,34 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 }
 
 /* --------------------------------------------------------------------------
-   Héroe — bloque claro, con un lavado del color de la línea
+   Héroe — franja oscura teñida con el color de la línea
+
+   No es el negro tinta a secas: es tinta mezclada con el color de cada
+   línea, lo que da un azul marino en la portada, un verde profundo en
+   comercios, y así. Elegido por el usuario el 29/08/2026 comparando cinco
+   opciones. El color queda confinado a esta franja; el resto es blanco.
    -------------------------------------------------------------------------- */
 
 .heroe {
   position: relative;
-  background: color-mix(in srgb, var(--color-linea) 7%, var(--a4a-blanco));
-  color: var(--a4a-tinta);
+  background: color-mix(in srgb, var(--a4a-tinta) 62%, var(--color-linea));
+  color: var(--a4a-blanco);
   padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(4rem, 9vw, 6rem);
   overflow: hidden;
 }
 .heroe::before {
-  /* Halo suave del color de la línea. Da profundidad sin oscurecer nada. */
   content: ""; position: absolute; inset: auto -20% -60% 25%;
   height: 130%; pointer-events: none;
   background: radial-gradient(closest-side,
-              color-mix(in srgb, var(--color-linea) 26%, transparent), transparent);
-  opacity: .5;
+              color-mix(in srgb, var(--color-linea) 45%, transparent), transparent);
+  opacity: .35;
 }
+
+/* Textos y botones dentro de la franja oscura */
+.heroe .antetitulo { color: var(--a4a-azul-claro); }
+.heroe .entradilla { color: var(--a4a-gris-claro); }
+.heroe .boton--secundario { color: var(--a4a-blanco); border-color: var(--a4a-gris); }
+.heroe .boton--secundario:hover { border-color: var(--a4a-blanco); }
 .heroe > * { position: relative; }
 .heroe h1 { max-width: 18ch; }
 .heroe .entradilla { margin: 1.25rem 0 2rem; }

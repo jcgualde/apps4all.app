@@ -11,6 +11,11 @@
   --a4a-verde-comercios: #1D9E75;
   --a4a-coral-fiestas: #D85A30;
   --a4a-morado-producto: #6F66D6;
+  /* Añadido el 29/08/2026 al abrir la vertical apps4games. Elegido por
+     descarte: es el único tono claramente distinto de los otros tres que
+     además mantiene contraste suficiente sobre blanco (5,1:1).
+     PENDIENTE: llevarlo también a la guía de marca maestra. */
+  --a4a-magenta-juegos: #C0348B;
 
   /* Tipografía — sustituir la primera por la definitiva cuando se licencie */
   --a4a-font: "Söhne", "Aeonik", "Helvetica Neue", Arial, sans-serif;

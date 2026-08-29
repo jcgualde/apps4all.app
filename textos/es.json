@@ -3,37 +3,40 @@
   "nombre_idioma": "Castellano",
   "meta_titulo": "apps4all — Crear, añadir, mejorar",
   "meta_descripcion": "Estudio de aplicaciones a medida para comercios, fiestas populares y salud. Crear, añadir, mejorar.",
-
   "nav_verticales": "Qué hacemos",
   "nav_como": "Cómo trabajamos",
   "nav_contacto": "Hablemos",
   "volver_inicio": "apps4all — inicio",
-
   "portada_antetitulo": "Estudio de aplicaciones",
   "portada_titulo": "Aplicaciones que quitan trabajo, no que lo añaden.",
   "portada_entradilla": "Diseñamos y construimos aplicaciones a medida para negocios pequeños y medianos: lo justo para resolver el problema, funcionando desde el primer día y sin obligar a nadie a cambiar cómo trabaja.",
   "portada_boton_1": "Cuéntanos tu caso",
   "portada_boton_2": "Ver qué hacemos",
-
-  "lineas_antetitulo": "Tres líneas de trabajo",
-  "lineas_titulo": "Un mismo estudio, tres tipos de encargo.",
+  "lineas_antetitulo": "Líneas de trabajo",
+  "lineas_titulo": "Un mismo estudio, cualquier tipo de encargo.",
   "lineas_entradilla": "Cada línea tiene su nombre y su color, construidos sobre el 4 de la marca. Detrás hay una única forma de trabajar.",
   "lineas_enlace": "Ver la línea",
-
   "como_antetitulo": "Cómo trabajamos",
   "como_titulo": "Crear, añadir, mejorar.",
   "como_entradilla": "El claim de la marca es literalmente el método: se publica algo pequeño que ya sirve, y a partir de ahí se crece sobre algo vivo.",
   "paso": "PASO",
   "pasos": [
-    { "titulo": "Crear", "texto": "Empezamos por la versión más pequeña que resuelve el problema de verdad. Nada de meses de proyecto antes de ver algo funcionando." },
-    { "titulo": "Añadir", "texto": "Lo que se añade después sale del uso real, no de una lista escrita antes de empezar. Se paga lo que se usa." },
-    { "titulo": "Mejorar", "texto": "La aplicación sigue viva: se corrige, se afina y se adapta a lo que el negocio necesite más adelante." }
+    {
+      "titulo": "Crear",
+      "texto": "Empezamos por la versión más pequeña que resuelve el problema de verdad. Nada de meses de proyecto antes de ver algo funcionando."
+    },
+    {
+      "titulo": "Añadir",
+      "texto": "Lo que se añade después sale del uso real, no de una lista escrita antes de empezar. Se paga lo que se usa."
+    },
+    {
+      "titulo": "Mejorar",
+      "texto": "La aplicación sigue viva: se corrige, se afina y se adapta a lo que el negocio necesite más adelante."
+    }
   ],
-
   "llamada_titulo": "¿Tienes algo entre manos?",
   "llamada_texto": "Cuéntanoslo en cuatro líneas. Si no es para nosotros, te lo decimos.",
   "llamada_boton": "Escríbenos",
-
   "verticales": [
     {
       "slug": "comercios",
@@ -47,9 +50,18 @@
       "hero_texto": "Un comercio o un despacho pequeño no necesita un sistema de gestión enorme. Necesita que la tarea concreta que hoy come una hora al día deje de comerla. Eso es lo que construimos.",
       "que_titulo": "Qué resolvemos",
       "que": [
-        { "titulo": "Capturar sin teclear", "texto": "Una foto sustituye a la introducción manual. El documento llega ya identificado y ordenado a quien lo tiene que tratar." },
-        { "titulo": "Sin instalar nada", "texto": "Aplicaciones web que se abren desde un enlace. Ni tienda de aplicaciones, ni actualizaciones, ni formar a nadie." },
-        { "titulo": "Encajado en lo que ya usas", "texto": "La aplicación se adapta a tu programa de gestión y a tu correo, no al revés." }
+        {
+          "titulo": "Capturar sin teclear",
+          "texto": "Una foto sustituye a la introducción manual. El documento llega ya identificado y ordenado a quien lo tiene que tratar."
+        },
+        {
+          "titulo": "Sin instalar nada",
+          "texto": "Aplicaciones web que se abren desde un enlace. Ni tienda de aplicaciones, ni actualizaciones, ni formar a nadie."
+        },
+        {
+          "titulo": "Encajado en lo que ya usas",
+          "texto": "La aplicación se adapta a tu programa de gestión y a tu correo, no al revés."
+        }
       ],
       "muestras_titulo": "Muestras",
       "muestras_entradilla": "Trabajos reales. Los nombres de cliente solo aparecen con su permiso.",
@@ -80,9 +92,18 @@
       "hero_texto": "El programa en papel se pierde, se moja y no se puede corregir cuando llueve y se cambia un acto de sitio. Una aplicación de fiestas resuelve eso y, de paso, deja saber a la organización qué está funcionando.",
       "que_titulo": "Qué resolvemos",
       "que": [
-        { "titulo": "Programa siempre al día", "texto": "Si un acto cambia de hora o de plaza, cambia en el móvil de todo el mundo al momento." },
-        { "titulo": "Avisos a tiempo", "texto": "Un aviso llega a quien está en la calle en ese momento, que es cuando sirve de algo." },
-        { "titulo": "Sin instalar nada", "texto": "Se abre desde un enlace o un código QR en el cartel. Quien quiera, se la guarda en la pantalla de inicio." }
+        {
+          "titulo": "Programa siempre al día",
+          "texto": "Si un acto cambia de hora o de plaza, cambia en el móvil de todo el mundo al momento."
+        },
+        {
+          "titulo": "Avisos a tiempo",
+          "texto": "Un aviso llega a quien está en la calle en ese momento, que es cuando sirve de algo."
+        },
+        {
+          "titulo": "Sin instalar nada",
+          "texto": "Se abre desde un enlace o un código QR en el cartel. Quien quiera, se la guarda en la pantalla de inicio."
+        }
       ],
       "muestras_titulo": "Muestras",
       "muestras_entradilla": "Esta línea está arrancando. Aquí irán los trabajos según se hagan.",
@@ -113,9 +134,18 @@
       "hero_texto": "Esta es la línea de producto propio: aplicaciones que no nos ha encargado nadie. La primera va de hábitos, porque casi todo lo que tiene que ver con la salud se juega en repetir cosas pequeñas muchos días seguidos.",
       "que_titulo": "De qué va",
       "que": [
-        { "titulo": "Un hábito cada vez", "texto": "Sin listas infinitas ni sistemas de puntos. Lo que de verdad sostiene un hábito es verlo, marcarlo y no romper la racha." },
-        { "titulo": "Tus datos son tuyos", "texto": "Sin cuentas obligatorias ni perfiles que vender. Lo que registras se queda en tu móvil salvo que tú decidas otra cosa." },
-        { "titulo": "Sin enganchar a nadie", "texto": "El objetivo es que la abras diez segundos al día. Una aplicación de hábitos que te retiene es una aplicación que ha fallado." }
+        {
+          "titulo": "Un hábito cada vez",
+          "texto": "Sin listas infinitas ni sistemas de puntos. Lo que de verdad sostiene un hábito es verlo, marcarlo y no romper la racha."
+        },
+        {
+          "titulo": "Tus datos son tuyos",
+          "texto": "Sin cuentas obligatorias ni perfiles que vender. Lo que registras se queda en tu móvil salvo que tú decidas otra cosa."
+        },
+        {
+          "titulo": "Sin enganchar a nadie",
+          "texto": "El objetivo es que la abras diez segundos al día. Una aplicación de hábitos que te retiene es una aplicación que ha fallado."
+        }
       ],
       "muestras_titulo": "Muestras",
       "muestras_entradilla": "Producto en desarrollo. Aquí aparecerá en cuanto haya algo que se pueda probar.",
@@ -133,12 +163,52 @@
           "detalle": "Sugerencias bienvenidas"
         }
       ]
+    },
+    {
+      "slug": "juegos",
+      "mono": "a4g",
+      "color": "juegos",
+      "nombre": "apps4games",
+      "titulo": "Juegos",
+      "resumen": "Todavía ninguno. Está aquí porque la marca se llama apps4all y eso incluye lo que no hemos hecho aún.",
+      "etiqueta": "Línea abierta",
+      "hero_titulo": "Aquí todavía no hay nada.",
+      "hero_texto": "Y lo decimos en la portada en lugar de disimularlo. Esta línea existe porque el estudio se llama apps4all: cualquier tipo de encargo, no una lista cerrada de tres. Si algún día llega un juego, tendrá su sitio hecho.",
+      "que_titulo": "Por qué está aquí",
+      "que": [
+        {
+          "titulo": "El 4 significa «para»",
+          "texto": "apps4all se lee «aplicaciones para todos». Cerrar el catálogo en tres categorías sería contradecir el nombre en la primera pantalla."
+        },
+        {
+          "titulo": "Sabemos lo que no sabemos",
+          "texto": "No hemos hecho ningún juego y no vamos a decir lo contrario. Si nos encargas uno, lo primero que harás es oírnos decir qué parte no dominamos."
+        },
+        {
+          "titulo": "La puerta queda abierta",
+          "texto": "Lo mismo vale para cualquier otra cosa que no encaje en las tres líneas de al lado. Pregunta y te decimos honestamente si es para nosotros."
+        }
+      ],
+      "muestras_titulo": "Muestras",
+      "muestras_entradilla": "Ninguna, de momento. Esta página es una declaración de intenciones, no un portafolio.",
+      "muestras": [
+        {
+          "estado": "Sin empezar",
+          "titulo": "El primero, cuando llegue",
+          "texto": "Cuando exista un juego, o cualquier encargo que no encaje en las otras líneas, aparecerá aquí con lo que se hizo y lo que costó.",
+          "detalle": "Línea sin trabajos todavía"
+        },
+        {
+          "estado": "Propuesta",
+          "titulo": "¿Tienes una idea rara?",
+          "texto": "Si lo que se te ocurre no se parece a nada de lo que hay en esta web, esta es tu sección. Cuéntanoslo: lo peor que puede pasar es que te digamos que no.",
+          "detalle": "Consulta sin compromiso"
+        }
+      ]
     }
   ],
-
   "vertical_volver": "Ver las otras líneas",
   "estado": "Estado",
-
   "contacto_antetitulo": "Contacto",
   "contacto_titulo": "Cuéntanos qué necesitas.",
   "contacto_entradilla": "Cuatro líneas bastan para empezar. Contestamos en horas, no en semanas. Si tu caso no es para nosotros, te lo decimos y te ahorramos el tiempo.",
@@ -146,7 +216,12 @@
   "form_nombre": "Nombre",
   "form_correo": "Correo electrónico",
   "form_asunto": "Asunto",
-  "form_asunto_opciones": ["Un encargo para mi negocio", "Una fiesta o un evento", "Producto propio y salud", "Otra cosa"],
+  "form_asunto_opciones": [
+    "Un encargo para mi negocio",
+    "Una fiesta o un evento",
+    "Producto propio y salud",
+    "Otra cosa"
+  ],
   "form_mensaje": "Cuéntanos",
   "form_mensaje_ayuda": "Qué haces, qué tarea te está comiendo tiempo y para cuándo lo necesitas.",
   "form_privacidad": "He leído y acepto la",
@@ -155,13 +230,11 @@
   "form_enviando": "Enviando…",
   "form_ok": "Mensaje enviado. Te contestamos enseguida.",
   "form_error": "No se ha podido enviar. Escríbenos directamente a",
-
   "pie_derechos": "© 2026 apps4all",
   "pie_contacto": "Contacto",
   "pie_aviso": "Aviso legal",
   "pie_privacidad": "Privacidad",
   "pie_idioma": "Idioma",
-
   "legal_aviso_titulo": "Aviso legal",
   "legal_privacidad_titulo": "Política de privacidad",
   "legal_actualizado": "Última actualización"

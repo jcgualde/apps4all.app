@@ -16,6 +16,7 @@ No usa ninguna librería externa a propósito, para que funcione en cualquier
 ordenador con Python y en GitHub Actions sin instalar nada.
 """
 
+import hashlib
 import json
 import re
 import shutil
@@ -55,6 +56,18 @@ def resaltar_cuatro(texto):
     Regla de marca: el 4 va siempre en su color y el resto de caracteres no.
     """
     return texto.replace("4", '<span class="a4a-cuatro">4</span>', 1)
+
+
+def huella(ruta):
+    """Ocho caracteres que resumen el contenido de un archivo.
+
+    Se cuelgan de la URL de las hojas de estilo (`sitio.css?v=1a2b3c4d`). Si
+    el archivo cambia, cambia la huella, cambia la URL, y el navegador se ve
+    obligado a descargarlo de nuevo en lugar de servir la copia vieja que
+    tenga guardada. Es el remedio estándar contra "he cambiado el CSS y no
+    se ve el cambio".
+    """
+    return hashlib.sha256(ruta.read_bytes()).hexdigest()[:8]
 
 
 def escribir(ruta_relativa, contenido):
@@ -153,6 +166,9 @@ def construir():
     textos = {c: leer_json(TEXTOS / f"{c}.json") for c in idiomas}
     nombres_idioma = {c: textos[c]["nombre_idioma"] for c in idiomas}
 
+    v_marca = huella(RAIZ / "assets" / "css" / "a4a-brand.css")
+    v_sitio = huella(RAIZ / "assets" / "css" / "sitio.css")
+
     base_html = leer_plantilla("base.html")
     t_portada = leer_plantilla("portada.html")
     t_vertical = leer_plantilla("vertical.html")
@@ -177,6 +193,8 @@ def construir():
             "base": f"/{codigo}/",
             "ruta": ruta,
             "titulo_pagina": titulo,
+            "v_marca": v_marca,
+            "v_sitio": v_sitio,
             "clase_body": clase_body,
             "contenido": contenido,
             "alternates": alternates(idiomas, ruta_sin_idioma, por_defecto, dominio),

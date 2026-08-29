@@ -3,37 +3,40 @@
   "nombre_idioma": "Català",
   "meta_titulo": "apps4all — Crear, afegir, millorar",
   "meta_descripcion": "Estudi d'aplicacions a mida per a comerços, festes populars i salut. Crear, afegir, millorar.",
-
   "nav_verticales": "Què fem",
   "nav_como": "Com treballem",
   "nav_contacto": "Parlem-ne",
   "volver_inicio": "apps4all — inici",
-
   "portada_antetitulo": "Estudi d'aplicacions",
   "portada_titulo": "Aplicacions que treuen feina, no que n'afegeixen.",
   "portada_entradilla": "Dissenyem i construïm aplicacions a mida per a negocis petits i mitjans: just el necessari per resoldre el problema, funcionant des del primer dia i sense obligar ningú a canviar la seva manera de treballar.",
   "portada_boton_1": "Explica'ns el teu cas",
   "portada_boton_2": "Mira què fem",
-
-  "lineas_antetitulo": "Tres línies de treball",
-  "lineas_titulo": "Un mateix estudi, tres tipus d'encàrrec.",
+  "lineas_antetitulo": "Línies de treball",
+  "lineas_titulo": "Un mateix estudi, qualsevol tipus d'encàrrec.",
   "lineas_entradilla": "Cada línia té el seu nom i el seu color, construïts sobre el 4 de la marca. Al darrere hi ha una sola manera de treballar.",
   "lineas_enlace": "Mira la línia",
-
   "como_antetitulo": "Com treballem",
   "como_titulo": "Crear, afegir, millorar.",
   "como_entradilla": "El claim de la marca és literalment el mètode: es publica una cosa petita que ja serveix, i a partir d'aquí es creix sobre alguna cosa viva.",
   "paso": "PAS",
   "pasos": [
-    { "titulo": "Crear", "texto": "Comencem per la versió més petita que resol el problema de veritat. Res de mesos de projecte abans de veure alguna cosa funcionant." },
-    { "titulo": "Afegir", "texto": "El que s'afegeix després surt de l'ús real, no d'una llista escrita abans de començar. Es paga el que es fa servir." },
-    { "titulo": "Millorar", "texto": "L'aplicació continua viva: es corregeix, s'afina i s'adapta al que el negoci necessiti més endavant." }
+    {
+      "titulo": "Crear",
+      "texto": "Comencem per la versió més petita que resol el problema de veritat. Res de mesos de projecte abans de veure alguna cosa funcionant."
+    },
+    {
+      "titulo": "Afegir",
+      "texto": "El que s'afegeix després surt de l'ús real, no d'una llista escrita abans de començar. Es paga el que es fa servir."
+    },
+    {
+      "titulo": "Millorar",
+      "texto": "L'aplicació continua viva: es corregeix, s'afina i s'adapta al que el negoci necessiti més endavant."
+    }
   ],
-
   "llamada_titulo": "Tens alguna cosa entre mans?",
   "llamada_texto": "Explica-ho en quatre línies. Si no és per a nosaltres, t'ho direm.",
   "llamada_boton": "Escriu-nos",
-
   "verticales": [
     {
       "slug": "comercios",
@@ -47,9 +50,18 @@
       "hero_texto": "Un comerç o un despatx petit no necessita un sistema de gestió enorme. Necessita que la tasca concreta que avui es menja una hora al dia deixi de menjar-se-la. Això és el que construïm.",
       "que_titulo": "Què resolem",
       "que": [
-        { "titulo": "Capturar sense teclejar", "texto": "Una foto substitueix la introducció manual. El document arriba ja identificat i ordenat a qui l'ha de tractar." },
-        { "titulo": "Sense instal·lar res", "texto": "Aplicacions web que s'obren des d'un enllaç. Ni botiga d'aplicacions, ni actualitzacions, ni formar ningú." },
-        { "titulo": "Encaixat amb el que ja fas servir", "texto": "L'aplicació s'adapta al teu programa de gestió i al teu correu, no al revés." }
+        {
+          "titulo": "Capturar sense teclejar",
+          "texto": "Una foto substitueix la introducció manual. El document arriba ja identificat i ordenat a qui l'ha de tractar."
+        },
+        {
+          "titulo": "Sense instal·lar res",
+          "texto": "Aplicacions web que s'obren des d'un enllaç. Ni botiga d'aplicacions, ni actualitzacions, ni formar ningú."
+        },
+        {
+          "titulo": "Encaixat amb el que ja fas servir",
+          "texto": "L'aplicació s'adapta al teu programa de gestió i al teu correu, no al revés."
+        }
       ],
       "muestras_titulo": "Mostres",
       "muestras_entradilla": "Feines reals. Els noms de client només hi apareixen amb el seu permís.",
@@ -80,9 +92,18 @@
       "hero_texto": "El programa en paper es perd, es mulla i no es pot corregir quan plou i es canvia un acte de lloc. Una aplicació de festes resol això i, de passada, deixa saber a l'organització què està funcionant.",
       "que_titulo": "Què resolem",
       "que": [
-        { "titulo": "Programa sempre al dia", "texto": "Si un acte canvia d'hora o de plaça, canvia al mòbil de tothom a l'instant." },
-        { "titulo": "Avisos a temps", "texto": "Un avís arriba a qui és al carrer en aquell moment, que és quan serveix d'alguna cosa." },
-        { "titulo": "Sense instal·lar res", "texto": "S'obre des d'un enllaç o un codi QR al cartell. Qui vulgui, se la desa a la pantalla d'inici." }
+        {
+          "titulo": "Programa sempre al dia",
+          "texto": "Si un acte canvia d'hora o de plaça, canvia al mòbil de tothom a l'instant."
+        },
+        {
+          "titulo": "Avisos a temps",
+          "texto": "Un avís arriba a qui és al carrer en aquell moment, que és quan serveix d'alguna cosa."
+        },
+        {
+          "titulo": "Sense instal·lar res",
+          "texto": "S'obre des d'un enllaç o un codi QR al cartell. Qui vulgui, se la desa a la pantalla d'inici."
+        }
       ],
       "muestras_titulo": "Mostres",
       "muestras_entradilla": "Aquesta línia està arrencant. Aquí hi aniran les feines a mesura que es facin.",
@@ -113,9 +134,18 @@
       "hero_texto": "Aquesta és la línia de producte propi: aplicacions que no ens ha encarregat ningú. La primera va d'hàbits, perquè gairebé tot el que té a veure amb la salut es juga a repetir coses petites molts dies seguits.",
       "que_titulo": "De què va",
       "que": [
-        { "titulo": "Un hàbit cada vegada", "texto": "Sense llistes infinites ni sistemes de punts. El que de veritat sosté un hàbit és veure'l, marcar-lo i no trencar la ratxa." },
-        { "titulo": "Les teves dades són teves", "texto": "Sense comptes obligatoris ni perfils per vendre. El que registres es queda al teu mòbil llevat que tu decideixis una altra cosa." },
-        { "titulo": "Sense enganxar ningú", "texto": "L'objectiu és que l'obris deu segons al dia. Una aplicació d'hàbits que et reté és una aplicació que ha fallat." }
+        {
+          "titulo": "Un hàbit cada vegada",
+          "texto": "Sense llistes infinites ni sistemes de punts. El que de veritat sosté un hàbit és veure'l, marcar-lo i no trencar la ratxa."
+        },
+        {
+          "titulo": "Les teves dades són teves",
+          "texto": "Sense comptes obligatoris ni perfils per vendre. El que registres es queda al teu mòbil llevat que tu decideixis una altra cosa."
+        },
+        {
+          "titulo": "Sense enganxar ningú",
+          "texto": "L'objectiu és que l'obris deu segons al dia. Una aplicació d'hàbits que et reté és una aplicació que ha fallat."
+        }
       ],
       "muestras_titulo": "Mostres",
       "muestras_entradilla": "Producte en desenvolupament. Hi apareixerà tan aviat com hi hagi alguna cosa que es pugui provar.",
@@ -133,12 +163,52 @@
           "detalle": "Suggeriments benvinguts"
         }
       ]
+    },
+    {
+      "slug": "juegos",
+      "mono": "a4g",
+      "color": "juegos",
+      "nombre": "apps4games",
+      "titulo": "Jocs",
+      "resumen": "Encara cap. És aquí perquè la marca es diu apps4all i això inclou el que encara no hem fet.",
+      "etiqueta": "Línia oberta",
+      "hero_titulo": "Aquí encara no hi ha res.",
+      "hero_texto": "I ho diem a la portada en comptes de dissimular-ho. Aquesta línia existeix perquè l'estudi es diu apps4all: qualsevol tipus d'encàrrec, no una llista tancada de tres. Si algun dia arriba un joc, ja tindrà el seu lloc fet.",
+      "que_titulo": "Per què hi és",
+      "que": [
+        {
+          "titulo": "El 4 vol dir «per a»",
+          "texto": "apps4all es llegeix «aplicacions per a tothom». Tancar el catàleg en tres categories seria contradir el nom a la primera pantalla."
+        },
+        {
+          "titulo": "Sabem què no sabem",
+          "texto": "No hem fet cap joc i no direm el contrari. Si ens en encarregues un, el primer que faràs és sentir-nos dir quina part no dominem."
+        },
+        {
+          "titulo": "La porta queda oberta",
+          "texto": "El mateix val per a qualsevol altra cosa que no encaixi en les tres línies del costat. Pregunta i et direm honestament si és per a nosaltres."
+        }
+      ],
+      "muestras_titulo": "Mostres",
+      "muestras_entradilla": "Cap, de moment. Aquesta pàgina és una declaració d'intencions, no un portafolis.",
+      "muestras": [
+        {
+          "estado": "Sense començar",
+          "titulo": "El primer, quan arribi",
+          "texto": "Quan hi hagi un joc, o qualsevol encàrrec que no encaixi en les altres línies, apareixerà aquí amb què es va fer i què va costar.",
+          "detalle": "Línia sense feines encara"
+        },
+        {
+          "estado": "Proposta",
+          "titulo": "Tens una idea rara?",
+          "texto": "Si el que se t'acut no s'assembla a res del que hi ha en aquesta web, aquesta és la teva secció. Explica'ns-ho: el pitjor que pot passar és que et diguem que no.",
+          "detalle": "Consulta sense compromís"
+        }
+      ]
     }
   ],
-
   "vertical_volver": "Mira les altres línies",
   "estado": "Estat",
-
   "contacto_antetitulo": "Contacte",
   "contacto_titulo": "Explica'ns què necessites.",
   "contacto_entradilla": "Amb quatre línies n'hi ha prou per començar. Contestem en hores, no en setmanes. Si el teu cas no és per a nosaltres, t'ho direm i t'estalviarem el temps.",
@@ -146,7 +216,12 @@
   "form_nombre": "Nom",
   "form_correo": "Correu electrònic",
   "form_asunto": "Assumpte",
-  "form_asunto_opciones": ["Un encàrrec per al meu negoci", "Una festa o un esdeveniment", "Producte propi i salut", "Una altra cosa"],
+  "form_asunto_opciones": [
+    "Un encàrrec per al meu negoci",
+    "Una festa o un esdeveniment",
+    "Producte propi i salut",
+    "Una altra cosa"
+  ],
   "form_mensaje": "Explica'ns",
   "form_mensaje_ayuda": "Què fas, quina tasca t'està menjant temps i per quan ho necessites.",
   "form_privacidad": "He llegit i accepto la",
@@ -155,13 +230,11 @@
   "form_enviando": "Enviant…",
   "form_ok": "Missatge enviat. Et contestem de seguida.",
   "form_error": "No s'ha pogut enviar. Escriu-nos directament a",
-
   "pie_derechos": "© 2026 apps4all",
   "pie_contacto": "Contacte",
   "pie_aviso": "Avís legal",
   "pie_privacidad": "Privacitat",
   "pie_idioma": "Idioma",
-
   "legal_aviso_titulo": "Avís legal",
   "legal_privacidad_titulo": "Política de privacitat",
   "legal_actualizado": "Darrera actualització"
