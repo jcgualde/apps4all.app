@@ -95,25 +95,31 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 .boton--principal:hover { background: var(--a4a-tinta); }
 .boton--principal:disabled { background: var(--a4a-gris-claro); cursor: progress; }
 
-/* Sobre fondo tinta. Blanco y no azul: el azul no debe competir con el
-   logotipo, que está justo al lado en la cabecera. */
+/* Para la cabecera, sobre blanco. En tinta y no en azul porque el logotipo
+   está al lado y la marca pide que el azul no compita con él. */
+.boton--tinta { background: var(--a4a-tinta); color: var(--a4a-blanco); }
+.boton--tinta:hover { background: var(--a4a-azul); }
+
+/* Solo dentro del bloque oscuro del final de página. */
 .boton--claro { background: var(--a4a-blanco); color: var(--a4a-tinta); }
 .boton--claro:hover { background: var(--a4a-gris-claro); }
 
-.boton--fantasma {
-  background: transparent; color: var(--a4a-blanco);
-  border-color: color-mix(in srgb, var(--a4a-gris-claro) 55%, transparent);
+/* Secundario sobre fondo claro. */
+.boton--secundario {
+  background: transparent; color: var(--a4a-tinta);
+  border-color: var(--a4a-gris-claro);
 }
-.boton--fantasma:hover { border-color: var(--a4a-blanco); }
+.boton--secundario:hover { border-color: var(--a4a-tinta); }
 
 /* --------------------------------------------------------------------------
-   Cabecera — siempre sobre tinta, con el logotipo en blanco
+   Cabecera — blanca, con el logotipo en su versión normal
    -------------------------------------------------------------------------- */
 
 .cabecera {
   position: sticky; top: 0; z-index: 10;
-  background: var(--a4a-tinta);
-  border-bottom: 1px solid color-mix(in srgb, var(--a4a-gris) 35%, transparent);
+  background: color-mix(in srgb, var(--a4a-blanco) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borde);
 }
 .cabecera__fila {
   display: flex; align-items: center; justify-content: space-between;
@@ -124,14 +130,14 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 
 .navegacion { display: flex; align-items: center; gap: 1.75rem; }
 .navegacion a {
-  color: var(--a4a-blanco); text-decoration: none;
+  color: var(--a4a-tinta); text-decoration: none;
   font-size: .9375rem; font-weight: 500;
 }
-.navegacion a:hover { color: var(--a4a-azul-claro); }
-/* Especificidad: sin esto, `.navegacion a` pinta el texto del botón de
-   blanco sobre fondo blanco y el botón desaparece. */
-.navegacion a.boton--claro,
-.navegacion a.boton--claro:hover { color: var(--a4a-tinta); }
+.navegacion a:hover { color: var(--a4a-azul); }
+/* El botón de la cabecera va en tinta y no en azul: el logotipo está justo
+   al lado y la marca pide que el azul no compita con él. */
+.navegacion a.boton--tinta,
+.navegacion a.boton--tinta:hover { color: var(--a4a-blanco); }
 
 @media (max-width: 760px) {
   .navegacion a:not(.boton) { display: none; }
@@ -139,24 +145,23 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 }
 
 /* --------------------------------------------------------------------------
-   Héroe — el bloque oscuro de cada página
+   Héroe — bloque claro, con un lavado del color de la línea
    -------------------------------------------------------------------------- */
 
 .heroe {
   position: relative;
-  background: var(--a4a-tinta);
-  color: var(--a4a-blanco);
+  background: color-mix(in srgb, var(--color-linea) 7%, var(--a4a-blanco));
+  color: var(--a4a-tinta);
   padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(4rem, 9vw, 6rem);
   overflow: hidden;
 }
 .heroe::before {
-  /* Halo del color de la línea. Es el único degradado del sitio y no toca
-     al logotipo, así que no rompe la regla de marca. */
-  content: ""; position: absolute; inset: auto -20% -60% 30%;
+  /* Halo suave del color de la línea. Da profundidad sin oscurecer nada. */
+  content: ""; position: absolute; inset: auto -20% -60% 25%;
   height: 130%; pointer-events: none;
   background: radial-gradient(closest-side,
-              color-mix(in srgb, var(--color-linea) 42%, transparent), transparent);
-  opacity: .55;
+              color-mix(in srgb, var(--color-linea) 26%, transparent), transparent);
+  opacity: .5;
 }
 .heroe > * { position: relative; }
 .heroe h1 { max-width: 18ch; }
