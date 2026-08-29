@@ -1,0 +1,20 @@
+# Todo el texto se guarda en el repositorio con saltos de línea LF, que es lo
+# que escribe construir.py y lo que espera el servidor Linux de GitHub Actions.
+# Sin esto, Windows mete CRLF y cada archivo aparece como "modificado entero"
+# en cuanto lo toca otro equipo.
+* text=auto eol=lf
+
+# Binarios: git no debe tocarles ni un byte. Sin esta línea intenta convertir
+# saltos de línea dentro de los PDF y los deja corruptos.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.zip   binary

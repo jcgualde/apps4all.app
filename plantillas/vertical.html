@@ -1,0 +1,55 @@
+  <!-- HEROE DE LA VERTICAL -->
+  <section class="heroe heroe--vertical vertical-{{color}}">
+    <div class="contenedor">
+      <div class="marca-linea">
+        <span class="monograma monograma--grande" aria-hidden="true"><span>{{mono_html}}</span></span>
+        <span class="marca-linea__nombre">{{nombre_html}}</span>
+      </div>
+      <h1>{{hero_titulo}}</h1>
+      <p class="entradilla entradilla--clara">{{hero_texto}}</p>
+      <div class="heroe__acciones">
+        <a class="boton boton--claro" href="{{base}}contacto/">{{llamada_boton}}</a>
+      </div>
+    </div>
+    <div class="heroe__cinta" aria-hidden="true"></div>
+  </section>
+
+  <!-- QUÉ RESOLVEMOS -->
+  <section class="seccion vertical-{{color}}">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="antetitulo">{{que_titulo}}</p>
+        <h2>{{titulo}}</h2>
+        <p class="entradilla">{{resumen}}</p>
+      </div>
+      <div class="rejilla rejilla--3">
+{{bloques_que}}
+      </div>
+    </div>
+  </section>
+
+  <!-- MUESTRAS -->
+  <section class="seccion seccion--tenue vertical-{{color}}">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <p class="antetitulo">{{muestras_titulo}}</p>
+        <h2>{{muestras_titulo}}</h2>
+        <p class="entradilla">{{muestras_entradilla}}</p>
+      </div>
+      <div class="rejilla rejilla--2">
+{{muestras}}
+      </div>
+    </div>
+  </section>
+
+  <!-- OTRAS LÍNEAS -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabecera">
+        <h2>{{vertical_volver}}</h2>
+      </div>
+      <div class="rejilla rejilla--3">
+{{otras_verticales}}
+      </div>
+    </div>
+  </section>

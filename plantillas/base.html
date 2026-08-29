@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titulo_pagina}}</title>
+<meta name="description" content="{{meta_descripcion}}">
+<link rel="canonical" href="https://apps4all.app{{ruta}}">
+{{alternates}}
+<link rel="icon" href="/assets/marca/a4a-icono-minimo-4.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/a4a-brand.css">
+<link rel="stylesheet" href="/assets/css/sitio.css">
+</head>
+<body class="{{clase_body}}">
+
+<a class="saltar" href="#contenido">Ir al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="{{base}}" aria-label="{{volver_inicio}}">
+      <img src="/assets/marca/a4a-logotipo-horizontal-blanco.svg" alt="apps4all">
+    </a>
+    <nav class="navegacion" aria-label="{{nav_verticales}}">
+      <a href="{{base}}#lineas">{{nav_verticales}}</a>
+      <a href="{{base}}#como">{{nav_como}}</a>
+      <a class="boton boton--claro" href="{{base}}contacto/">{{nav_contacto}}</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+{{contenido}}
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__fila">
+      <p class="pie__marca">{{pie_derechos}}</p>
+      <nav class="pie__enlaces" aria-label="{{pie_aviso}}">
+        <a href="{{base}}contacto/">{{pie_contacto}}</a>
+        <a href="{{base}}legal/aviso-legal/">{{pie_aviso}}</a>
+        <a href="{{base}}legal/privacidad/">{{pie_privacidad}}</a>
+      </nav>
+    </div>
+    <div class="idiomas">
+      <span class="idiomas__etiqueta">{{pie_idioma}}</span>
+      {{selector_idioma}}
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

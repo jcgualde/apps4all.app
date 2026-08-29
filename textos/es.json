@@ -1,0 +1,168 @@
+{
+  "idioma": "es",
+  "nombre_idioma": "Castellano",
+  "meta_titulo": "apps4all — Crear, añadir, mejorar",
+  "meta_descripcion": "Estudio de aplicaciones a medida para comercios, fiestas populares y salud. Crear, añadir, mejorar.",
+
+  "nav_verticales": "Qué hacemos",
+  "nav_como": "Cómo trabajamos",
+  "nav_contacto": "Hablemos",
+  "volver_inicio": "apps4all — inicio",
+
+  "portada_antetitulo": "Estudio de aplicaciones",
+  "portada_titulo": "Aplicaciones que quitan trabajo, no que lo añaden.",
+  "portada_entradilla": "Diseñamos y construimos aplicaciones a medida para negocios pequeños y medianos: lo justo para resolver el problema, funcionando desde el primer día y sin obligar a nadie a cambiar cómo trabaja.",
+  "portada_boton_1": "Cuéntanos tu caso",
+  "portada_boton_2": "Ver qué hacemos",
+
+  "lineas_antetitulo": "Tres líneas de trabajo",
+  "lineas_titulo": "Un mismo estudio, tres tipos de encargo.",
+  "lineas_entradilla": "Cada línea tiene su nombre y su color, construidos sobre el 4 de la marca. Detrás hay una única forma de trabajar.",
+  "lineas_enlace": "Ver la línea",
+
+  "como_antetitulo": "Cómo trabajamos",
+  "como_titulo": "Crear, añadir, mejorar.",
+  "como_entradilla": "El claim de la marca es literalmente el método: se publica algo pequeño que ya sirve, y a partir de ahí se crece sobre algo vivo.",
+  "paso": "PASO",
+  "pasos": [
+    { "titulo": "Crear", "texto": "Empezamos por la versión más pequeña que resuelve el problema de verdad. Nada de meses de proyecto antes de ver algo funcionando." },
+    { "titulo": "Añadir", "texto": "Lo que se añade después sale del uso real, no de una lista escrita antes de empezar. Se paga lo que se usa." },
+    { "titulo": "Mejorar", "texto": "La aplicación sigue viva: se corrige, se afina y se adapta a lo que el negocio necesite más adelante." }
+  ],
+
+  "llamada_titulo": "¿Tienes algo entre manos?",
+  "llamada_texto": "Cuéntanoslo en cuatro líneas. Si no es para nosotros, te lo decimos.",
+  "llamada_boton": "Escríbenos",
+
+  "verticales": [
+    {
+      "slug": "comercios",
+      "mono": "a4c",
+      "color": "comercios",
+      "nombre": "apps4comercios",
+      "titulo": "Comercios y despachos",
+      "resumen": "Herramientas para el día a día de un negocio: capturar documentos, ordenar pedidos, dejar de perseguir papeles por correo.",
+      "etiqueta": "Aplicaciones web y móviles a medida",
+      "hero_titulo": "El papeleo que se hace solo.",
+      "hero_texto": "Un comercio o un despacho pequeño no necesita un sistema de gestión enorme. Necesita que la tarea concreta que hoy come una hora al día deje de comerla. Eso es lo que construimos.",
+      "que_titulo": "Qué resolvemos",
+      "que": [
+        { "titulo": "Capturar sin teclear", "texto": "Una foto sustituye a la introducción manual. El documento llega ya identificado y ordenado a quien lo tiene que tratar." },
+        { "titulo": "Sin instalar nada", "texto": "Aplicaciones web que se abren desde un enlace. Ni tienda de aplicaciones, ni actualizaciones, ni formar a nadie." },
+        { "titulo": "Encajado en lo que ya usas", "texto": "La aplicación se adapta a tu programa de gestión y a tu correo, no al revés." }
+      ],
+      "muestras_titulo": "Muestras",
+      "muestras_entradilla": "Trabajos reales. Los nombres de cliente solo aparecen con su permiso.",
+      "muestras": [
+        {
+          "estado": "En producción",
+          "titulo": "Captura de tickets para una gestoría",
+          "texto": "Los clientes de la gestoría fotografían sus tickets desde el móvil y llegan al buzón de contabilidad ya sellados con la razón social y el NIF, listos para que el programa contable los identifique solo. Sin aplicación que instalar: un enlace por persona.",
+          "detalle": "WebApp · PDF generado en servidor · Bilingüe · Envío automático por correo"
+        },
+        {
+          "estado": "Ejemplo",
+          "titulo": "Tu caso, aquí",
+          "texto": "Si hay una tarea repetitiva que se come tiempo cada día en tu negocio, probablemente se pueda quitar de en medio. Cuéntanosla y te decimos si tiene arreglo y cuánto costaría.",
+          "detalle": "Presupuesto sin compromiso"
+        }
+      ]
+    },
+    {
+      "slug": "fiestas",
+      "mono": "a4f",
+      "color": "fiestas",
+      "nombre": "apps4fiestas",
+      "titulo": "Fiestas y eventos populares",
+      "resumen": "Programa, avisos y participación del público en el bolsillo de cada asistente, sin necesidad de instalar nada.",
+      "etiqueta": "Aplicaciones de temporada",
+      "hero_titulo": "La fiesta, en el bolsillo de todos.",
+      "hero_texto": "El programa en papel se pierde, se moja y no se puede corregir cuando llueve y se cambia un acto de sitio. Una aplicación de fiestas resuelve eso y, de paso, deja saber a la organización qué está funcionando.",
+      "que_titulo": "Qué resolvemos",
+      "que": [
+        { "titulo": "Programa siempre al día", "texto": "Si un acto cambia de hora o de plaza, cambia en el móvil de todo el mundo al momento." },
+        { "titulo": "Avisos a tiempo", "texto": "Un aviso llega a quien está en la calle en ese momento, que es cuando sirve de algo." },
+        { "titulo": "Sin instalar nada", "texto": "Se abre desde un enlace o un código QR en el cartel. Quien quiera, se la guarda en la pantalla de inicio." }
+      ],
+      "muestras_titulo": "Muestras",
+      "muestras_entradilla": "Esta línea está arrancando. Aquí irán los trabajos según se hagan.",
+      "muestras": [
+        {
+          "estado": "En preparación",
+          "titulo": "Programa de fiestas municipal",
+          "texto": "Programa por días, favoritos, avisos de la organización y mapa de los actos. Pensado para que lo lleve el propio ayuntamiento o la comisión de fiestas sin saber de informática.",
+          "detalle": "Aplicación web · Panel de edición para la organización"
+        },
+        {
+          "estado": "Ejemplo",
+          "titulo": "¿Organizas una fiesta?",
+          "texto": "Si estás en una comisión de fiestas o en un ayuntamiento y el programa de este año todavía es un PDF, hablemos antes de que empiece la temporada.",
+          "detalle": "Presupuesto sin compromiso"
+        }
+      ]
+    },
+    {
+      "slug": "salud",
+      "mono": "a4s",
+      "color": "salud",
+      "nombre": "apps4salud",
+      "titulo": "Salud y hábitos",
+      "resumen": "Producto propio. Aplicaciones que nacen aquí, sin cliente detrás, porque el problema nos parecía que merecía la pena resolverlo.",
+      "etiqueta": "Producto propio",
+      "hero_titulo": "Lo pequeño, sostenido en el tiempo.",
+      "hero_texto": "Esta es la línea de producto propio: aplicaciones que no nos ha encargado nadie. La primera va de hábitos, porque casi todo lo que tiene que ver con la salud se juega en repetir cosas pequeñas muchos días seguidos.",
+      "que_titulo": "De qué va",
+      "que": [
+        { "titulo": "Un hábito cada vez", "texto": "Sin listas infinitas ni sistemas de puntos. Lo que de verdad sostiene un hábito es verlo, marcarlo y no romper la racha." },
+        { "titulo": "Tus datos son tuyos", "texto": "Sin cuentas obligatorias ni perfiles que vender. Lo que registras se queda en tu móvil salvo que tú decidas otra cosa." },
+        { "titulo": "Sin enganchar a nadie", "texto": "El objetivo es que la abras diez segundos al día. Una aplicación de hábitos que te retiene es una aplicación que ha fallado." }
+      ],
+      "muestras_titulo": "Muestras",
+      "muestras_entradilla": "Producto en desarrollo. Aquí aparecerá en cuanto haya algo que se pueda probar.",
+      "muestras": [
+        {
+          "estado": "En desarrollo",
+          "titulo": "Aplicación de hábitos",
+          "texto": "Registro diario de hábitos con rachas, recordatorios y una vista de mes que se entiende de un vistazo. Sin publicidad y sin cuenta obligatoria.",
+          "detalle": "Aplicación móvil · Sin conexión · Primera versión en preparación"
+        },
+        {
+          "estado": "Idea",
+          "titulo": "Lo que venga después",
+          "texto": "La línea de salud está abierta: recordatorios de medicación, seguimiento de constantes, cuadernos para consultas. Si echas de menos algo que no existe o existe mal, dínoslo.",
+          "detalle": "Sugerencias bienvenidas"
+        }
+      ]
+    }
+  ],
+
+  "vertical_volver": "Ver las otras líneas",
+  "estado": "Estado",
+
+  "contacto_antetitulo": "Contacto",
+  "contacto_titulo": "Cuéntanos qué necesitas.",
+  "contacto_entradilla": "Cuatro líneas bastan para empezar. Contestamos en horas, no en semanas. Si tu caso no es para nosotros, te lo decimos y te ahorramos el tiempo.",
+  "contacto_correo_etiqueta": "O escríbenos directamente a",
+  "form_nombre": "Nombre",
+  "form_correo": "Correo electrónico",
+  "form_asunto": "Asunto",
+  "form_asunto_opciones": ["Un encargo para mi negocio", "Una fiesta o un evento", "Producto propio y salud", "Otra cosa"],
+  "form_mensaje": "Cuéntanos",
+  "form_mensaje_ayuda": "Qué haces, qué tarea te está comiendo tiempo y para cuándo lo necesitas.",
+  "form_privacidad": "He leído y acepto la",
+  "form_privacidad_enlace": "política de privacidad",
+  "form_enviar": "Enviar mensaje",
+  "form_enviando": "Enviando…",
+  "form_ok": "Mensaje enviado. Te contestamos enseguida.",
+  "form_error": "No se ha podido enviar. Escríbenos directamente a",
+
+  "pie_derechos": "© 2026 apps4all",
+  "pie_contacto": "Contacto",
+  "pie_aviso": "Aviso legal",
+  "pie_privacidad": "Privacidad",
+  "pie_idioma": "Idioma",
+
+  "legal_aviso_titulo": "Aviso legal",
+  "legal_privacidad_titulo": "Política de privacidad",
+  "legal_actualizado": "Última actualización"
+}

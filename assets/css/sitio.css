@@ -1,0 +1,383 @@
+/* ==========================================================================
+   sitio.css — estilo propio de apps4all.app
+
+   Todo color sale de las variables de a4a-brand.css. Si aquí aparece un #hex
+   suelto, es un error: cámbialo por su var(--a4a-...).
+
+   Reglas de marca que gobiernan este archivo:
+   - El azul --a4a-azul es EXCLUSIVO del carácter 4. Nunca en la caja del
+     monograma, nunca en el resto de letras.
+   - Cada vertical cambia únicamente el color de su 4, a través de la
+     variable --color-linea que define la clase .vertical-*.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  /* Color de la línea de trabajo. Por defecto, el azul de marca. */
+  --color-linea: var(--a4a-azul);
+  --radio: 16px;
+  --borde: color-mix(in srgb, var(--a4a-gris-claro) 55%, transparent);
+}
+
+.vertical-comercios { --color-linea: var(--a4a-verde-comercios); }
+.vertical-fiestas   { --color-linea: var(--a4a-coral-fiestas); }
+.vertical-salud     { --color-linea: var(--a4a-morado-producto); }
+
+/* El 4 toma el color de su línea. Es lo único que cambia entre verticales. */
+.vertical-comercios .a4a-cuatro,
+.vertical-fiestas .a4a-cuatro,
+.vertical-salud .a4a-cuatro { color: var(--color-linea); }
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+body {
+  margin: 0;
+  font-family: var(--a4a-font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--a4a-tinta);
+  background: var(--a4a-blanco);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; height: auto; }
+a { color: var(--a4a-azul); }
+
+.contenedor { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+.contenedor--estrecho { width: min(680px, 100% - 2.5rem); }
+
+.oculto-visualmente {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
+.saltar {
+  position: absolute; left: -9999px;
+  background: var(--a4a-blanco); color: var(--a4a-tinta);
+  padding: .75rem 1rem; border-radius: 8px; z-index: 100;
+}
+.saltar:focus { left: 1rem; top: 1rem; }
+
+:focus-visible { outline: 3px solid var(--a4a-azul-claro); outline-offset: 3px; }
+
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); font-weight: 600; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 600; }
+h3 { font-size: 1.1875rem; font-weight: 600; }
+
+.antetitulo {
+  font-size: .8125rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--color-linea); margin: 0 0 .875rem;
+}
+.antetitulo--claro { color: var(--a4a-gris-claro); }
+
+.entradilla {
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  color: var(--a4a-gris); max-width: 62ch;
+}
+.entradilla--clara { color: var(--a4a-gris-claro); }
+
+/* --------------------------------------------------------------------------
+   Botones
+   -------------------------------------------------------------------------- */
+
+.boton {
+  display: inline-block; padding: .8125rem 1.5rem; border-radius: 10px;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  border: 1px solid transparent; cursor: pointer;
+  font-family: inherit;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.boton--principal { background: var(--a4a-azul); color: var(--a4a-blanco); }
+.boton--principal:hover { background: var(--a4a-tinta); }
+.boton--principal:disabled { background: var(--a4a-gris-claro); cursor: progress; }
+
+/* Sobre fondo tinta. Blanco y no azul: el azul no debe competir con el
+   logotipo, que está justo al lado en la cabecera. */
+.boton--claro { background: var(--a4a-blanco); color: var(--a4a-tinta); }
+.boton--claro:hover { background: var(--a4a-gris-claro); }
+
+.boton--fantasma {
+  background: transparent; color: var(--a4a-blanco);
+  border-color: color-mix(in srgb, var(--a4a-gris-claro) 55%, transparent);
+}
+.boton--fantasma:hover { border-color: var(--a4a-blanco); }
+
+/* --------------------------------------------------------------------------
+   Cabecera — siempre sobre tinta, con el logotipo en blanco
+   -------------------------------------------------------------------------- */
+
+.cabecera {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--a4a-tinta);
+  border-bottom: 1px solid color-mix(in srgb, var(--a4a-gris) 35%, transparent);
+}
+.cabecera__fila {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; padding: .75rem 0;
+}
+.cabecera__logo { display: block; line-height: 0; }
+.cabecera__logo img { width: 196px; display: block; }
+
+.navegacion { display: flex; align-items: center; gap: 1.75rem; }
+.navegacion a {
+  color: var(--a4a-blanco); text-decoration: none;
+  font-size: .9375rem; font-weight: 500;
+}
+.navegacion a:hover { color: var(--a4a-azul-claro); }
+/* Especificidad: sin esto, `.navegacion a` pinta el texto del botón de
+   blanco sobre fondo blanco y el botón desaparece. */
+.navegacion a.boton--claro,
+.navegacion a.boton--claro:hover { color: var(--a4a-tinta); }
+
+@media (max-width: 760px) {
+  .navegacion a:not(.boton) { display: none; }
+  .cabecera__logo img { width: 148px; }
+}
+
+/* --------------------------------------------------------------------------
+   Héroe — el bloque oscuro de cada página
+   -------------------------------------------------------------------------- */
+
+.heroe {
+  position: relative;
+  background: var(--a4a-tinta);
+  color: var(--a4a-blanco);
+  padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(4rem, 9vw, 6rem);
+  overflow: hidden;
+}
+.heroe::before {
+  /* Halo del color de la línea. Es el único degradado del sitio y no toca
+     al logotipo, así que no rompe la regla de marca. */
+  content: ""; position: absolute; inset: auto -20% -60% 30%;
+  height: 130%; pointer-events: none;
+  background: radial-gradient(closest-side,
+              color-mix(in srgb, var(--color-linea) 42%, transparent), transparent);
+  opacity: .55;
+}
+.heroe > * { position: relative; }
+.heroe h1 { max-width: 18ch; }
+.heroe .entradilla { margin: 1.25rem 0 2rem; }
+.heroe--corto { padding-bottom: clamp(2.5rem, 6vw, 3.5rem); }
+.heroe--corto h1 { max-width: 22ch; }
+.heroe__acciones { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+/* Cinta de color al pie del héroe: identifica la línea de un vistazo. */
+.heroe__cinta {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+  background: var(--color-linea);
+}
+
+/* Marca de la línea sobre el héroe */
+.marca-linea { display: flex; align-items: center; gap: .875rem; margin-bottom: 1.5rem; }
+.marca-linea__nombre { font-size: 1.375rem; font-weight: 600; letter-spacing: -.02em; }
+
+/* --------------------------------------------------------------------------
+   Secciones y rejillas
+   -------------------------------------------------------------------------- */
+
+.seccion { padding: clamp(3rem, 7vw, 5rem) 0; }
+.seccion--tenue { background: color-mix(in srgb, var(--a4a-gris-claro) 14%, var(--a4a-blanco)); }
+.seccion__cabecera { max-width: 62ch; margin-bottom: 2.5rem; }
+.seccion__cabecera .entradilla { margin-top: .875rem; }
+
+.rejilla { display: grid; gap: 1.25rem; }
+.rejilla--3 { grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); }
+.rejilla--2 { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+
+/* --------------------------------------------------------------------------
+   Tarjetas
+   -------------------------------------------------------------------------- */
+
+.tarjeta {
+  background: var(--a4a-blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  display: flex; flex-direction: column;
+  border-top: 3px solid var(--color-linea);
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.tarjeta h3 { margin-bottom: .625rem; }
+.tarjeta p { color: var(--a4a-gris); margin: 0 0 1.25rem; }
+.tarjeta__pie { margin-top: auto; font-size: .9375rem; font-weight: 500; color: var(--a4a-gris); }
+
+.tarjeta--lisa { border-top-color: var(--borde); }
+.tarjeta--lisa .punto {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--color-linea); display: block; margin-bottom: 1.125rem;
+}
+
+.tarjeta--enlace { text-decoration: none; color: inherit; }
+.tarjeta--enlace:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--a4a-tinta) 10%, transparent);
+}
+.tarjeta__marca {
+  font-weight: 600; font-size: 1.0625rem; letter-spacing: -.01em;
+  margin-bottom: .375rem; display: block;
+}
+.tarjeta__flecha {
+  margin-top: 1rem; font-size: .9375rem; font-weight: 600; color: var(--color-linea);
+}
+.tarjeta--enlace .tarjeta__pie { margin-top: auto; }
+
+/* Caja del monograma: tinta siempre. Solo cambia el color del 4. */
+.monograma {
+  width: 52px; height: 52px; border-radius: var(--a4a-radio-caja);
+  background: var(--a4a-tinta); color: var(--a4a-blanco);
+  display: inline-grid; place-items: center;
+  font-size: 1.375rem; font-weight: 500; letter-spacing: -.5px;
+  margin-bottom: 1.25rem; flex: none;
+}
+.monograma--grande {
+  width: 64px; height: 64px; font-size: 1.75rem; margin-bottom: 0;
+  outline: 1px solid color-mix(in srgb, var(--a4a-gris) 45%, transparent);
+}
+
+.paso__numero {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  color: var(--color-linea); margin: 0 0 .75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Muestras de aplicación
+   -------------------------------------------------------------------------- */
+
+.muestra {
+  display: grid; grid-template-columns: 128px 1fr; gap: 1.5rem;
+  background: var(--a4a-blanco); border: 1px solid var(--borde);
+  border-radius: var(--radio); padding: 1.75rem;
+}
+@media (max-width: 520px) { .muestra { grid-template-columns: 1fr; } }
+
+/* Marcador de pantalla. Es un hueco a la espera de capturas reales. */
+.muestra__pantalla {
+  aspect-ratio: 9 / 17; border-radius: 14px;
+  background: color-mix(in srgb, var(--color-linea) 12%, var(--a4a-blanco));
+  border: 1px solid color-mix(in srgb, var(--color-linea) 35%, transparent);
+  padding: .75rem; display: flex; flex-direction: column; gap: .75rem;
+  max-width: 128px;
+}
+.muestra__barra { height: 26px; border-radius: 7px; background: var(--color-linea); opacity: .85; }
+.muestra__lineas { display: flex; flex-direction: column; gap: .5rem; }
+.muestra__lineas span {
+  height: 8px; border-radius: 4px;
+  background: color-mix(in srgb, var(--color-linea) 40%, transparent);
+}
+.muestra__lineas span:nth-child(2) { width: 78%; }
+.muestra__lineas span:nth-child(3) { width: 90%; }
+.muestra__lineas span:nth-child(4) { width: 62%; }
+
+.muestra__texto h3 { margin: .5rem 0 .625rem; }
+.muestra__texto p { color: var(--a4a-gris); margin: 0 0 .875rem; }
+.muestra__detalle { font-size: .875rem; color: var(--a4a-gris-claro) !important; }
+
+.etiqueta-estado {
+  display: inline-block; font-size: .75rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--color-linea);
+  background: color-mix(in srgb, var(--color-linea) 12%, transparent);
+  border-radius: 999px; padding: .25rem .625rem; margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Llamada final
+   -------------------------------------------------------------------------- */
+
+.llamada {
+  position: relative; overflow: hidden;
+  background: var(--a4a-tinta); color: var(--a4a-blanco);
+  border-radius: 22px; padding: clamp(2.5rem, 6vw, 4rem); text-align: center;
+}
+.llamada::before {
+  content: ""; position: absolute; inset: -40% -10% auto -10%; height: 160%;
+  background: radial-gradient(closest-side,
+              color-mix(in srgb, var(--color-linea) 38%, transparent), transparent);
+  opacity: .5; pointer-events: none;
+}
+.llamada > * { position: relative; }
+.llamada .entradilla { margin: 1rem auto 2rem; }
+
+/* --------------------------------------------------------------------------
+   Formulario
+   -------------------------------------------------------------------------- */
+
+.formulario { display: flex; flex-direction: column; gap: 1.25rem; }
+.campo { display: flex; flex-direction: column; gap: .4375rem; }
+.campo label { font-size: .9375rem; font-weight: 600; }
+.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea {
+  font-family: inherit; font-size: 1rem; color: var(--a4a-tinta);
+  padding: .75rem .875rem; border-radius: 10px;
+  border: 1px solid var(--a4a-gris-claro); background: var(--a4a-blanco);
+}
+.campo textarea { resize: vertical; min-height: 8rem; }
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  border-color: var(--a4a-azul); outline-offset: 0;
+}
+.campo__ayuda { font-size: .875rem; color: var(--a4a-gris); margin: 0; }
+
+.campo--casilla { flex-direction: row; align-items: flex-start; gap: .625rem; }
+.campo--casilla input { margin-top: .3125rem; width: 1.125rem; height: 1.125rem; flex: none; }
+.campo--casilla label { font-weight: 400; font-size: .9375rem; color: var(--a4a-gris); }
+
+.formulario .boton { align-self: flex-start; }
+.formulario__aviso { margin: 0; font-size: .9375rem; }
+.formulario__aviso--ok { color: var(--a4a-verde-comercios); font-weight: 600; }
+.formulario__aviso--error { color: var(--a4a-coral-fiestas); font-weight: 600; }
+
+.contacto__correo {
+  margin-top: 2.5rem; padding-top: 1.75rem;
+  border-top: 1px solid var(--borde); color: var(--a4a-gris);
+}
+
+/* --------------------------------------------------------------------------
+   Textos legales
+   -------------------------------------------------------------------------- */
+
+.texto-largo h2 { font-size: 1.375rem; margin: 2.25rem 0 .75rem; }
+.texto-largo h2:first-child { margin-top: 0; }
+.texto-largo p, .texto-largo li { color: var(--a4a-gris); }
+.texto-largo ul { padding-left: 1.25rem; }
+.texto-largo li { margin-bottom: .375rem; }
+
+/* --------------------------------------------------------------------------
+   Pie e idiomas
+   -------------------------------------------------------------------------- */
+
+.pie {
+  border-top: 1px solid var(--borde);
+  margin-top: clamp(3rem, 7vw, 5rem); padding: 2.5rem 0;
+  font-size: .9375rem; color: var(--a4a-gris);
+}
+.pie__fila {
+  display: flex; flex-wrap: wrap; gap: 1.5rem;
+  justify-content: space-between; align-items: center;
+}
+.pie__marca { margin: 0; }
+.pie a { color: var(--a4a-gris); text-decoration: none; }
+.pie a:hover { color: var(--a4a-tinta); text-decoration: underline; }
+.pie__enlaces { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+
+.idiomas {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .75rem;
+  margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--borde);
+}
+.idiomas__etiqueta {
+  font-size: .8125rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--a4a-gris-claro);
+}
+.idiomas__enlace {
+  padding: .375rem .75rem; border-radius: 999px;
+  border: 1px solid var(--borde); text-decoration: none;
+}
+.idiomas__enlace:hover { border-color: var(--a4a-gris); text-decoration: none; }
+.idiomas__enlace--activo {
+  background: var(--a4a-tinta); color: var(--a4a-blanco); border-color: var(--a4a-tinta);
+}
+.idiomas__enlace--activo:hover { color: var(--a4a-blanco); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

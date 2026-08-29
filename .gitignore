@@ -1,0 +1,18 @@
+# El sitio generado. Lo produce construir.py y lo regenera GitHub Actions
+# en cada despliegue, así que no tiene sentido guardarlo en el repositorio.
+publico/
+
+# Python
+__pycache__/
+*.pyc
+
+# Secretos. Nunca, ni temporalmente: lo que entra en un commit queda en el
+# historial aunque después se borre.
+.env
+*.key
+credenciales*
+
+# Sistema y empaquetados sueltos
+Thumbs.db
+.DS_Store
+*.zip

@@ -1,0 +1,29 @@
+name: Desplegar en Hostinger
+
+# Se ejecuta cada vez que llega un cambio a main, y también a mano desde la
+# pestaña Actions de GitHub (eso es lo que hace workflow_dispatch).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      # Ubuntu ya trae Python 3, y construir.py no usa ninguna librería
+      # externa a propósito, así que no hay nada que instalar.
+      - name: Generar el sitio
+        run: python3 construir.py
+
+      - name: Subir publico/ por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./publico/
+          server-dir: public_html/

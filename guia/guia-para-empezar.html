@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>apps4all.app — Guía para empezar</title>
+<style>
+:root{
+  --tinta:#12141C;
+  --azul:#2B6FC2;
+  --gris:#6B6F7A;
+  --gris-claro:#A8ACB6;
+  --linea:#DDDFE4;
+  --papel:#FFFFFF;
+  --suave:#F4F5F7;
+  --aviso:#FFF6E5;
+  --aviso-linea:#E0A93B;
+  --bien:#EAF5EF;
+  --bien-linea:#1D9E75;
+  --peligro:#FCEDE8;
+  --peligro-linea:#D85A30;
+  --fuente:"Söhne","Aeonik","Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+
+*{box-sizing:border-box;}
+body{
+  font-family:var(--fuente);
+  font-size:10.5pt;
+  line-height:1.6;
+  color:var(--tinta);
+  background:var(--papel);
+  margin:0;
+  padding:20mm;
+  max-width:190mm;
+}
+
+h1,h2,h3,h4{line-height:1.25;font-weight:600;}
+h2{
+  font-size:19pt;
+  margin:0 0 4mm;
+  padding-bottom:3mm;
+  border-bottom:2px solid var(--tinta);
+}
+h3{font-size:13pt;margin:8mm 0 2mm;}
+h4{font-size:11pt;margin:5mm 0 1mm;color:var(--gris);text-transform:uppercase;letter-spacing:.08em;font-size:9pt;}
+p{margin:0 0 3mm;}
+ul,ol{margin:0 0 3mm;padding-left:6mm;}
+li{margin-bottom:1.5mm;}
+strong{font-weight:600;}
+a{color:var(--azul);}
+
+.numero-seccion{
+  display:block;
+  font-size:9pt;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--azul);
+  font-weight:600;
+  margin-bottom:1mm;
+}
+
+/* ---------- portada ---------- */
+.portada{
+  height:245mm;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.portada .logo{margin-bottom:0;}
+.portada-centro{padding-bottom:30mm;}
+.portada h1{
+  font-size:34pt;
+  letter-spacing:-.02em;
+  margin:0 0 4mm;
+}
+.portada .subtitulo{
+  font-size:14pt;
+  color:var(--gris);
+  font-weight:400;
+  margin:0 0 10mm;
+  max-width:130mm;
+  line-height:1.45;
+}
+.portada .meta{
+  font-size:9.5pt;
+  color:var(--gris);
+  border-top:1px solid var(--linea);
+  padding-top:4mm;
+}
+.portada .meta span{display:inline-block;margin-right:10mm;}
+
+/* ---------- cajas ---------- */
+.caja{
+  border:1px solid var(--linea);
+  border-left:3px solid var(--gris-claro);
+  background:var(--suave);
+  padding:4mm 5mm;
+  margin:4mm 0;
+  border-radius:2px;
+}
+.caja p:last-child{margin-bottom:0;}
+.caja .titulo{
+  font-weight:600;
+  font-size:9pt;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  margin-bottom:2mm;
+  color:var(--gris);
+}
+.caja.aviso{background:var(--aviso);border-left-color:var(--aviso-linea);}
+.caja.aviso .titulo{color:#8A5A12;}
+.caja.peligro{background:var(--peligro);border-left-color:var(--peligro-linea);}
+.caja.peligro .titulo{color:#9E3B18;}
+.caja.bien{background:var(--bien);border-left-color:var(--bien-linea);}
+.caja.bien .titulo{color:#16714F;}
+.caja.idea{background:#FFFFFF;border-left-color:var(--azul);}
+.caja.idea .titulo{color:var(--azul);}
+
+/* ---------- tablas ---------- */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:4mm 0;
+  font-size:9.5pt;
+}
+th{
+  text-align:left;
+  background:var(--tinta);
+  color:#fff;
+  padding:2.5mm 3mm;
+  font-weight:600;
+  font-size:9pt;
+}
+td{
+  padding:2.5mm 3mm;
+  border-bottom:1px solid var(--linea);
+  vertical-align:top;
+}
+tr:nth-child(even) td{background:var(--suave);}
+td code,p code,li code{
+  font-family:"Cascadia Mono",Consolas,"Courier New",monospace;
+  font-size:9pt;
+  background:#EDEFF2;
+  padding:.5mm 1.2mm;
+  border-radius:2px;
+}
+
+/* ---------- consola ---------- */
+pre{
+  background:var(--tinta);
+  color:#EAECF0;
+  padding:3.5mm 4mm;
+  border-radius:3px;
+  font-family:"Cascadia Mono",Consolas,"Courier New",monospace;
+  font-size:8.8pt;
+  line-height:1.5;
+  overflow:visible;
+  white-space:pre-wrap;
+  word-break:break-word;
+  margin:3mm 0;
+}
+pre .c{color:#8E96A3;}
+
+/* ---------- pasos ---------- */
+.paso{
+  border:1px solid var(--linea);
+  border-radius:3px;
+  margin:5mm 0;
+  overflow:hidden;
+}
+.paso-cabecera{
+  background:var(--suave);
+  border-bottom:1px solid var(--linea);
+  padding:3mm 4mm;
+  display:flex;
+  align-items:baseline;
+  gap:3mm;
+}
+.paso-num{
+  font-size:16pt;
+  font-weight:600;
+  color:var(--azul);
+  line-height:1;
+}
+.paso-titulo{font-size:12pt;font-weight:600;flex:1;}
+.paso-tiempo{font-size:8.5pt;color:var(--gris);white-space:nowrap;}
+.paso-cuerpo{padding:4mm;}
+.paso-cuerpo > :last-child{margin-bottom:0;}
+.etiqueta{
+  font-size:8.5pt;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  color:var(--azul);
+  margin:4mm 0 1mm;
+}
+.etiqueta:first-child{margin-top:0;}
+
+/* ---------- glosario ---------- */
+.glosario{margin:4mm 0;}
+.termino{
+  border-bottom:1px solid var(--linea);
+  padding:3mm 0;
+  display:grid;
+  grid-template-columns:38mm 1fr;
+  gap:5mm;
+}
+.termino:last-child{border-bottom:none;}
+.termino dt{font-weight:600;font-size:10pt;}
+.termino dt .en{
+  display:block;
+  font-weight:400;
+  font-size:8.5pt;
+  color:var(--gris-claro);
+  font-style:italic;
+}
+.termino dd{margin:0;}
+.termino dd .analogia{
+  display:block;
+  margin-top:1.5mm;
+  padding-left:3mm;
+  border-left:2px solid var(--azul);
+  color:var(--gris);
+  font-size:9.5pt;
+}
+
+/* ---------- diagramas ---------- */
+figure{margin:5mm 0;}
+figure svg{width:100%;height:auto;display:block;}
+figcaption{
+  font-size:8.5pt;
+  color:var(--gris);
+  margin-top:2mm;
+  text-align:center;
+}
+
+/* ---------- casillas ---------- */
+.check{list-style:none;padding-left:0;}
+.check li{
+  padding-left:8mm;
+  position:relative;
+  margin-bottom:2.5mm;
+}
+.check li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:1.2mm;
+  width:4mm;
+  height:4mm;
+  border:1.2px solid var(--gris);
+  border-radius:1px;
+}
+
+.hueco{
+  display:inline-block;
+  min-width:55mm;
+  border-bottom:1px solid var(--gris-claro);
+}
+
+.pie-doc{
+  margin-top:10mm;
+  padding-top:4mm;
+  border-top:1px solid var(--linea);
+  font-size:9pt;
+  color:var(--gris);
+}
+
+@media print{
+  body{padding:0;max-width:none;}
+  section{page-break-before:always;}
+  section.portada{page-break-before:avoid;}
+  h2,h3,h4{page-break-after:avoid;}
+  .paso,.caja,figure,table,pre,.termino{page-break-inside:avoid;}
+  tr{page-break-inside:avoid;}
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+  a{text-decoration:none;color:var(--tinta);}
+}
+@page{size:A4;margin:16mm 15mm 18mm;}
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<section class="portada">
+  <div class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="107" viewBox="0 0 420 150" role="img" aria-label="apps4all — Crear, añadir, mejorar">
+      <rect x="20" y="20" width="110" height="110" rx="30" fill="#12141C"/>
+      <text x="75" y="75" text-anchor="middle" dominant-baseline="central" font-family="Söhne, Aeonik, 'Helvetica Neue', Arial, sans-serif" font-size="47" font-weight="500" letter-spacing="-1" fill="#FFFFFF">a<tspan fill="#2B6FC2">4</tspan>a</text>
+      <text x="158" y="78" font-family="Söhne, Aeonik, 'Helvetica Neue', Arial, sans-serif" font-size="56" font-weight="500" letter-spacing="-1.5" fill="#12141C">apps<tspan fill="#2B6FC2">4</tspan>all</text>
+      <text x="160" y="110" font-family="Söhne, Aeonik, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" letter-spacing="3.2" fill="#6B6F7A">Crear, añadir, mejorar</text>
+    </svg>
+  </div>
+
+  <div class="portada-centro">
+    <h1>Tu web, paso a paso</h1>
+    <p class="subtitulo">Guía para poner en marcha <strong>apps4all.app</strong> sin saber nada de dominios, repositorios ni servidores. Todo explicado desde cero, y con el porqué de cada decisión.</p>
+  </div>
+
+  <div class="meta">
+    <span><strong>Documento de trabajo</strong></span>
+    <span>26 de agosto de 2026</span>
+    <span>Para leer antes de la próxima sesión</span>
+  </div>
+</section>
+
+<!-- ============ 1 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 1</span>
+  <h2>Lo primero: esto es normal</h2>
+
+  <p>Ayer terminaste la sesión con la sensación de que esto era más lío de lo esperado. Es una reacción correcta y conviene entender por qué se produce, porque explica también por qué se pasa.</p>
+
+  <p>Montar una web tiene dos partes muy distintas. La primera es <strong>la instalación</strong>: comprar la dirección, contratar el sitio donde vivirá, activar el candado de seguridad, preparar el archivo de versiones. Es aburrida, está llena de palabras raras y hay que hacerla <strong>una sola vez en la vida del proyecto</strong>. La segunda parte es <strong>hacer la web</strong>: escribir, maquetar, enseñar tus trabajos. Esa es divertida, es la que sabes hacer y es la que ocupará el 95 % del tiempo a partir de la semana que viene.</p>
+
+  <p>Ayer estabas de lleno en la primera parte. Toda la jerga que apareció —dominio, DNS, SSL, FTP, repositorio, commit— es de instalación. En cuanto esté hecha, la mayoría de esas palabras no vuelven a aparecer.</p>
+
+  <div class="caja idea">
+    <div class="titulo">La comparación que lo ordena todo</div>
+    <p>Es exactamente igual que abrir un local. Antes de vender nada hay que firmar el alquiler, dar de alta la luz, poner el rótulo y conseguir las llaves. Nadie que abre una tienda dice «esto de la tienda es complicadísimo» por el papeleo del primer día: sabe que es de una vez. Aquí igual.</p>
+  </div>
+
+  <p>Hay además una razón concreta por la que ayer viste tantos pasos juntos: te preparé el procedimiento <em>completo</em>, incluido el despliegue automático, que en realidad es opcional y va después. En esta guía está ordenado por urgencia, y lo que no es urgente está marcado como tal.</p>
+
+  <h3>Cómo usar este documento</h3>
+  <p>No hace falta leerlo entero de una sentada ni memorizar nada.</p>
+  <ul>
+    <li><strong>Capítulos 2 y 3</strong> — el mapa y el diccionario. Léelos con calma; son los que hacen que el resto se entienda.</li>
+    <li><strong>Capítulo 6</strong> — lo que te toca hacer. Ese sí, con el ordenador delante, tachando casillas.</li>
+    <li><strong>Capítulos 8 y 9</strong> — el porqué de las decisiones y hacia dónde crece esto. Para cuando quieras discutirlas, que es sano.</li>
+    <li><strong>Capítulos 10 y 11</strong> — para consultar cuando algo falle o no recuerdes una orden.</li>
+  </ul>
+
+  <div class="caja">
+    <div class="titulo">Si solo lees una cosa</div>
+    <p>Del capítulo 6, haz las tareas <strong>1, 2 y 3</strong>. Con esas tres, la próxima sesión ya podemos publicar algo. Las otras tres se pueden hacer sobre la marcha.</p>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 2</span>
+  <h2>El mapa completo</h2>
+
+  <p>Una web en funcionamiento son cuatro piezas separadas que se contratan por separado y que hay que conectar entre sí. Casi toda la confusión inicial viene de no saber cuántas piezas hay ni de quién es cada una.</p>
+
+  <figure>
+    <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif">
+      <!-- 1 ordenador -->
+      <rect x="10" y="60" width="150" height="90" rx="6" fill="#F4F5F7" stroke="#12141C" stroke-width="1.5"/>
+      <text x="85" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#12141C">Tu ordenador</text>
+      <text x="85" y="108" text-anchor="middle" font-size="10.5" fill="#6B6F7A">Aquí se escribe</text>
+      <text x="85" y="124" text-anchor="middle" font-size="10.5" fill="#6B6F7A">la web</text>
+      <text x="85" y="46" text-anchor="middle" font-size="9.5" font-weight="600" fill="#2B6FC2">TUYO</text>
+
+      <!-- flecha -->
+      <line x1="163" y1="105" x2="203" y2="105" stroke="#2B6FC2" stroke-width="2"/>
+      <polygon points="211,105 201,100 201,110" fill="#2B6FC2"/>
+      <text x="187" y="97" text-anchor="middle" font-size="8.5" fill="#2B6FC2">push</text>
+
+      <!-- 2 github -->
+      <rect x="214" y="60" width="150" height="90" rx="6" fill="#F4F5F7" stroke="#12141C" stroke-width="1.5"/>
+      <text x="289" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#12141C">GitHub</text>
+      <text x="289" y="108" text-anchor="middle" font-size="10.5" fill="#6B6F7A">Copia de seguridad</text>
+      <text x="289" y="124" text-anchor="middle" font-size="10.5" fill="#6B6F7A">e historial</text>
+      <text x="289" y="46" text-anchor="middle" font-size="9.5" font-weight="600" fill="#2B6FC2">GRATIS</text>
+
+      <!-- flecha -->
+      <line x1="367" y1="105" x2="407" y2="105" stroke="#2B6FC2" stroke-width="2"/>
+      <polygon points="415,105 405,100 405,110" fill="#2B6FC2"/>
+      <text x="391" y="97" text-anchor="middle" font-size="8.5" fill="#2B6FC2">FTP</text>
+
+      <!-- 3 hostinger -->
+      <rect x="418" y="60" width="150" height="90" rx="6" fill="#F4F5F7" stroke="#12141C" stroke-width="1.5"/>
+      <text x="493" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#12141C">Hostinger</text>
+      <text x="493" y="108" text-anchor="middle" font-size="10.5" fill="#6B6F7A">El ordenador que</text>
+      <text x="493" y="124" text-anchor="middle" font-size="10.5" fill="#6B6F7A">sirve la web</text>
+      <text x="493" y="46" text-anchor="middle" font-size="9.5" font-weight="600" fill="#2B6FC2">DE PAGO</text>
+
+      <!-- flecha -->
+      <line x1="571" y1="105" x2="611" y2="105" stroke="#2B6FC2" stroke-width="2"/>
+      <polygon points="619,105 609,100 609,110" fill="#2B6FC2"/>
+
+      <!-- 4 visitante -->
+      <rect x="622" y="60" width="128" height="90" rx="6" fill="#12141C"/>
+      <text x="686" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#FFFFFF">Tu cliente</text>
+      <text x="686" y="108" text-anchor="middle" font-size="10.5" fill="#A8ACB6">Escribe</text>
+      <text x="686" y="124" text-anchor="middle" font-size="10.5" fill="#A8ACB6">apps4all.app</text>
+
+      <!-- dominio abajo -->
+      <rect x="418" y="180" width="332" height="52" rx="6" fill="#FFFFFF" stroke="#2B6FC2" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="584" y="202" text-anchor="middle" font-size="12" font-weight="600" fill="#2B6FC2">El dominio apps4all.app</text>
+      <text x="584" y="220" text-anchor="middle" font-size="10" fill="#6B6F7A">la dirección que lleva del cliente a Hostinger</text>
+      <line x1="493" y1="152" x2="493" y2="178" stroke="#2B6FC2" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <line x1="686" y1="152" x2="686" y2="178" stroke="#2B6FC2" stroke-width="1.5" stroke-dasharray="3 2"/>
+    </svg>
+    <figcaption>El viaje de un cambio: de tu teclado a la pantalla de quien te busca.</figcaption>
+  </figure>
+
+  <h3>Pieza por pieza</h3>
+
+  <table>
+    <tr><th style="width:32mm">Pieza</th><th style="width:42mm">Qué es en realidad</th><th>La comparación</th></tr>
+    <tr>
+      <td><strong>El dominio</strong><br><code>apps4all.app</code></td>
+      <td>El nombre que se teclea en el navegador. Se alquila por años.</td>
+      <td>La <strong>dirección postal</strong> de tu negocio. No es el local: es el papel donde pone dónde está el local.</td>
+    </tr>
+    <tr>
+      <td><strong>El hosting</strong><br>Hostinger</td>
+      <td>Un ordenador encendido siempre en un centro de datos, que guarda tus archivos y se los manda a quien los pida.</td>
+      <td>El <strong>local alquilado</strong>. Es donde está de verdad la mercancía.</td>
+    </tr>
+    <tr>
+      <td><strong>Git y GitHub</strong></td>
+      <td>Un sistema que guarda todas las versiones por las que ha pasado tu web, y una copia en internet de ese historial.</td>
+      <td>El <strong>archivo de la empresa</strong>, con una copia en el banco. Nada se pierde nunca, y siempre puedes volver a como estaba en marzo.</td>
+    </tr>
+    <tr>
+      <td><strong>Los archivos</strong><br>HTML y CSS</td>
+      <td>Los documentos que forman la web. HTML es el contenido; CSS es el aspecto.</td>
+      <td>El <strong>género y la decoración</strong> del local. Lo único que verá tu cliente.</td>
+    </tr>
+  </table>
+
+  <div class="caja aviso">
+    <div class="titulo">El malentendido más común de todos</div>
+    <p><strong>El dominio y el hosting son cosas distintas y se pagan por separado</strong>, aunque los vendan juntos. Se puede tener dominio sin hosting (una dirección sin local) y hosting sin dominio (un local sin rótulo). Que los dos estén en Hostinger es una comodidad, no una obligación — y por eso la primera tarea del capítulo 6 es averiguar dónde está cada uno.</p>
+  </div>
+
+  <h3>Y GitHub, ¿para qué, si la web ya está en Hostinger?</h3>
+
+  <p>Es la pregunta razonable. La web funciona perfectamente sin GitHub. Se usa por tres motivos, y ninguno es «porque es lo que se hace»:</p>
+
+  <ul>
+    <li><strong>Deshacer.</strong> Cambias algo, queda peor, y no recuerdas cómo estaba. Con GitHub vuelves a la versión de anteayer en diez segundos. Sin GitHub, lo reconstruyes de memoria.</li>
+    <li><strong>Un servidor no es una copia de seguridad.</strong> Si borras un archivo en Hostinger, está borrado. Si lo borras teniéndolo en GitHub, sigue estando en GitHub.</li>
+    <li><strong>Publicar sin pensar.</strong> Con el automatismo del capítulo 7, guardar un cambio y publicarlo es la misma acción. Sin él, cada cambio son cinco minutos de comprimir, subir y descomprimir — y esos cinco minutos son justo lo que hace que uno acabe no actualizando nunca la web.</li>
+  </ul>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 3</span>
+  <h2>Las palabras nuevas, en cristiano</h2>
+
+  <p>Todo lo que apareció ayer, sin dar nada por sabido. No hay que aprendérselo: está aquí para volver cuando una palabra no suene.</p>
+
+  <h3>Del mundo de las direcciones</h3>
+  <dl class="glosario">
+    <div class="termino">
+      <dt>Dominio</dt>
+      <dd>El nombre que se escribe en el navegador. Se alquila por años a un registrador; si dejas de pagarlo, lo pierdes.
+        <span class="analogia">Tu número de teléfono: es tuyo mientras pagues la línea.</span></dd>
+    </div>
+    <div class="termino">
+      <dt>TLD <span class="en">top-level domain</span></dt>
+      <dd>La terminación: <code>.com</code>, <code>.es</code>, <code>.app</code>. Cada una tiene su dueño y sus normas propias. La del <code>.app</code> es la que nos afecta (capítulo 4).</dd>
+    </div>
+    <div class="termino">
+      <dt>Registrador</dt>
+      <dd>La empresa a la que le alquilas el dominio: Hostinger, GoDaddy, Namecheap… Puede ser distinta de la del hosting, y ahí empieza casi todo el lío.</dd>
+    </div>
+    <div class="termino">
+      <dt>DNS</dt>
+      <dd>El sistema mundial que traduce <code>apps4all.app</code> al número del ordenador donde está tu web.
+        <span class="analogia">Las páginas amarillas: buscas por nombre y te dan la dirección.</span></dd>
+    </div>
+    <div class="termino">
+      <dt>Nameservers <span class="en">servidores de nombres</span></dt>
+      <dd>El apunte que dice qué empresa manda sobre el DNS de tu dominio. Si compraste el dominio fuera de Hostinger, hay que cambiarlos para que apunten allí.
+        <span class="analogia">Un cambio de domicilio en Correos: dices quién gestiona ahora tu correspondencia.</span></dd>
+    </div>
+    <div class="termino">
+      <dt>Propagación</dt>
+      <dd>El tiempo que tardan los DNS del mundo en enterarse de un cambio. De minutos a 24 horas. <strong>No es un error, es espera</strong>, y por eso los cambios de dominio se hacen lo primero.</dd>
+    </div>
+  </dl>
+
+  <h3>Del mundo de la seguridad</h3>
+  <dl class="glosario">
+    <div class="termino">
+      <dt>HTTPS</dt>
+      <dd>La versión cifrada de la conexión. La <strong>s</strong> es de <em>segura</em>: nadie por el camino puede leer ni cambiar lo que se envía.</dd>
+    </div>
+    <div class="termino">
+      <dt>Certificado SSL</dt>
+      <dd>El archivo que le permite al servidor hablar en HTTPS. Hostinger lo da gratis y se activa con un botón; caduca y se renueva solo.
+        <span class="analogia">El carné que hay que enseñar en la puerta. Sin él no se entra.</span></dd>
+    </div>
+    <div class="termino">
+      <dt>HSTS</dt>
+      <dd>Una norma que dice «este dominio <em>solo</em> se sirve por HTTPS, sin excepciones». Los navegadores traen una lista de dominios así grabada de fábrica. <strong>Todo <code>.app</code> está en esa lista</strong>, y eso tiene una consecuencia práctica muy fuerte — capítulo 4.</dd>
+    </div>
+  </dl>
+
+  <h3>Del mundo del hosting</h3>
+  <dl class="glosario">
+    <div class="termino">
+      <dt>hPanel</dt>
+      <dd>El panel de control de Hostinger. La web donde se administra todo: dominios, correos, SSL, archivos.</dd>
+    </div>
+    <div class="termino">
+      <dt><code>public_html</code></dt>
+      <dd>La carpeta del servidor cuyo contenido se publica en internet. Lo que metas ahí se ve; lo que dejes fuera, no.
+        <span class="analogia">El escaparate. El almacén de atrás existe, pero no se ve desde la calle.</span></dd>
+    </div>
+    <div class="termino">
+      <dt><code>index.html</code></dt>
+      <dd>Nombre reservado: es el archivo que el servidor enseña cuando alguien entra en una carpeta sin pedir nada concreto. Es la portada.</dd>
+    </div>
+    <div class="termino">
+      <dt>FTP</dt>
+      <dd>El protocolo de toda la vida para copiar archivos a un servidor. Tiene servidor, usuario y contraseña propios, distintos de los de tu cuenta de Hostinger.
+        <span class="analogia">La furgoneta de reparto y su llave del almacén.</span></dd>
+    </div>
+  </dl>
+
+  <h3>Del mundo del código</h3>
+  <dl class="glosario">
+    <div class="termino">
+      <dt>HTML</dt>
+      <dd>El lenguaje del <strong>contenido</strong>: esto es un título, esto un párrafo, esto una imagen. Se lee bastante bien aunque no lo hayas visto nunca.</dd>
+    </div>
+    <div class="termino">
+      <dt>CSS</dt>
+      <dd>El lenguaje del <strong>aspecto</strong>: los títulos en azul, márgenes de tanto, esta caja a la derecha. Un solo archivo CSS manda sobre todas las páginas a la vez.</dd>
+    </div>
+    <div class="termino">
+      <dt>Sitio estático</dt>
+      <dd>Una web hecha de archivos ya terminados, que el servidor entrega tal cual. No hay base de datos ni programa ejecutándose detrás. Es lo que vamos a hacer: rapidísimo, seguro y casi imposible de romper.</dd>
+    </div>
+    <div class="termino">
+      <dt>Framework</dt>
+      <dd>Un programa que te construye la web a partir de piezas, para no repetir lo mismo en veinte archivos. <strong>Astro</strong> es el que usaremos algún día. Hoy no hace falta (capítulo 8).</dd>
+    </div>
+    <div class="termino">
+      <dt>Node y npm</dt>
+      <dd>El motor que necesitan esos frameworks para funcionar, y su instalador de piezas. En tu ordenador <strong>no están instalados</strong>, y ese dato ha decidido buena parte del plan.</dd>
+    </div>
+  </dl>
+
+  <h3>Del mundo de Git</h3>
+  <dl class="glosario">
+    <div class="termino">
+      <dt>Git</dt>
+      <dd>Un programa <em>en tu ordenador</em> que va guardando fotos del proyecto entero cada vez que se lo pides. Ya lo tienes instalado.</dd>
+    </div>
+    <div class="termino">
+      <dt>GitHub</dt>
+      <dd>Una web donde se guarda una copia de ese historial. <strong>Git y GitHub no son lo mismo</strong>: Git es el programa, GitHub es el sitio. Se puede usar Git sin GitHub.</dd>
+    </div>
+    <div class="termino">
+      <dt>Repositorio <span class="en">repo</span></dt>
+      <dd>La carpeta del proyecto con todo su historial dentro. Cuando dices «crear un repositorio», dices «empezar a llevar la cuenta de los cambios de esta carpeta».</dd>
+    </div>
+    <div class="termino">
+      <dt>Commit</dt>
+      <dd>Una de esas fotos, con una nota tuya explicando qué cambiaste. Es la unidad de trabajo: se hacen muchos al día.
+        <span class="analogia">Un asiento contable: fecha, concepto y qué se movió. Y por eso el concepto tiene que ser bueno.</span></dd>
+    </div>
+    <div class="termino">
+      <dt>Push</dt>
+      <dd>Mandar a GitHub los commits que has hecho en tu ordenador. Hasta que no haces push, tu trabajo solo existe en tu disco duro.</dd>
+    </div>
+    <div class="termino">
+      <dt>Rama <span class="en">branch</span></dt>
+      <dd>Una línea de trabajo paralela para probar algo sin tocar lo que está publicado. La principal se llama <code>main</code>. Se prueba en una rama y, si va bien, se junta con <code>main</code>.</dd>
+    </div>
+    <div class="termino">
+      <dt>Issue</dt>
+      <dd>Una nota abierta en GitHub sobre algo pendiente. Trabajando solo parece innecesario, y es justo al revés: es donde estará escrito <em>por qué</em> dejaste algo a medias cuando vuelvas dentro de un mes.</dd>
+    </div>
+    <div class="termino">
+      <dt>GitHub Actions</dt>
+      <dd>Un robot gratuito de GitHub que hace tareas solo cada vez que subes cambios. Lo usaremos para que publique la web sin que tú hagas nada.</dd>
+    </div>
+    <div class="termino">
+      <dt>Secret</dt>
+      <dd>Una contraseña guardada en GitHub en una caja fuerte: el robot puede usarla, pero nadie puede leerla, ni siquiera tú una vez guardada. Ahí es donde irá la contraseña del FTP.</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 4</span>
+  <h2>La trampa del <code>.app</code></h2>
+
+  <p>Esto merece capítulo propio porque es la única cosa de todo el proyecto capaz de hacerte perder una tarde entera creyendo que has hecho algo mal cuando está todo bien.</p>
+
+  <div class="caja peligro">
+    <div class="titulo">El hecho</div>
+    <p>El TLD <code>.app</code> es propiedad de Google, y Google lo dio de alta entero en la lista HSTS que los navegadores traen grabada de fábrica. Traducido: <strong><code>http://apps4all.app</code> no carga</strong>. No carga con un aviso de «sitio no seguro» que se pueda saltar — <strong>no llega ni a intentarlo</strong>. Chrome, Firefox, Safari y Edge se niegan a conectar antes siquiera de preguntarle al servidor si hay algo ahí.</p>
+  </div>
+
+  <h3>Por qué importa tanto en tu caso</h3>
+
+  <p>Con un dominio <code>.com</code>, el orden natural de trabajo es: subo los archivos, veo la web, y ya activaré el candado cuando tenga un rato. Con un <code>.app</code> ese orden <strong>no funciona</strong>, y falla de la peor manera posible: no da un error que te oriente, da una página en blanco. Y ante una página en blanco, lo primero que uno piensa es «he subido mal los archivos», y se pasa dos horas subiéndolos otra vez.</p>
+
+  <div class="caja bien">
+    <div class="titulo">La consecuencia práctica</div>
+    <p>El certificado SSL se activa <strong>antes</strong> de subir el primer archivo. Por eso en el capítulo 6 el SSL es la tarea 3 y la primera subida no llega hasta después. No es orden caprichoso: es el único orden en el que puedes distinguir un problema real de una espera normal.</p>
+  </div>
+
+  <h3>¿Fue mala idea elegir un <code>.app</code>?</h3>
+
+  <p>No, y conviene decirlo porque suena a defecto y no lo es. Que el TLD obligue a HTTPS significa que <strong>tu web nunca podrá viajar sin cifrar</strong>, ni por un descuido de configuración. Para un estudio que desarrolla software es una señal correcta, y además <code>apps4all.app</code> se lee bien y dice lo que haces. La única factura que pasa es esta: acordarse de que el candado va primero.</p>
+
+  <div class="caja">
+    <div class="titulo">Cómo comprobarlo cuando llegue el momento</div>
+    <p>Escribe la dirección en el navegador siempre con <code>https://</code> delante, al menos las primeras veces. Y si ves página en blanco, antes de tocar nada, vuelve al hPanel y mira si el SSL pone <em>Activo</em>. Nueve de cada diez veces es eso.</p>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 5</span>
+  <h2>Lo que ya está hecho</h2>
+
+  <p>Antes de pedirte nada, lo que hay hecho a día de hoy. Es poco, pero es real y no hay que rehacerlo.</p>
+
+  <table>
+    <tr><th style="width:52mm">Qué</th><th>Dónde y en qué estado</th></tr>
+    <tr>
+      <td><strong>La identidad de la marca</strong></td>
+      <td>Hecha anteayer: logotipo en sus cinco versiones, paleta de colores, el claim <em>Crear, añadir, mejorar</em> y las normas de uso. Está guardada como una capacidad permanente de Claude, así que se aplica sola en todo lo que hagamos de apps4all — este PDF incluido.</td>
+    </tr>
+    <tr>
+      <td><strong>La carpeta del proyecto</strong></td>
+      <td><code>D:\Claude\Code\apps4all-web</code> — creada, con los logotipos y el CSS de marca ya dentro, en <code>assets/</code>. Todavía no hay ni una página web.</td>
+    </tr>
+    <tr>
+      <td><strong>El procedimiento técnico</strong></td>
+      <td><code>PROCEDIMIENTO.md</code>, en esa misma carpeta. Es la versión corta y técnica de este PDF: sirve de chuleta cuando ya sepas de qué va cada cosa.</td>
+    </tr>
+    <tr>
+      <td><strong>Esta guía</strong></td>
+      <td>En <code>guia/</code>, junto al HTML del que sale. Si algún día hay que corregirla, se corrige el HTML y se vuelve a imprimir.</td>
+    </tr>
+    <tr>
+      <td><strong>Las decisiones técnicas</strong></td>
+      <td>Tomadas y razonadas — capítulo 8. Ninguna es irreversible.</td>
+    </tr>
+  </table>
+
+  <div class="caja bien">
+    <div class="titulo">Nada de esto ha costado dinero ni compromete a nada</div>
+    <p>No se ha contratado ningún servicio, no se ha creado ninguna cuenta y no se ha publicado nada. Todo lo hecho vive en tu disco duro. Si mañana decides cambiar de rumbo entero, no hay que deshacer nada.</p>
+  </div>
+
+  <h3>Lo que falta, en una frase</h3>
+  <p>Falta <strong>conectar las cuatro piezas del capítulo 2</strong> —eso es tu parte, porque son cuentas y contraseñas tuyas— y <strong>escribir las páginas</strong>, que es la mía.</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 6</span>
+  <h2>Lo que te toca a ti</h2>
+
+  <p>Seis tareas. Ninguna las puedo hacer yo: todas pasan por paneles web con tu sesión iniciada, o por decisiones que son tuyas. Calcula unos 40 minutos en total, más los ratos de espera.</p>
+
+  <p><strong>El orden importa en las tres primeras</strong> — la 1 puede tener 24 horas de espera detrás y la 3 no funciona sin la 2. De la 4 en adelante, da igual.</p>
+
+  <!-- tarea 1 -->
+  <div class="paso">
+    <div class="paso-cabecera">
+      <span class="paso-num">1</span>
+      <span class="paso-titulo">Averiguar dónde está el dominio</span>
+      <span class="paso-tiempo">5 min · <strong>lo primero</strong></span>
+    </div>
+    <div class="paso-cuerpo">
+      <div class="etiqueta">Qué es esto</div>
+      <p>Comprobar si <code>apps4all.app</code> está comprado y, sobre todo, <em>en qué empresa</em>. Es el dato que decide si podemos publicar mañana o si hay que esperar un día.</p>
+
+      <div class="etiqueta">Por qué va primero</div>
+      <p>Porque es la única tarea con una espera larga metida dentro. Si el dominio está en otra empresa, hay que apuntarlo a Hostinger y la <em>propagación</em> tarda de 1 a 24 horas. Descubrirlo mañana por la tarde sería perder el día; descubrirlo hoy es lanzarlo y seguir con lo demás mientras tanto.</p>
+
+      <div class="etiqueta">Cómo se hace</div>
+      <p>Entra en el hPanel de Hostinger y ve a <strong>Dominios</strong>. Busca <code>apps4all.app</code> en la lista. Según lo que veas:</p>
+      <table>
+        <tr><th style="width:48mm">Si…</th><th>Entonces</th></tr>
+        <tr><td>Aparece en la lista</td><td>Está en Hostinger. Perfecto, no toques nada, pasa a la tarea 2.</td></tr>
+        <tr><td>No aparece, pero sabes que lo compraste</td><td>Está en otro registrador. Busca en tu correo el justificante de compra para saber en cuál. Habrá que cambiar los <em>nameservers</em>; dímelo y te paso los de Hostinger.</td></tr>
+        <tr><td>No lo tienes</td><td>Cómpralo, preferiblemente en Hostinger: te ahorras el paso de los nameservers y la espera entera. Unos 15-20 € al año.</td></tr>
+      </table>
+
+      <div class="etiqueta">Apunta el resultado</div>
+      <p>El dominio está en: <span class="hueco"></span></p>
+    </div>
+  </div>
+
+  <!-- tarea 2 -->
+  <div class="paso">
+    <div class="paso-cabecera">
+      <span class="paso-num">2</span>
+      <span class="paso-titulo">Crear el sitio vacío en Hostinger</span>
+      <span class="paso-tiempo">5 min</span>
+    </div>
+    <div class="paso-cuerpo">
+      <div class="etiqueta">Qué es esto</div>
+      <p>Decirle a Hostinger «reserva sitio para una web que se llamará apps4all.app». Con eso te crea la carpeta <code>public_html</code>, que es el escaparate del capítulo 3.</p>
+
+      <div class="etiqueta">Cómo se hace</div>
+      <p>hPanel → <strong>Sitios web</strong> → <strong>Añadir sitio web</strong> → elegir <strong>Sitio vacío</strong>, y asociarlo al dominio.</p>
+
+      <div class="caja peligro">
+        <div class="titulo">Elige «sitio vacío», no WordPress ni el creador de webs</div>
+        <p>Los dos son productos legítimos, pero hacen lo contrario de lo que buscamos: te llenan <code>public_html</code> de archivos suyos y montan un sistema entero por encima. Luego hay que limpiarlo, y limpiar mal deja la web medio rota. Vacío significa vacío: la carpeta la llenamos nosotros.</p>
+      </div>
+
+      <div class="etiqueta">Cómo sabes que ha ido bien</div>
+      <p>En hPanel → <strong>Administrador de archivos</strong> existe una carpeta <code>public_html</code>, y está vacía o casi. Anota su ruta completa, que se parecerá a <code>/home/u123456789/domains/apps4all.app/public_html</code>.</p>
+      <p>Ruta: <span class="hueco"></span></p>
+    </div>
+  </div>
+
+  <!-- tarea 3 -->
+  <div class="paso">
+    <div class="paso-cabecera">
+      <span class="paso-num">3</span>
+      <span class="paso-titulo">Activar el certificado SSL</span>
+      <span class="paso-tiempo">5 min + espera</span>
+    </div>
+    <div class="paso-cuerpo">
+      <div class="etiqueta">Qué es esto</div>
+      <p>Poner el candado. Es lo que permite que la dirección funcione con <code>https://</code>.</p>
+
+      <div class="etiqueta">Por qué va antes de subir nada</div>
+      <p>Por el capítulo 4: siendo un <code>.app</code>, sin candado la web no se ve <em>en absoluto</em>. Si subiéramos los archivos primero, verías una página en blanco y no tendrías forma de saber si el problema son los archivos o el certificado.</p>
+
+      <div class="etiqueta">Cómo se hace</div>
+      <p>hPanel → <strong>Seguridad</strong> → <strong>SSL</strong> → instalar el certificado gratuito para <code>apps4all.app</code>. Activa también <strong>Forzar HTTPS</strong>, que hace que cualquiera que llegue por <code>http</code> sea redirigido al <code>https</code>.</p>
+
+      <div class="etiqueta">Cómo sabes que ha ido bien</div>
+      <p>El panel pone <strong>Activo</strong>. Puede tardar de 5 minutos a una hora; mientras tanto no hay nada que arreglar, solo que esperar.</p>
+    </div>
+  </div>
+
+  <!-- tarea 4 -->
+  <div class="paso">
+    <div class="paso-cabecera">
+      <span class="paso-num">4</span>
+      <span class="paso-titulo">Anotar las credenciales de FTP</span>
+      <span class="paso-tiempo">5 min · se puede dejar para luego</span>
+    </div>
+    <div class="paso-cuerpo">
+      <div class="etiqueta">Qué es esto</div>
+      <p>El usuario y la contraseña con los que se copian archivos al servidor. Son <strong>distintos</strong> de los de tu cuenta de Hostinger, aunque se saquen del mismo panel.</p>
+
+      <div class="etiqueta">Para qué las quieres</div>
+      <p>Para el automatismo del capítulo 7, que publica la web sola. Si prefieres empezar publicando a mano, esta tarea puede esperar sin problema.</p>
+
+      <div class="etiqueta">Cómo se hace</div>
+      <p>hPanel → <strong>Archivos</strong> → <strong>Cuentas FTP</strong>. Anota <strong>servidor</strong>, <strong>usuario</strong> y <strong>puerto</strong>. Si no recuerdas la contraseña, cámbiala ahí mismo: no pasa nada, no rompe nada.</p>
+
+      <div class="caja peligro">
+        <div class="titulo">Estas tres cosas no me las mandes por el chat</div>
+        <p>Y no es una formalidad. Una contraseña que pasa por una conversación acaba copiada en sitios de los que uno no lleva la cuenta. Tienen un único destino correcto: la caja fuerte de GitHub (los <em>secrets</em>), donde el robot las usa sin que nadie pueda volver a leerlas. Yo te guío para ponerlas ahí; tú las tecleas.</p>
+        <p>La misma regla, más importante todavía: <strong>una contraseña no se escribe nunca dentro de un archivo del proyecto</strong>. Ni «solo un momento», ni «luego la quito». Al entrar en el historial de Git queda ahí para siempre, aunque después borres la línea.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- tarea 5 -->
+  <div class="paso">
+    <div class="paso-cabecera">
+      <span class="paso-num">5</span>
+      <span class="paso-titulo">Cuenta de GitHub</span>
+      <span class="paso-tiempo">10 min</span>
+    </div>
+    <div class="paso-cuerpo">
+      <div class="etiqueta">Qué es esto</div>
+      <p>Una cuenta gratuita en <code>github.com</code>, donde vivirá la copia del historial de la web.</p>
+
+      <div class="etiqueta">Cómo se hace</div>
+      <ul class="check">
+        <li>Si no tienes cuenta: <code>github.com/signup</code>. Correo, usuario y contraseña, nada más.</li>
+        <li>En <strong>Settings → Emails</strong>, comprueba que <code>jcgualde@yahoo.es</code> está dado de alta. Git en tu ordenador ya está configurado con ese correo, y eso hace que los cambios te aparezcan atribuidos a ti.</li>
+        <li>Anota tu nombre de usuario: <span class="hueco"></span></li>
+      </ul>
+
+      <div class="etiqueta">Recomendado, no obligatorio</div>
+      <p>Instalar <strong>GitHub CLI</strong>, una herramienta que convierte «crear el repositorio, subirlo y configurarlo» en una sola orden — hoy y en todos los proyectos que vengan. Se instala con esto en una terminal:</p>
+      <pre>winget install --id GitHub.cli</pre>
+      <p>Y después, en una terminal <em>nueva</em> (elige <em>GitHub.com</em>, luego <em>HTTPS</em>, luego <em>Login with a web browser</em>):</p>
+      <pre>gh auth login</pre>
+      <p>Si prefieres no instalar nada, no pasa nada: en el capítulo 11 está también el camino por la web, que es un par de clics más.</p>
+    </div>
+  </div>
+
+  <!-- tarea 6 -->
+  <div class="paso">
+    <div class="paso-cabecera">
+      <span class="paso-num">6</span>
+      <span class="paso-titulo">Decidir qué va a decir la web</span>
+      <span class="paso-tiempo">10 min · esta es la importante</span>
+    </div>
+    <div class="paso-cuerpo">
+      <p>Lo único de toda la lista que no puede salir de una plantilla, y lo único que de verdad diferencia tu web de cualquier otra. Escríbemelo <strong>en sucio</strong>, en cuatro líneas y sin redactar — de redactar me encargo yo.</p>
+
+      <div class="etiqueta">a) Qué trabajos puedes enseñar</div>
+      <p>De cada uno: nombre, una línea de qué hace, y si puedes decir el nombre del cliente o hay que anonimizarlo («una gestoría de Barcelona»). <strong>Con uno vale.</strong> Una web con un caso bien contado convence más que una con seis fichas vacías que ponen «próximamente».</p>
+
+      <div class="caja aviso">
+        <div class="titulo">Antes de publicar el nombre de un cliente, pídele permiso</div>
+        <p>Aunque el trabajo sea tuyo y estés orgulloso de él. Es cortesía elemental, evita un disgusto y casi siempre dicen que sí — a menudo con una frase de recomendación de propina, que vale más que la ficha.</p>
+      </div>
+
+      <div class="etiqueta">b) Cómo quieres que te contacten</div>
+      <p>¿Un correo <code>hola@apps4all.app</code>? ¿WhatsApp? ¿Un formulario?</p>
+      <p><strong>Mi recomendación para empezar: correo a secas.</strong> Un formulario en hosting compartido necesita programación por detrás, y los correos que genera suelen acabar en la carpeta de spam del destinatario — o sea, tú. Un enlace de correo funciona siempre, se lee en el móvil y no falla nunca. Cuando la web reciba visitas de verdad, ponemos formulario con un servicio que lo hace bien.</p>
+
+      <div class="etiqueta">c) Los datos del aviso legal</div>
+      <p>Nombre o razón social, NIF, domicilio y correo de contacto.</p>
+      <p><strong>Por qué hace falta:</strong> en España, la ley LSSI-CE obliga a que toda web de una actividad económica identifique a quien está detrás. No es opcional y no es papeleo decorativo: es de las pocas cosas de una web que pueden acarrear una multa. Se resuelve con una página que se escribe una vez y no se toca más.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 7</span>
+  <h2>Lo que haré yo</h2>
+
+  <p>En cuanto tengas hechas las tareas 1, 2 y 3, en una sesión de una o dos horas queda montado esto:</p>
+
+  <table>
+    <tr><th style="width:8mm"></th><th style="width:52mm">Qué</th><th>Qué significa para ti</th></tr>
+    <tr><td><strong>1</strong></td><td>La estructura de carpetas y el primer commit</td><td>El proyecto pasa a estar bajo control de versiones. A partir de ahí, nada se pierde.</td></tr>
+    <tr><td><strong>2</strong></td><td>La portada</td><td>Logotipo, el claim <em>Crear, añadir, mejorar</em> y tus tres líneas de trabajo —comercios, fiestas de pueblo y producto propio—, cada una con el <strong>4</strong> en su color.</td></tr>
+    <tr><td><strong>3</strong></td><td>Proyectos, contacto y los dos textos legales</td><td>Las cuatro páginas que hacen que una web parezca una empresa y no una prueba.</td></tr>
+    <tr><td><strong>4</strong></td><td>La documentación del repositorio</td><td>Un <code>README</code> que responde cinco preguntas, y un <code>decisiones.md</code> con tres líneas por decisión. Es lo que agradecerás dentro de seis meses, cuando el proyecto te suene a ajeno.</td></tr>
+    <tr><td><strong>5</strong></td><td>El robot de publicación</td><td>Escrito y listo; solo tendrás que pegar las tres contraseñas del FTP en su caja fuerte.</td></tr>
+    <tr><td><strong>6</strong></td><td>La comprobación</td><td>Abro la web en el navegador y la miro, en pantalla grande y en móvil, antes de darla por buena.</td></tr>
+  </table>
+
+  <div class="caja idea">
+    <div class="titulo">Cómo quiero que trabajemos, ya que quieres aprender</div>
+    <p>No te voy a soltar los archivos hechos y ya está. Cada vez que escriba algo te explicaré <strong>qué hace y por qué así</strong>, en el momento de escribirlo, que es cuando se entiende. Y cuando haya que elegir entre dos caminos, te contaré los dos y te diré cuál recomiendo y por qué — no al revés.</p>
+    <p>Tú puedes parar en cualquier punto y preguntar «¿esto qué es?». No hay pregunta demasiado básica: las básicas son justamente las que sostienen todo lo demás.</p>
+  </div>
+
+  <h3>El día después</h3>
+  <p>Cuando la web esté publicada, el ciclo de trabajo normal es este, y cabe en tres líneas:</p>
+  <ol>
+    <li>Cambias o añades algo (o me lo pides).</li>
+    <li>Se guarda con un <em>commit</em> que explica qué cambió.</li>
+    <li>Se sube, y el robot lo publica solo en menos de un minuto.</li>
+  </ol>
+  <p>Eso es todo. Sin ZIP, sin panel de control, sin miedo a romper nada — porque si se rompe, se vuelve a la versión anterior.</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 8</span>
+  <h2>Por qué he elegido lo que he elegido</h2>
+
+  <p>Las decisiones que tomé ayer, con su razón. Están cerradas a propósito para no volver a discutirlas cada semana, pero <strong>no están grabadas en piedra</strong>: si alguna no te convence, la cambiamos ahora, que es cuando sale barato.</p>
+
+  <h3>1 · HTML y CSS a mano, sin framework</h3>
+  <p><strong>La razón inmediata:</strong> en tu ordenador no hay Node ni npm instalados. Empezar con Astro serían dos o tres horas de instalación y configuración <em>antes</em> de escribir la primera línea que se pueda ver. Y tú has dicho justo lo contrario: prioridad a tener algo.</p>
+  <p><strong>La razón de fondo, que pesa más:</strong> sin framework no hay paso de compilación, y eso significa que <strong>lo que ves en tu carpeta es exactamente lo que hay en el servidor</strong>. Cuando algo falla, hay un sitio donde mirar en lugar de tres. Para una web de cinco páginas, un framework resuelve un problema que todavía no tienes.</p>
+  <p><strong>Qué se pierde:</strong> hay que repetir la cabecera y el pie en cada archivo. Con cuatro páginas es un incordio menor. Con diez, empieza a molestar — y ese momento es exactamente la señal para dar el paso, ni antes ni después.</p>
+  <p><strong>Lo importante:</strong> este camino <em>no</em> es un callejón sin salida. Astro se traga el HTML que ya existe casi sin tocarlo.</p>
+
+  <h3>2 · GitHub desde el primer día, aunque trabajes solo</h3>
+  <p>La tentación es decir «esto es una prueba, ya lo subiré». Las pruebas se convierten en producción con una frecuencia sospechosa, y entonces el historial de sus primeros meses no existe.</p>
+  <p>Los tres motivos concretos están en el capítulo 2: poder deshacer, tener copia de seguridad de verdad, y que publicar sea gratis en esfuerzo. Añado un cuarto: es la misma herramienta que usarás en las apps Flutter. Aprenderla aquí, con una web donde no se puede romper nada grave, es el mejor sitio para aprenderla.</p>
+
+  <h3>3 · Repositorio privado</h3>
+  <p>Parece contradictorio —el contenido de la web va a ser público de todas formas— pero el repositorio guarda más que el HTML final: borradores, notas, textos a medio escribir, nombres de clientes antes de tener su permiso. Privado por defecto, y se abre el día que haya una razón concreta para abrirlo.</p>
+
+  <h3>4 · Publicar a mano la primera vez, automatizar después</h3>
+  <p>Podríamos montar el automatismo desde el principio. No lo hacemos por un motivo de método: <strong>si montas dos cosas a la vez y falla, no sabes cuál de las dos ha fallado</strong>. La primera subida manual sirve para confirmar que el dominio y el certificado funcionan. Con eso demostrado, el automatismo se monta sobre terreno firme y, si algo falla, ya sabes que es el automatismo.</p>
+  <p>Es la misma lógica de no cambiar dos piezas del coche a la vez.</p>
+
+  <h3>5 · Sin analítica en la primera versión</h3>
+  <p>Google Analytics pone cookies, y las cookies obligan por ley a un banner de consentimiento. Un banner es más trabajo, más código y una molestia para el visitante. Con cero visitas, medirlas no aporta nada.</p>
+  <p>Cuando de verdad importe saber de dónde llega la gente, hay herramientas que miden sin cookies —Plausible, Umami— y por tanto sin banner. Esa es la puerta correcta cuando llegue el momento.</p>
+
+  <h3>6 · Cada página en su carpeta</h3>
+  <p>Un detalle técnico que parece minucia y no lo es. Poniendo el archivo en <code>proyectos/index.html</code> en vez de <code>proyectos.html</code>, la dirección queda <code>apps4all.app/proyectos/</code>.</p>
+  <p>La ventaja aparece dentro de un año: cuando pasemos a Astro, <strong>las direcciones no cambian</strong>. Y las direcciones que no cambian conservan su posición en Google y no rompen los enlaces que alguien te haya puesto. Cambiar direcciones después de publicar es de las pocas cosas caras de deshacer en una web.</p>
+
+  <div class="caja">
+    <div class="titulo">Un criterio general que explica todas las de arriba</div>
+    <p><strong>Aburrido gana a listo.</strong> La solución ingeniosa que no se entiende al releerla cuesta más de lo que ahorró. Cuando dudes entre dos opciones, elige la que hará el proyecto más predecible, no la más elegante — sobre todo sabiendo que quien lo va a mantener eres tú dentro de seis meses, y para entonces esto te sonará a escrito por otro.</p>
+  </div>
+</section>
+
+<!-- ============ 9 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 9</span>
+  <h2>Cómo crecerá la web</h2>
+
+  <p>Aquí está la respuesta a tu preocupación de fondo: empezar sencillo <em>sin</em> que lo sencillo sea un callejón sin salida. Este es el camino, escalón a escalón. La regla es que <strong>cada escalón se sube cuando el anterior se ha quedado corto de verdad</strong>, nunca por adelantado.</p>
+
+  <table>
+    <tr><th style="width:44mm">Cuándo</th><th>Qué se hace</th><th style="width:38mm">Cuesta</th></tr>
+    <tr>
+      <td><strong>Ahora</strong></td>
+      <td>Portada, contacto y aviso legal. <strong>Publicado.</strong></td>
+      <td>Una sesión</td>
+    </tr>
+    <tr>
+      <td>Cuando tengas dos o tres trabajos que enseñar</td>
+      <td>Página de proyectos, una ficha por trabajo. Sigue siendo HTML suelto.</td>
+      <td>Un rato por ficha</td>
+    </tr>
+    <tr>
+      <td>Cuando repetir la cabecera en seis archivos te moleste</td>
+      <td><strong>Aquí entra Astro.</strong> Se instala Node, y Astro absorbe el HTML que ya existe: la cabecera y el pie pasan a un molde común y las páginas se quedan como están. El robot de publicación cambia en una línea.</td>
+      <td>Media jornada</td>
+    </tr>
+    <tr>
+      <td>Cuando quieras escribir con regularidad</td>
+      <td>Un blog o unas notas. Astro lo trae de serie: escribes en texto plano y él hace las páginas.</td>
+      <td>Un par de horas</td>
+    </tr>
+    <tr>
+      <td>Cuando alguien pida presupuesto por la web</td>
+      <td>Formulario de contacto de verdad, con un servicio externo que se encarga del envío.</td>
+      <td>Una hora</td>
+    </tr>
+    <tr>
+      <td>Cuando importe de dónde llega la gente</td>
+      <td>Analítica sin cookies, y por tanto sin banner.</td>
+      <td>Media hora</td>
+    </tr>
+    <tr>
+      <td>Cuando tengas una app propia que enseñar</td>
+      <td>Una sección por producto: <code>apps4all.app/habitos/</code>. La estructura ya lo aguanta sin tocar nada.</td>
+      <td>Según la app</td>
+    </tr>
+  </table>
+
+  <div class="caja peligro">
+    <div class="titulo">La única forma segura de no tener web nunca</div>
+    <p>Rehacer la versión 1 antes de publicarla. Es un patrón conocido y engancha, porque siempre hay algo mejorable y siempre parece razonable arreglarlo «antes de enseñarlo». Pero una web sin publicar tiene exactamente el mismo valor que un proyecto en la cabeza: cero.</p>
+    <p><strong>Si algo del diseño no te gusta, se publica igual y se arregla la semana siguiente</strong> — sobre algo que ya está vivo, que ya te puede traer un cliente y que ya demuestra que existes.</p>
+  </div>
+
+  <h3>Las tres reglas que evitan casi todos los disgustos</h3>
+  <ol>
+    <li><strong>Ninguna contraseña dentro del proyecto.</strong> Nunca, ni un momento. Lo que entra en el historial de Git se queda ahí aunque borres la línea después.</li>
+    <li><strong>Publicado gana a perfecto.</strong> Ver regla de arriba.</li>
+    <li><strong>Lo que dejes a medias, déjalo escrito.</strong> Un <em>issue</em> en GitHub, dos líneas: en qué punto está y cuál era el siguiente paso. Reconstruir el contexto perdido cuesta más que el trabajo que quedaba pendiente.</li>
+  </ol>
+</section>
+
+<!-- ============ 10 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 10</span>
+  <h2>Si algo falla</h2>
+
+  <p>Ordenado por lo que pasa de verdad, no por lo que es más grave. Los tres primeros cubren casi todo.</p>
+
+  <table>
+    <tr><th style="width:50mm">Lo que ves</th><th>Lo más probable</th><th style="width:44mm">Qué hacer</th></tr>
+    <tr>
+      <td><strong>Página en blanco</strong> o «no se puede acceder a este sitio»</td>
+      <td>El SSL todavía no está activo. Con un <code>.app</code>, sin certificado no hay web (capítulo 4).</td>
+      <td>hPanel → Seguridad → SSL. ¿Pone <em>Activo</em>? Si no, esperar.</td>
+    </tr>
+    <tr>
+      <td>Sale una <strong>lista de archivos y carpetas</strong> en vez de la web</td>
+      <td>El <code>index.html</code> quedó dentro de una subcarpeta al descomprimir el ZIP.</td>
+      <td>En el Administrador de archivos, mover el contenido a la raíz de <code>public_html</code>.</td>
+    </tr>
+    <tr>
+      <td>El navegador dice que <strong>el dominio no existe</strong></td>
+      <td>DNS aún propagándose, si el dominio venía de otra empresa.</td>
+      <td>Esperar. Puede tardar hasta 24 h y no hay forma de acelerarlo.</td>
+    </tr>
+    <tr>
+      <td>Sale la <strong>página de bienvenida de Hostinger</strong></td>
+      <td>Quedó su <code>index.html</code> o <code>default.php</code> de ejemplo, y el servidor lo enseña antes que el tuyo.</td>
+      <td>Borrar esos dos archivos. La carpeta <code>.well-known</code>, si está, <strong>no se toca</strong>: es del certificado.</td>
+    </tr>
+    <tr>
+      <td>La web se ve, pero <strong>sin colores ni formato</strong></td>
+      <td>El archivo CSS no se subió, o la ruta al CSS está mal escrita.</td>
+      <td>Comprobar que existe <code>assets/css/</code> en el servidor. Es cosa mía, avísame.</td>
+    </tr>
+    <tr>
+      <td><code>git push</code> <strong>pide usuario y contraseña</strong> y no acepta la tuya</td>
+      <td>GitHub ya no admite la contraseña normal por línea de órdenes.</td>
+      <td>Debe abrirse una ventana del navegador para autenticarte. Si no se abre, avísame.</td>
+    </tr>
+    <tr>
+      <td>El robot de publicación sale en <strong>rojo</strong> en la pestaña Actions</td>
+      <td>Casi siempre, una de las tres credenciales de FTP mal copiada.</td>
+      <td>Volver a escribir los tres <em>secrets</em>, con cuidado de no dejar espacios al final.</td>
+    </tr>
+  </table>
+
+  <div class="caja idea">
+    <div class="titulo">La regla de los quince minutos</div>
+    <p>Si llevas un cuarto de hora atascado en lo mismo sin avanzar nada, <strong>para</strong>. Insistir con el mismo enfoque no funciona casi nunca; lo que funciona es cambiar de enfoque o preguntar. Apúntame qué has hecho y qué has visto exactamente, y lo miramos. Es información, no un fracaso: la mitad de las veces el problema resulta ser una espera disfrazada de error.</p>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section>
+  <span class="numero-seccion">Capítulo 11</span>
+  <h2>Chuleta de órdenes</h2>
+
+  <p>Para consultar, no para memorizar. Todas se teclean en una terminal, dentro de la carpeta del proyecto. <strong>No hace falta que las ejecutes tú</strong>: en la sesión de mañana las lanzo yo explicando cada una. Están aquí para que sepas qué pasó y puedas repetirlo solo.</p>
+
+  <h3>Empezar el repositorio</h3>
+  <pre>git init</pre>
+  <p>«A partir de ahora, lleva la cuenta de los cambios de esta carpeta.» Crea una carpeta oculta <code>.git</code> donde vivirá todo el historial. Se hace <strong>una sola vez</strong> en la vida del proyecto.</p>
+
+  <pre>git add -A</pre>
+  <p>«Prepara todos los cambios para la próxima foto.» El <code>-A</code> es <em>all</em>: todo lo nuevo, lo modificado y lo borrado. Es un paso previo, todavía no guarda nada.</p>
+
+  <pre>git commit -m "chore: estructura inicial del sitio"</pre>
+  <p>«Haz la foto, y llámala así.» El texto entre comillas es el concepto del asiento. El formato <code>tipo(zona): qué</code> no es capricho — es lo que hace que dentro de un año encuentres un cambio buscando por palabras:</p>
+  <table>
+    <tr><th style="width:22mm">Tipo</th><th>Para qué</th><th>Ejemplo</th></tr>
+    <tr><td><code>feat</code></td><td>Algo nuevo</td><td><code>feat(proyectos): añadir ficha de la gestoría</code></td></tr>
+    <tr><td><code>fix</code></td><td>Arreglar algo roto</td><td><code>fix(css): claim cortado en móviles de 320 px</code></td></tr>
+    <tr><td><code>chore</code></td><td>Mantenimiento, sin cambio visible</td><td><code>chore: actualizar el aviso legal</code></td></tr>
+  </table>
+  <p><strong>Lo que no vale:</strong> «cambios», «actualización», «pruebas». Dentro de un año no significan nada y convierten el historial en ruido.</p>
+
+  <h3>Subirlo a GitHub</h3>
+  <p>Con GitHub CLI instalado, una sola orden crea el repositorio y lo sube:</p>
+  <pre>gh repo create apps4all-web --private --source=. --remote=origin --push</pre>
+  <p>Traducida trozo a trozo: crea un repositorio llamado <code>apps4all-web</code> <span style="color:#6B6F7A">(</span><code>--private</code>, privado<span style="color:#6B6F7A">)</span> a partir de esta carpeta <span style="color:#6B6F7A">(</span><code>--source=.</code>, donde el punto significa «aquí»<span style="color:#6B6F7A">)</span>, apúntalo como destino habitual <span style="color:#6B6F7A">(</span><code>--remote=origin</code><span style="color:#6B6F7A">)</span> y súbelo ya <span style="color:#6B6F7A">(</span><code>--push</code><span style="color:#6B6F7A">)</span>.</p>
+
+  <p>Sin GitHub CLI: se crea el repositorio vacío en <code>github.com/new</code> —<strong>sin</strong> marcar ninguna de las casillas de «Add a README», o el primer envío chocará— y luego:</p>
+  <pre>git remote add origin https://github.com/TU-USUARIO/apps4all-web.git
+git branch -M main
+git push -u origin main</pre>
+  <p>Línea por línea: la primera apunta tu carpeta al repositorio de GitHub; la segunda nombra <code>main</code> a la rama principal; la tercera sube todo por primera vez.</p>
+
+  <h3>El día a día</h3>
+  <pre>git status</pre>
+  <p>«¿Qué he tocado desde la última foto?» Es la orden más útil de todas y no cambia nada — se puede lanzar cuantas veces se quiera. Ante la duda, siempre esta.</p>
+
+  <pre>git add -A
+git commit -m "feat(contacto): añadir el correo de contacto"
+git push</pre>
+  <p>Las tres de siempre, en ese orden: preparar, guardar con su nota, subir. Con el robot en marcha, ese <code>push</code> es además el gesto de publicar la web.</p>
+
+  <pre>git log --oneline</pre>
+  <p>El historial, una línea por cambio. Aquí es donde se cobran los buenos conceptos de commit.</p>
+
+  <div class="caja aviso">
+    <div class="titulo">Lo único que conviene no hacer sin preguntar</div>
+    <p>Cualquier orden que lleve <code>--force</code>, <code>reset --hard</code> o <code>clean -fd</code>. Son las tres que sí pueden borrar trabajo de verdad. El resto de Git, como mucho, se deshace.</p>
+  </div>
+
+  <div class="pie-doc">
+    <p><strong>apps4all — Crear, añadir, mejorar</strong><br>
+    Guía de puesta en marcha de apps4all.app · 26 de agosto de 2026<br>
+    La versión técnica y abreviada de este documento está en <code>PROCEDIMIENTO.md</code>, en la carpeta del proyecto.</p>
+  </div>
+</section>
+
+</body>
+</html>

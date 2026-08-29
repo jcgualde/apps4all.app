@@ -1,0 +1,105 @@
+{
+  "_comentario": "Textos legales. {{titular}}, {{nif}}, {{domicilio}}, {{correo}} y {{dominio}} se rellenan desde config.json.",
+
+  "es": {
+    "aviso": [
+      "<h2>Titular del sitio</h2>",
+      "<p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>",
+      "<ul><li><strong>Titular:</strong> {{titular}}</li><li><strong>NIF:</strong> {{nif}}</li><li><strong>Domicilio:</strong> {{domicilio}}</li><li><strong>Correo electrónico:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Sitio web:</strong> {{dominio}}</li></ul>",
+      "<h2>Objeto</h2>",
+      "<p>Este sitio web tiene por objeto dar a conocer los servicios de desarrollo de aplicaciones que presta apps4all y facilitar el contacto con personas interesadas en ellos.</p>",
+      "<h2>Condiciones de uso</h2>",
+      "<p>El acceso a este sitio es gratuito y no requiere registro. La persona usuaria se compromete a hacer un uso adecuado de los contenidos y a no emplearlos para actividades contrarias a la ley, a la buena fe o al orden público.</p>",
+      "<h2>Propiedad intelectual</h2>",
+      "<p>Los textos, el diseño, los logotipos y el código de este sitio son titularidad de {{titular}}, salvo que se indique otra cosa. Queda prohibida su reproducción o distribución sin autorización expresa.</p>",
+      "<p>Las aplicaciones desarrolladas para clientes son propiedad de sus respectivos clientes y solo se muestran en este sitio con su consentimiento.</p>",
+      "<h2>Responsabilidad</h2>",
+      "<p>Se procura que la información publicada sea exacta y esté actualizada, pero no se garantiza la ausencia de errores. El titular no se responsabiliza del contenido de sitios de terceros a los que se pueda acceder desde enlaces publicados aquí.</p>",
+      "<h2>Legislación aplicable</h2>",
+      "<p>Estas condiciones se rigen por la legislación española. Para cualquier controversia serán competentes los juzgados y tribunales del domicilio del titular, salvo que la normativa de consumo disponga otro fuero.</p>"
+    ],
+    "privacidad": [
+      "<h2>Quién trata tus datos</h2>",
+      "<p>El responsable del tratamiento es {{titular}}, con NIF {{nif}} y domicilio en {{domicilio}}. Puedes escribir a <a href=\"mailto:{{correo}}\">{{correo}}</a> para cualquier cuestión relacionada con tus datos.</p>",
+      "<h2>Qué datos recogemos y para qué</h2>",
+      "<p>Solo los que escribes en el formulario de contacto: nombre, correo electrónico, asunto y el mensaje. Se usan exclusivamente para responderte y, si el contacto prospera, para gestionar la relación comercial. No se usan para enviarte publicidad ni se ceden a terceros con fines comerciales.</p>",
+      "<p>La base legal es tu consentimiento, que otorgas al marcar la casilla antes de enviar el formulario, y el interés legítimo en atender las consultas que se nos dirigen.</p>",
+      "<h2>Quién más los ve</h2>",
+      "<p>El formulario se envía a través de <strong>Web3Forms</strong>, un servicio que se limita a reenviar el mensaje a nuestro correo. El alojamiento del sitio corre a cargo de <strong>Hostinger</strong>. Ambos actúan como encargados del tratamiento y no utilizan tus datos para fines propios.</p>",
+      "<h2>Cuánto tiempo los guardamos</h2>",
+      "<p>Los mensajes se conservan mientras dure la conversación y, después, durante el plazo necesario para atender posibles responsabilidades legales. Si no hay relación comercial, se eliminan pasado un año.</p>",
+      "<h2>Cookies</h2>",
+      "<p>Este sitio <strong>no utiliza cookies</strong> ni herramientas de analítica o publicidad de terceros. No hay rastreo, y por eso no verás ningún aviso de consentimiento.</p>",
+      "<h2>Tus derechos</h2>",
+      "<p>Puedes pedir acceso a tus datos, su rectificación o su supresión, así como oponerte al tratamiento o solicitar su limitación o portabilidad, escribiendo a <a href=\"mailto:{{correo}}\">{{correo}}</a>. Si consideras que no se han atendido tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>"
+    ]
+  },
+
+  "en": {
+    "aviso": [
+      "<h2>Site owner</h2>",
+      "<p>In compliance with article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the details of the owner of this website are:</p>",
+      "<ul><li><strong>Owner:</strong> {{titular}}</li><li><strong>Tax number:</strong> {{nif}}</li><li><strong>Address:</strong> {{domicilio}}</li><li><strong>Email:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Website:</strong> {{dominio}}</li></ul>",
+      "<h2>Purpose</h2>",
+      "<p>This website exists to present the application development services provided by apps4all and to make it easy to get in touch.</p>",
+      "<h2>Terms of use</h2>",
+      "<p>Access to this site is free and requires no registration. Users agree to make appropriate use of its contents and not to use them for activities contrary to the law, good faith or public order.</p>",
+      "<h2>Intellectual property</h2>",
+      "<p>The texts, design, logos and code of this site belong to {{titular}} unless stated otherwise. Reproduction or distribution without express permission is not allowed.</p>",
+      "<p>Applications developed for clients belong to those clients and are only shown on this site with their consent.</p>",
+      "<h2>Liability</h2>",
+      "<p>We aim to keep the published information accurate and up to date, but we cannot guarantee it is free of errors. The owner is not responsible for the content of third-party sites reachable through links published here.</p>",
+      "<h2>Applicable law</h2>",
+      "<p>These terms are governed by Spanish law. Any dispute will be heard by the courts of the owner's domicile, unless consumer legislation establishes a different jurisdiction.</p>"
+    ],
+    "privacidad": [
+      "<h2>Who handles your data</h2>",
+      "<p>The data controller is {{titular}}, tax number {{nif}}, address {{domicilio}}. You can write to <a href=\"mailto:{{correo}}\">{{correo}}</a> about anything concerning your data.</p>",
+      "<h2>What we collect and why</h2>",
+      "<p>Only what you type into the contact form: name, email address, subject and message. We use it solely to reply to you and, if the contact goes further, to manage the commercial relationship. It is never used to send you advertising and never sold or shared with third parties for commercial purposes.</p>",
+      "<p>The legal basis is your consent, given by ticking the box before sending the form, together with our legitimate interest in answering enquiries addressed to us.</p>",
+      "<h2>Who else sees it</h2>",
+      "<p>The form is delivered through <strong>Web3Forms</strong>, a service that does nothing but forward the message to our mailbox. The site is hosted by <strong>Hostinger</strong>. Both act as data processors and do not use your data for their own purposes.</p>",
+      "<h2>How long we keep it</h2>",
+      "<p>Messages are kept for as long as the conversation lasts and afterwards for the period needed to address possible legal liabilities. If no commercial relationship follows, they are deleted after one year.</p>",
+      "<h2>Cookies</h2>",
+      "<p>This site uses <strong>no cookies</strong> and no third-party analytics or advertising tools. There is no tracking, which is why you will never see a consent banner.</p>",
+      "<h2>Your rights</h2>",
+      "<p>You may request access to your data, its correction or deletion, and you may object to processing or ask for it to be restricted or ported, by writing to <a href=\"mailto:{{correo}}\">{{correo}}</a>. If you believe your rights have not been respected, you can complain to the Spanish Data Protection Agency (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>"
+    ]
+  },
+
+  "ca": {
+    "aviso": [
+      "<h2>Titular del lloc</h2>",
+      "<p>En compliment de l'article 10 de la Llei 34/2002, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSI-CE), s'informa de les dades del titular d'aquest lloc web:</p>",
+      "<ul><li><strong>Titular:</strong> {{titular}}</li><li><strong>NIF:</strong> {{nif}}</li><li><strong>Domicili:</strong> {{domicilio}}</li><li><strong>Correu electrònic:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Lloc web:</strong> {{dominio}}</li></ul>",
+      "<h2>Objecte</h2>",
+      "<p>Aquest lloc web té per objecte donar a conèixer els serveis de desenvolupament d'aplicacions que presta apps4all i facilitar el contacte amb les persones interessades.</p>",
+      "<h2>Condicions d'ús</h2>",
+      "<p>L'accés a aquest lloc és gratuït i no requereix registre. La persona usuària es compromet a fer un ús adequat dels continguts i a no emprar-los per a activitats contràries a la llei, a la bona fe o a l'ordre públic.</p>",
+      "<h2>Propietat intel·lectual</h2>",
+      "<p>Els textos, el disseny, els logotips i el codi d'aquest lloc són titularitat de {{titular}}, llevat que s'indiqui una altra cosa. Se'n prohibeix la reproducció o distribució sense autorització expressa.</p>",
+      "<p>Les aplicacions desenvolupades per a clients són propietat dels seus clients respectius i només es mostren en aquest lloc amb el seu consentiment.</p>",
+      "<h2>Responsabilitat</h2>",
+      "<p>Es procura que la informació publicada sigui exacta i estigui actualitzada, però no se'n garanteix l'absència d'errors. El titular no es responsabilitza del contingut de llocs de tercers als quals es pugui accedir des d'enllaços publicats aquí.</p>",
+      "<h2>Legislació aplicable</h2>",
+      "<p>Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol controvèrsia seran competents els jutjats i tribunals del domicili del titular, llevat que la normativa de consum disposi un altre fur.</p>"
+    ],
+    "privacidad": [
+      "<h2>Qui tracta les teves dades</h2>",
+      "<p>El responsable del tractament és {{titular}}, amb NIF {{nif}} i domicili a {{domicilio}}. Pots escriure a <a href=\"mailto:{{correo}}\">{{correo}}</a> per a qualsevol qüestió relacionada amb les teves dades.</p>",
+      "<h2>Quines dades recollim i per a què</h2>",
+      "<p>Només les que escrius al formulari de contacte: nom, correu electrònic, assumpte i missatge. Es fan servir exclusivament per respondre't i, si el contacte prospera, per gestionar la relació comercial. No es fan servir per enviar-te publicitat ni es cedeixen a tercers amb finalitats comercials.</p>",
+      "<p>La base legal és el teu consentiment, que atorgues en marcar la casella abans d'enviar el formulari, i l'interès legítim a atendre les consultes que se'ns adrecen.</p>",
+      "<h2>Qui més les veu</h2>",
+      "<p>El formulari s'envia mitjançant <strong>Web3Forms</strong>, un servei que es limita a reenviar el missatge al nostre correu. L'allotjament del lloc va a càrrec de <strong>Hostinger</strong>. Tots dos actuen com a encarregats del tractament i no utilitzen les teves dades per a finalitats pròpies.</p>",
+      "<h2>Quant de temps les guardem</h2>",
+      "<p>Els missatges es conserven mentre duri la conversa i, després, durant el termini necessari per atendre possibles responsabilitats legals. Si no hi ha relació comercial, s'eliminen passat un any.</p>",
+      "<h2>Galetes</h2>",
+      "<p>Aquest lloc <strong>no utilitza galetes</strong> ni eines d'analítica o publicitat de tercers. No hi ha rastreig, i per això no veuràs cap avís de consentiment.</p>",
+      "<h2>Els teus drets</h2>",
+      "<p>Pots demanar accés a les teves dades, la rectificació o la supressió, i també oposar-te al tractament o sol·licitar-ne la limitació o portabilitat, escrivint a <a href=\"mailto:{{correo}}\">{{correo}}</a>. Si consideres que no s'han atès els teus drets, pots reclamar davant l'Agència Espanyola de Protecció de Dades (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>"
+    ]
+  }
+}

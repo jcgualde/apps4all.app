@@ -1,0 +1,168 @@
+{
+  "idioma": "en",
+  "nombre_idioma": "English",
+  "meta_titulo": "apps4all — Create, add, improve",
+  "meta_descripcion": "A studio building tailor-made apps for local businesses, town festivals and health. Create, add, improve.",
+
+  "nav_verticales": "What we do",
+  "nav_como": "How we work",
+  "nav_contacto": "Get in touch",
+  "volver_inicio": "apps4all — home",
+
+  "portada_antetitulo": "Application studio",
+  "portada_titulo": "Software that takes work away, not software that adds it.",
+  "portada_entradilla": "We design and build tailor-made applications for small and mid-sized businesses: just enough to solve the problem, working from day one, without forcing anyone to change how they work.",
+  "portada_boton_1": "Tell us about your case",
+  "portada_boton_2": "See what we do",
+
+  "lineas_antetitulo": "Three lines of work",
+  "lineas_titulo": "One studio, three kinds of job.",
+  "lineas_entradilla": "Each line has its own name and colour, built around the 4 in our brand. Behind them there is a single way of working.",
+  "lineas_enlace": "See this line",
+
+  "como_antetitulo": "How we work",
+  "como_titulo": "Create, add, improve.",
+  "como_entradilla": "The brand claim is literally the method: publish something small that already helps, then grow on top of something that is alive.",
+  "paso": "STEP",
+  "pasos": [
+    { "titulo": "Create", "texto": "We start with the smallest version that genuinely solves the problem. No months of project work before you see anything running." },
+    { "titulo": "Add", "texto": "What comes next is driven by real use, not by a list written before we started. You pay for what you use." },
+    { "titulo": "Improve", "texto": "The application stays alive: it gets fixed, refined and adapted to whatever the business needs later on." }
+  ],
+
+  "llamada_titulo": "Got something in mind?",
+  "llamada_texto": "Tell us in four lines. If it is not for us, we will say so.",
+  "llamada_boton": "Write to us",
+
+  "verticales": [
+    {
+      "slug": "comercios",
+      "mono": "a4c",
+      "color": "comercios",
+      "nombre": "apps4comercios",
+      "titulo": "Shops and small practices",
+      "resumen": "Tools for the daily grind of a business: capturing documents, sorting orders, and no longer chasing paperwork by email.",
+      "etiqueta": "Tailor-made web and mobile apps",
+      "hero_titulo": "Paperwork that handles itself.",
+      "hero_texto": "A shop or a small practice does not need a huge management system. It needs the one specific task that eats an hour a day to stop eating it. That is what we build.",
+      "que_titulo": "What we solve",
+      "que": [
+        { "titulo": "Capture without typing", "texto": "A photo replaces manual data entry. The document arrives already identified and filed, in front of whoever has to deal with it." },
+        { "titulo": "Nothing to install", "texto": "Web applications that open from a link. No app store, no updates, no training anyone." },
+        { "titulo": "Fits what you already use", "texto": "The application adapts to your accounting software and your mail, not the other way round." }
+      ],
+      "muestras_titulo": "Samples",
+      "muestras_entradilla": "Real work. Client names only appear with their permission.",
+      "muestras": [
+        {
+          "estado": "In production",
+          "titulo": "Receipt capture for an accounting firm",
+          "texto": "The firm's clients photograph their receipts on their phone and they reach the accounting inbox already stamped with the company name and tax number, ready for the accounting software to identify on its own. Nothing to install: one link per person.",
+          "detalle": "Web app · Server-side PDF · Bilingual · Automatic mail delivery"
+        },
+        {
+          "estado": "Example",
+          "titulo": "Your case, here",
+          "texto": "If there is a repetitive task eating time every day in your business, it can probably be taken out of the way. Tell us about it and we will say whether it can be fixed and what it would cost.",
+          "detalle": "Free quote"
+        }
+      ]
+    },
+    {
+      "slug": "fiestas",
+      "mono": "a4f",
+      "color": "fiestas",
+      "nombre": "apps4fiestas",
+      "titulo": "Festivals and local events",
+      "resumen": "The programme, announcements and audience participation in every attendee's pocket, with nothing to install.",
+      "etiqueta": "Seasonal applications",
+      "hero_titulo": "The festival, in everyone's pocket.",
+      "hero_texto": "A paper programme gets lost, gets wet, and cannot be corrected when it rains and an event moves. A festival app solves that and, along the way, lets the organisers see what is actually working.",
+      "que_titulo": "What we solve",
+      "que": [
+        { "titulo": "A programme that stays current", "texto": "If an event changes time or venue, it changes on everybody's phone straight away." },
+        { "titulo": "Announcements that arrive in time", "texto": "A notice reaches the people who are out on the street right then, which is when it is worth anything." },
+        { "titulo": "Nothing to install", "texto": "It opens from a link or a QR code on the poster. Anyone who wants to can save it to their home screen." }
+      ],
+      "muestras_titulo": "Samples",
+      "muestras_entradilla": "This line is just starting. Work will appear here as it gets done.",
+      "muestras": [
+        {
+          "estado": "In preparation",
+          "titulo": "Municipal festival programme",
+          "texto": "Day-by-day programme, favourites, announcements from the organisers and a map of the events. Designed so the town council or the festival committee can run it without knowing anything about computers.",
+          "detalle": "Web app · Editing panel for organisers"
+        },
+        {
+          "estado": "Example",
+          "titulo": "Organising a festival?",
+          "texto": "If you are on a festival committee or at a town council and this year's programme is still a PDF, let's talk before the season starts.",
+          "detalle": "Free quote"
+        }
+      ]
+    },
+    {
+      "slug": "salud",
+      "mono": "a4s",
+      "color": "salud",
+      "nombre": "apps4salud",
+      "titulo": "Health and habits",
+      "resumen": "Our own product. Applications born here, with no client behind them, because the problem seemed worth solving.",
+      "etiqueta": "Own product",
+      "hero_titulo": "Small things, kept up over time.",
+      "hero_texto": "This is the own-product line: applications nobody commissioned. The first one is about habits, because almost everything to do with health comes down to repeating small things on many consecutive days.",
+      "que_titulo": "What it is about",
+      "que": [
+        { "titulo": "One habit at a time", "texto": "No endless lists, no point systems. What actually sustains a habit is seeing it, ticking it, and not breaking the streak." },
+        { "titulo": "Your data is yours", "texto": "No compulsory accounts, no profiles to sell. What you record stays on your phone unless you decide otherwise." },
+        { "titulo": "Not built to hook you", "texto": "The goal is ten seconds a day. A habit app that keeps you inside it is a habit app that has failed." }
+      ],
+      "muestras_titulo": "Samples",
+      "muestras_entradilla": "Product in development. It will show up here as soon as there is something to try.",
+      "muestras": [
+        {
+          "estado": "In development",
+          "titulo": "Habit tracker",
+          "texto": "Daily habit logging with streaks, reminders and a month view you can read at a glance. No advertising and no compulsory account.",
+          "detalle": "Mobile app · Works offline · First version in preparation"
+        },
+        {
+          "estado": "Idea",
+          "titulo": "Whatever comes next",
+          "texto": "The health line is open: medication reminders, tracking vital signs, notebooks to take to appointments. If you miss something that does not exist, or exists badly, tell us.",
+          "detalle": "Suggestions welcome"
+        }
+      ]
+    }
+  ],
+
+  "vertical_volver": "See the other lines",
+  "estado": "Status",
+
+  "contacto_antetitulo": "Contact",
+  "contacto_titulo": "Tell us what you need.",
+  "contacto_entradilla": "Four lines are enough to start. We answer in hours, not weeks. If your case is not for us, we will say so and save you the time.",
+  "contacto_correo_etiqueta": "Or write to us directly at",
+  "form_nombre": "Name",
+  "form_correo": "Email",
+  "form_asunto": "Subject",
+  "form_asunto_opciones": ["A job for my business", "A festival or an event", "Own product and health", "Something else"],
+  "form_mensaje": "Tell us",
+  "form_mensaje_ayuda": "What you do, which task is eating your time, and when you need it by.",
+  "form_privacidad": "I have read and accept the",
+  "form_privacidad_enlace": "privacy policy",
+  "form_enviar": "Send message",
+  "form_enviando": "Sending…",
+  "form_ok": "Message sent. We will get back to you shortly.",
+  "form_error": "It could not be sent. Please write to us directly at",
+
+  "pie_derechos": "© 2026 apps4all",
+  "pie_contacto": "Contact",
+  "pie_aviso": "Legal notice",
+  "pie_privacidad": "Privacy",
+  "pie_idioma": "Language",
+
+  "legal_aviso_titulo": "Legal notice",
+  "legal_privacidad_titulo": "Privacy policy",
+  "legal_actualizado": "Last updated"
+}

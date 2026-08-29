@@ -1,0 +1,16 @@
+{
+  "_comentario": "Datos que se repiten en todo el sitio. Cambiar aquí y volver a ejecutar construir.py.",
+
+  "dominio": "https://apps4all.app",
+  "idioma_por_defecto": "es",
+  "idiomas": ["es", "en", "ca"],
+
+  "correo": "jcgualde@apps4all.app",
+
+  "web3forms_clave": "PENDIENTE-PEGAR-LA-CLAVE-DE-WEB3FORMS",
+
+  "titular": "PENDIENTE — nombre y apellidos o razón social",
+  "nif": "PENDIENTE — NIF o CIF",
+  "domicilio": "PENDIENTE — dirección completa",
+  "fecha_legal": "2026-08-29"
+}

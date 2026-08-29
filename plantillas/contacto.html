@@ -1,0 +1,104 @@
+  <section class="heroe heroe--corto">
+    <div class="contenedor">
+      <p class="antetitulo antetitulo--claro">{{contacto_antetitulo}}</p>
+      <h1>{{contacto_titulo}}</h1>
+      <p class="entradilla entradilla--clara">{{contacto_entradilla}}</p>
+    </div>
+    <div class="heroe__cinta" aria-hidden="true"></div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor contenedor--estrecho">
+
+      <form class="formulario" id="formulario" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="{{web3forms_clave}}">
+        <input type="hidden" name="subject" value="Mensaje desde apps4all.app">
+        <input type="hidden" name="from_name" value="Web apps4all">
+        <input type="checkbox" name="botcheck" class="oculto-visualmente" tabindex="-1" autocomplete="off">
+
+        <div class="campo">
+          <label for="nombre">{{form_nombre}}</label>
+          <input type="text" id="nombre" name="nombre" required autocomplete="name">
+        </div>
+
+        <div class="campo">
+          <label for="correo">{{form_correo}}</label>
+          <input type="email" id="correo" name="email" required autocomplete="email">
+        </div>
+
+        <div class="campo">
+          <label for="asunto">{{form_asunto}}</label>
+          <select id="asunto" name="asunto">
+{{asunto_opciones}}
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">{{form_mensaje}}</label>
+          <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+          <p class="campo__ayuda">{{form_mensaje_ayuda}}</p>
+        </div>
+
+        <div class="campo campo--casilla">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <label for="privacidad">{{form_privacidad}} <a href="{{base}}legal/privacidad/">{{form_privacidad_enlace}}</a>.</label>
+        </div>
+
+        <button class="boton boton--principal" type="submit" id="enviar">{{form_enviar}}</button>
+
+        <p class="formulario__aviso" id="aviso" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="contacto__correo">
+        {{contacto_correo_etiqueta}} <a href="mailto:{{correo}}">{{correo}}</a>
+      </p>
+
+    </div>
+  </section>
+
+<script>
+(function () {
+  var f = document.getElementById('formulario');
+  var boton = document.getElementById('enviar');
+  var aviso = document.getElementById('aviso');
+  var textos = {
+    enviando: {{js_enviando}},
+    ok: {{js_ok}},
+    error: {{js_error}},
+    enviar: {{js_enviar}},
+    correo: {{js_correo}}
+  };
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    boton.disabled = true;
+    boton.textContent = textos.enviando;
+    aviso.className = 'formulario__aviso';
+    aviso.textContent = '';
+
+    fetch(f.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(f)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (datos) {
+        if (datos.success) {
+          f.reset();
+          aviso.className = 'formulario__aviso formulario__aviso--ok';
+          aviso.textContent = textos.ok;
+        } else {
+          throw new Error(datos.message || 'error');
+        }
+      })
+      .catch(function () {
+        aviso.className = 'formulario__aviso formulario__aviso--error';
+        aviso.textContent = textos.error + ' ' + textos.correo;
+      })
+      .finally(function () {
+        boton.disabled = false;
+        boton.textContent = textos.enviar;
+      });
+  });
+})();
+</script>
