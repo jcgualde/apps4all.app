@@ -1,14 +1,28 @@
-name: Desplegar en Hostinger
+name: Publicar la web
 
-# Se ejecuta cada vez que llega un cambio a main, y también a mano desde la
-# pestaña Actions de GitHub (eso es lo que hace workflow_dispatch).
+# Cada vez que llega un cambio a main, se genera el sitio y se deja terminado
+# en la rama `publicado`. De ahí lo recoge Hostinger.
+#
+# Por qué así y no por FTP: el FTP de Hostinger no responde a las conexiones
+# que vienen de los servidores de GitHub. Se intentó sin cifrar y con cifrado,
+# y las dos veces murió con "Timeout (control socket)". Invertir la dirección
+# —que sea Hostinger quien vaya a buscar los archivos— esquiva el bloqueo,
+# porque entonces la llamada la hace el propio servidor de Hostinger.
+#
+# La rama `publicado` no se edita nunca a mano: se reescribe entera en cada
+# publicación y contiene solo el resultado, con el index.html en su raíz.
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+# Necesario para que el robot pueda escribir en la rama `publicado`.
+permissions:
+  contents: write
+
 jobs:
-  desplegar:
+  publicar:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar el repositorio
@@ -19,17 +33,17 @@ jobs:
       - name: Generar el sitio
         run: python3 construir.py
 
-      - name: Subir publico/ por FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./publico/
-          server-dir: public_html/
-          # Hostinger no acepta FTP sin cifrar: la conexión se queda colgada
-          # y el intento muere con "Timeout (control socket)". Con ftps se
-          # usa el mismo puerto 21, pero negociando TLS al conectar.
-          protocol: ftps
-          port: 21
-          timeout: 60000
+      - name: Dejar el resultado en la rama publicado
+        run: |
+          cd publico
+          git init -q -b publicado
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Web generada desde ${GITHUB_SHA::7}"
+          git push -q --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            publicado
+          echo "Publicadas $(git ls-files | wc -l) páginas y archivos en la rama publicado."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
