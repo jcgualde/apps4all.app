@@ -55,8 +55,8 @@
           "texto": "A photo replaces manual data entry. The document arrives already identified and filed, in front of whoever has to deal with it."
         },
         {
-          "titulo": "Nothing to install",
-          "texto": "Web applications that open from a link. No app store, no updates, no training anyone."
+          "titulo": "It opens from a link",
+          "texto": "When the tool is for everyday work, it lives in the browser: it opens from a link, with no app store in the way and nobody to train. And when the case calls for an installable app, we build that instead."
         },
         {
           "titulo": "Fits what you already use",
@@ -69,7 +69,7 @@
         {
           "estado": "In production",
           "titulo": "Receipt capture for an accounting firm",
-          "texto": "The firm's clients photograph their receipts on their phone and they reach the accounting inbox already stamped with the company name and tax number, ready for the accounting software to identify on its own. Nothing to install: one link per person.",
+          "texto": "The firm's clients photograph their receipts on their phone and they reach the accounting inbox already stamped with the company name and tax number, ready for the accounting software to identify on its own. One link per person, with no app store in the way.",
           "detalle": "Web app · Server-side PDF · Bilingual · Automatic mail delivery"
         },
         {
@@ -86,7 +86,7 @@
       "color": "fiestas",
       "nombre": "apps4fiestas",
       "titulo": "Festivals and local events",
-      "resumen": "The programme, announcements and audience participation in every attendee's pocket, with nothing to install.",
+      "resumen": "The programme, announcements and audience participation in every attendee's pocket, one QR code away.",
       "etiqueta": "Seasonal applications",
       "hero_titulo": "The festival, in everyone's pocket.",
       "hero_texto": "A paper programme gets lost, gets wet, and cannot be corrected when it rains and an event moves. A festival app solves that and, along the way, lets the organisers see what is actually working.",
@@ -101,8 +101,8 @@
           "texto": "A notice reaches the people who are out on the street right then, which is when it is worth anything."
         },
         {
-          "titulo": "Nothing to install",
-          "texto": "It opens from a link or a QR code on the poster. Anyone who wants to can save it to their home screen."
+          "titulo": "A QR code on the poster",
+          "texto": "It opens by scanning the poster, and anyone who wants to can save it to their home screen like any other app. If the festival needs a store app, we build that too."
         }
       ],
       "muestras_titulo": "Samples",

@@ -55,8 +55,8 @@
           "texto": "Una foto substitueix la introducció manual. El document arriba ja identificat i ordenat a qui l'ha de tractar."
         },
         {
-          "titulo": "Sense instal·lar res",
-          "texto": "Aplicacions web que s'obren des d'un enllaç. Ni botiga d'aplicacions, ni actualitzacions, ni formar ningú."
+          "titulo": "S'obre amb un enllaç",
+          "texto": "Quan l'eina és per a la feina del dia a dia, va al navegador: s'obre des d'un enllaç, sense passar per la botiga d'aplicacions i sense formar ningú. I quan el cas demana una aplicació instal·lable, la construïm igualment."
         },
         {
           "titulo": "Encaixat amb el que ja fas servir",
@@ -69,7 +69,7 @@
         {
           "estado": "En producció",
           "titulo": "Captura de tiquets per a una gestoria",
-          "texto": "Els clients de la gestoria fotografien els tiquets des del mòbil i arriben a la bústia de comptabilitat ja segellats amb la raó social i el NIF, a punt perquè el programa comptable els identifiqui tot sol. Sense cap aplicació per instal·lar: un enllaç per persona.",
+          "texto": "Els clients de la gestoria fotografien els tiquets des del mòbil i arriben a la bústia de comptabilitat ja segellats amb la raó social i el NIF, a punt perquè el programa comptable els identifiqui tot sol. Un enllaç per persona, sense passar per la botiga d'aplicacions.",
           "detalle": "WebApp · PDF generat al servidor · Bilingüe · Enviament automàtic per correu"
         },
         {
@@ -86,7 +86,7 @@
       "color": "fiestas",
       "nombre": "apps4fiestas",
       "titulo": "Festes i esdeveniments populars",
-      "resumen": "Programa, avisos i participació del públic a la butxaca de cada assistent, sense haver d'instal·lar res.",
+      "resumen": "Programa, avisos i participació del públic a la butxaca de cada assistent, a un codi QR de distància.",
       "etiqueta": "Aplicacions de temporada",
       "hero_titulo": "La festa, a la butxaca de tothom.",
       "hero_texto": "El programa en paper es perd, es mulla i no es pot corregir quan plou i es canvia un acte de lloc. Una aplicació de festes resol això i, de passada, deixa saber a l'organització què està funcionant.",
@@ -101,8 +101,8 @@
           "texto": "Un avís arriba a qui és al carrer en aquell moment, que és quan serveix d'alguna cosa."
         },
         {
-          "titulo": "Sense instal·lar res",
-          "texto": "S'obre des d'un enllaç o un codi QR al cartell. Qui vulgui, se la desa a la pantalla d'inici."
+          "titulo": "Un codi QR al cartell",
+          "texto": "S'obre escanejant el cartell, i qui vulgui se la desa a la pantalla d'inici com una aplicació més. Si la festa necessita una aplicació de les botigues, també la fem."
         }
       ],
       "muestras_titulo": "Mostres",

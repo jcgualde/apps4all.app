@@ -55,8 +55,8 @@
           "texto": "Una foto sustituye a la introducción manual. El documento llega ya identificado y ordenado a quien lo tiene que tratar."
         },
         {
-          "titulo": "Sin instalar nada",
-          "texto": "Aplicaciones web que se abren desde un enlace. Ni tienda de aplicaciones, ni actualizaciones, ni formar a nadie."
+          "titulo": "Se abre con un enlace",
+          "texto": "Cuando la herramienta es para el trabajo del día a día, va en el navegador: se abre desde un enlace, sin pasar por la tienda de aplicaciones y sin formar a nadie. Y cuando el caso pide una aplicación instalable, la construimos igual."
         },
         {
           "titulo": "Encajado en lo que ya usas",
@@ -69,7 +69,7 @@
         {
           "estado": "En producción",
           "titulo": "Captura de tickets para una gestoría",
-          "texto": "Los clientes de la gestoría fotografían sus tickets desde el móvil y llegan al buzón de contabilidad ya sellados con la razón social y el NIF, listos para que el programa contable los identifique solo. Sin aplicación que instalar: un enlace por persona.",
+          "texto": "Los clientes de la gestoría fotografían sus tickets desde el móvil y llegan al buzón de contabilidad ya sellados con la razón social y el NIF, listos para que el programa contable los identifique solo. Un enlace por persona, sin pasar por la tienda de aplicaciones.",
           "detalle": "WebApp · PDF generado en servidor · Bilingüe · Envío automático por correo"
         },
         {
@@ -86,7 +86,7 @@
       "color": "fiestas",
       "nombre": "apps4fiestas",
       "titulo": "Fiestas y eventos populares",
-      "resumen": "Programa, avisos y participación del público en el bolsillo de cada asistente, sin necesidad de instalar nada.",
+      "resumen": "Programa, avisos y participación del público en el bolsillo de cada asistente, a un código QR de distancia.",
       "etiqueta": "Aplicaciones de temporada",
       "hero_titulo": "La fiesta, en el bolsillo de todos.",
       "hero_texto": "El programa en papel se pierde, se moja y no se puede corregir cuando llueve y se cambia un acto de sitio. Una aplicación de fiestas resuelve eso y, de paso, deja saber a la organización qué está funcionando.",
@@ -101,8 +101,8 @@
           "texto": "Un aviso llega a quien está en la calle en ese momento, que es cuando sirve de algo."
         },
         {
-          "titulo": "Sin instalar nada",
-          "texto": "Se abre desde un enlace o un código QR en el cartel. Quien quiera, se la guarda en la pantalla de inicio."
+          "titulo": "Un código QR en el cartel",
+          "texto": "Se abre escaneando el cartel, y quien quiera se la guarda en la pantalla de inicio como una aplicación más. Si la fiesta necesita una aplicación de las tiendas, también la hacemos."
         }
       ],
       "muestras_titulo": "Muestras",
