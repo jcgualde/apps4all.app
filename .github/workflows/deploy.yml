@@ -27,3 +27,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./publico/
           server-dir: public_html/
+          # Hostinger no acepta FTP sin cifrar: la conexión se queda colgada
+          # y el intento muere con "Timeout (control socket)". Con ftps se
+          # usa el mismo puerto 21, pero negociando TLS al conectar.
+          protocol: ftps
+          port: 21
+          timeout: 60000
