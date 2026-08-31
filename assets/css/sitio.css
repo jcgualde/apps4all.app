@@ -125,10 +125,30 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 }
 .cabecera__fila {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 1.5rem; padding: .75rem 0;
+  gap: 1.5rem; padding: 1.125rem 0;
 }
-.cabecera__logo { display: block; line-height: 0; }
-.cabecera__logo img { width: 196px; display: block; }
+
+/* El logotipo se encuadra, no se retoca: el SVG es el de la guía de marca,
+   intacto. Lo que pasa es que su lienzo (420×150) lleva mucho aire alrededor
+   del dibujo, que ocupa 342×110 a partir de 20,20. Puesto tal cual, para que
+   el claim «Crear, añadir, mejorar» se leyera la barra tendría que medir
+   130 px y casi la mitad sería aire.
+   Así que el enlace hace de ventana con las proporciones del dibujo, y la
+   imagen se agranda dentro (420/342 = 122,807 %) y se desplaza para dejar el
+   aire fuera (20/342 = 5,848 %). Los márgenes en porcentaje se calculan
+   siempre sobre el ANCHO del contenedor, el de arriba también, así que el
+   recorte aguanta a cualquier tamaño.
+   Si algún día cambia el SVG, hay que rehacer estos tres números. */
+.cabecera__logo {
+  display: block; overflow: hidden;
+  width: clamp(160px, 50vw, 244px);   /* ancho del dibujo, ya sin el aire */
+  aspect-ratio: 342 / 110;
+}
+.cabecera__logo img {
+  display: block; height: auto;
+  width: 122.807%; max-width: none;
+  margin: -5.848% 0 0 -5.848%;
+}
 
 .navegacion { display: flex; align-items: center; gap: 1.75rem; }
 .navegacion a {
@@ -143,7 +163,14 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 
 @media (max-width: 760px) {
   .navegacion a:not(.boton) { display: none; }
-  .cabecera__logo img { width: 148px; }
+  .cabecera__fila { gap: 1rem; }
+}
+
+/* En pantallas muy estrechas el botón se aprieta para que el logotipo no
+   tenga que encogerse. Sigue midiendo más de 44 px de alto, el mínimo para
+   el dedo. */
+@media (max-width: 420px) {
+  .navegacion a.boton { padding: .6875rem 1.125rem; font-size: .9375rem; }
 }
 
 /* --------------------------------------------------------------------------
