@@ -39,10 +39,10 @@
   "llamada_boton": "Escriu-nos",
   "verticales": [
     {
-      "slug": "comercios",
-      "mono": "a4c",
-      "color": "comercios",
-      "nombre": "apps4comercios",
+      "slug": "business",
+      "mono": "a4b",
+      "color": "business",
+      "nombre": "apps4business",
       "titulo": "Comerços i despatxos",
       "resumen": "Eines per al dia a dia d'un negoci: capturar documents, ordenar comandes, deixar de perseguir papers per correu.",
       "etiqueta": "Aplicacions web i mòbils a mida",
@@ -67,24 +67,36 @@
       "muestras_entradilla": "Feines reals. Els noms de client només hi apareixen amb el seu permís.",
       "muestras": [
         {
-          "estado": "En producció",
+          "estado": "Acabat",
           "titulo": "Captura de tiquets per a una gestoria",
-          "texto": "Els clients de la gestoria fotografien els tiquets des del mòbil i arriben a la bústia de comptabilitat ja segellats amb la raó social i el NIF, a punt perquè el programa comptable els identifiqui tot sol. Un enllaç per persona, sense passar per la botiga d'aplicacions.",
+          "texto": "Els clients de la gestoria fotografien els tiquets des del mòbil i arriben a la bústia de comptabilitat ja segellats amb la raó social i el NIF, a punt perquè el programa comptable els identifiqui sol. Un enllaç per persona, sense passar per la botiga d'aplicacions.",
           "detalle": "WebApp · PDF generat al servidor · Bilingüe · Enviament automàtic per correu"
+        },
+        {
+          "estado": "En ús",
+          "titulo": "Anàlisi de proveïdors en Excel",
+          "texto": "Un full que creua la despesa per proveïdor i treu a la llum el que s'escapa: preus que pugen sense avisar, conceptes duplicats i proveïdors que se solapen. Tot resolt amb fórmules, sense macros ni res per instal·lar.",
+          "detalle": "Excel · Només fórmules · Aprovat i en ús"
+        },
+        {
+          "estado": "Acabat",
+          "titulo": "Generador de quadres de comandament en Excel",
+          "texto": "Una plantilla que converteix una taula de dades corrent en un quadre de comandament amb gràfics i filtres. S'enganxen les dades noves i el plafó s'actualitza sol, sense tocar ni una fórmula.",
+          "detalle": "Excel · Taules dinàmiques · Plantilla reutilitzable"
         },
         {
           "estado": "Exemple",
           "titulo": "El teu cas, aquí",
-          "texto": "Si hi ha una tasca repetitiva que es menja temps cada dia al teu negoci, probablement es pot treure del mig. Explica'ns-la i et direm si té solució i què costaria.",
+          "texto": "Si hi ha una tasca repetitiva que es menja temps cada dia al teu negoci, probablement es pot treure del mig. Explica-nos-la i et diem si té solució i quant costaria.",
           "detalle": "Pressupost sense compromís"
         }
       ]
     },
     {
-      "slug": "fiestas",
-      "mono": "a4f",
-      "color": "fiestas",
-      "nombre": "apps4fiestas",
+      "slug": "events",
+      "mono": "a4e",
+      "color": "events",
+      "nombre": "apps4events",
       "titulo": "Festes i esdeveniments populars",
       "resumen": "Programa, avisos i participació del públic a la butxaca de cada assistent, a un codi QR de distància.",
       "etiqueta": "Aplicacions de temporada",
@@ -123,10 +135,10 @@
       ]
     },
     {
-      "slug": "salud",
-      "mono": "a4s",
-      "color": "salud",
-      "nombre": "apps4salud",
+      "slug": "you",
+      "mono": "a4y",
+      "color": "you",
+      "nombre": "apps4you",
       "titulo": "Salut i hàbits",
       "resumen": "Producte propi. Aplicacions que neixen aquí, sense cap client al darrere, perquè el problema ens va semblar que valia la pena resoldre'l.",
       "etiqueta": "Producte propi",
@@ -237,5 +249,9 @@
   "pie_idioma": "Idioma",
   "legal_aviso_titulo": "Avís legal",
   "legal_privacidad_titulo": "Política de privacitat",
-  "legal_actualizado": "Darrera actualització"
+  "legal_actualizado": "Darrera actualització",
+  "confianza_antetitulo": "Empreses que ens han donat la seva confiança",
+  "confianza_nota": "De moment, una. Un camí comença pel primer pas.",
+  "confianza_logo_alt": "SisquellaGrup",
+  "nav_blog_texto": "Blog"
 }

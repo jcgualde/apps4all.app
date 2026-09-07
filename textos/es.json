@@ -39,10 +39,10 @@
   "llamada_boton": "Escríbenos",
   "verticales": [
     {
-      "slug": "comercios",
-      "mono": "a4c",
-      "color": "comercios",
-      "nombre": "apps4comercios",
+      "slug": "business",
+      "mono": "a4b",
+      "color": "business",
+      "nombre": "apps4business",
       "titulo": "Comercios y despachos",
       "resumen": "Herramientas para el día a día de un negocio: capturar documentos, ordenar pedidos, dejar de perseguir papeles por correo.",
       "etiqueta": "Aplicaciones web y móviles a medida",
@@ -67,10 +67,22 @@
       "muestras_entradilla": "Trabajos reales. Los nombres de cliente solo aparecen con su permiso.",
       "muestras": [
         {
-          "estado": "En producción",
+          "estado": "Terminado",
           "titulo": "Captura de tickets para una gestoría",
           "texto": "Los clientes de la gestoría fotografían sus tickets desde el móvil y llegan al buzón de contabilidad ya sellados con la razón social y el NIF, listos para que el programa contable los identifique solo. Un enlace por persona, sin pasar por la tienda de aplicaciones.",
           "detalle": "WebApp · PDF generado en servidor · Bilingüe · Envío automático por correo"
+        },
+        {
+          "estado": "En uso",
+          "titulo": "Análisis de proveedores en Excel",
+          "texto": "Una hoja que cruza el gasto por proveedor y saca a la luz lo que se escapa: precios que suben sin avisar, conceptos duplicados y proveedores que se solapan. Todo resuelto con fórmulas, sin macros ni nada que instalar.",
+          "detalle": "Excel · Solo fórmulas · Aprobado y en uso"
+        },
+        {
+          "estado": "Terminado",
+          "titulo": "Generador de cuadros de mando en Excel",
+          "texto": "Una plantilla que convierte una tabla de datos corriente en un cuadro de mando con gráficos y filtros. Se pegan los datos nuevos y el panel se actualiza solo, sin tocar ni una fórmula.",
+          "detalle": "Excel · Tablas dinámicas · Plantilla reutilizable"
         },
         {
           "estado": "Ejemplo",
@@ -81,10 +93,10 @@
       ]
     },
     {
-      "slug": "fiestas",
-      "mono": "a4f",
-      "color": "fiestas",
-      "nombre": "apps4fiestas",
+      "slug": "events",
+      "mono": "a4e",
+      "color": "events",
+      "nombre": "apps4events",
       "titulo": "Fiestas y eventos populares",
       "resumen": "Programa, avisos y participación del público en el bolsillo de cada asistente, a un código QR de distancia.",
       "etiqueta": "Aplicaciones de temporada",
@@ -123,10 +135,10 @@
       ]
     },
     {
-      "slug": "salud",
-      "mono": "a4s",
-      "color": "salud",
-      "nombre": "apps4salud",
+      "slug": "you",
+      "mono": "a4y",
+      "color": "you",
+      "nombre": "apps4you",
       "titulo": "Salud y hábitos",
       "resumen": "Producto propio. Aplicaciones que nacen aquí, sin cliente detrás, porque el problema nos parecía que merecía la pena resolverlo.",
       "etiqueta": "Producto propio",
@@ -237,5 +249,15 @@
   "pie_idioma": "Idioma",
   "legal_aviso_titulo": "Aviso legal",
   "legal_privacidad_titulo": "Política de privacidad",
-  "legal_actualizado": "Última actualización"
+  "legal_actualizado": "Última actualización",
+  "confianza_antetitulo": "Empresas que nos han dado su confianza",
+  "confianza_nota": "De momento, una. Un camino se empieza por el primer paso.",
+  "confianza_logo_alt": "SisquellaGrup",
+  "nav_blog_texto": "Blog",
+  "blog_antetitulo": "Blog",
+  "blog_titulo": "Lo que voy aprendiendo.",
+  "blog_entradilla": "Opiniones sobre inteligencia artificial, tutoriales y lo que sale de construir cosas. Se publica en castellano y sin calendario fijo, pero con la intención de que sea cada semana.",
+  "blog_leer": "Leer",
+  "blog_volver": "Todos los artículos",
+  "blog_vacio": "Todavía no hay ningún artículo publicado. El primero está al caer."
 }

@@ -39,10 +39,10 @@
   "llamada_boton": "Write to us",
   "verticales": [
     {
-      "slug": "comercios",
-      "mono": "a4c",
-      "color": "comercios",
-      "nombre": "apps4comercios",
+      "slug": "business",
+      "mono": "a4b",
+      "color": "business",
+      "nombre": "apps4business",
       "titulo": "Shops and small practices",
       "resumen": "Tools for the daily grind of a business: capturing documents, sorting orders, and no longer chasing paperwork by email.",
       "etiqueta": "Tailor-made web and mobile apps",
@@ -67,24 +67,36 @@
       "muestras_entradilla": "Real work. Client names only appear with their permission.",
       "muestras": [
         {
-          "estado": "In production",
-          "titulo": "Receipt capture for an accounting firm",
-          "texto": "The firm's clients photograph their receipts on their phone and they reach the accounting inbox already stamped with the company name and tax number, ready for the accounting software to identify on its own. One link per person, with no app store in the way.",
-          "detalle": "Web app · Server-side PDF · Bilingual · Automatic mail delivery"
+          "estado": "Finished",
+          "titulo": "Receipt capture for an accountancy firm",
+          "texto": "Clients photograph their receipts from their phone and they reach the accounts inbox already stamped with the company name and tax number, ready for the accounting software to file on its own. One link per person, no app store involved.",
+          "detalle": "Web app · Server-side PDF · Bilingual · Automatic email delivery"
+        },
+        {
+          "estado": "In use",
+          "titulo": "Supplier analysis in Excel",
+          "texto": "A spreadsheet that cross-checks spending by supplier and surfaces what slips through: prices that creep up unannounced, duplicated items and suppliers that overlap. Formulas only, no macros, nothing to install.",
+          "detalle": "Excel · Formulas only · Approved and in use"
+        },
+        {
+          "estado": "Finished",
+          "titulo": "Dashboard builder in Excel",
+          "texto": "A template that turns an ordinary data table into a dashboard with charts and filters. Paste in new data and the panel updates itself, without touching a single formula.",
+          "detalle": "Excel · Pivot tables · Reusable template"
         },
         {
           "estado": "Example",
           "titulo": "Your case, here",
-          "texto": "If there is a repetitive task eating time every day in your business, it can probably be taken out of the way. Tell us about it and we will say whether it can be fixed and what it would cost.",
-          "detalle": "Free quote"
+          "texto": "If there is a repetitive task eating time every day in your business, it can probably be taken off your hands. Tell us about it and we will say whether it can be fixed and what it would cost.",
+          "detalle": "Free quote, no strings"
         }
       ]
     },
     {
-      "slug": "fiestas",
-      "mono": "a4f",
-      "color": "fiestas",
-      "nombre": "apps4fiestas",
+      "slug": "events",
+      "mono": "a4e",
+      "color": "events",
+      "nombre": "apps4events",
       "titulo": "Festivals and local events",
       "resumen": "The programme, announcements and audience participation in every attendee's pocket, one QR code away.",
       "etiqueta": "Seasonal applications",
@@ -123,10 +135,10 @@
       ]
     },
     {
-      "slug": "salud",
-      "mono": "a4s",
-      "color": "salud",
-      "nombre": "apps4salud",
+      "slug": "you",
+      "mono": "a4y",
+      "color": "you",
+      "nombre": "apps4you",
       "titulo": "Health and habits",
       "resumen": "Our own product. Applications born here, with no client behind them, because the problem seemed worth solving.",
       "etiqueta": "Own product",
@@ -237,5 +249,9 @@
   "pie_idioma": "Language",
   "legal_aviso_titulo": "Legal notice",
   "legal_privacidad_titulo": "Privacy policy",
-  "legal_actualizado": "Last updated"
+  "legal_actualizado": "Last updated",
+  "confianza_antetitulo": "Companies that have placed their trust in us",
+  "confianza_nota": "One, for now. Every road starts with a first step.",
+  "confianza_logo_alt": "SisquellaGrup",
+  "nav_blog_texto": "Blog"
 }

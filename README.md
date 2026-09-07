@@ -45,6 +45,80 @@ Y abrir <http://localhost:4322>.
 ejecución de `construir.py`; cualquier cambio hecho ahí se pierde. Por eso está
 en `.gitignore`.
 
+## Cómo escribir un artículo del blog
+
+El blog está **solo en castellano**, a propósito: si hubiera que escribir cada
+artículo tres veces, no se escribiría ninguno.
+
+Para publicar uno nuevo hay que hacer dos cosas.
+
+**1. Crear el archivo.** Va en la carpeta `articulos/`, con la extensión
+`.md`, y el nombre empieza por la fecha para que se ordenen solos:
+
+```
+articulos/2026-09-14-lo-que-sea.md
+```
+
+Lo que va detrás de la fecha es la dirección que tendrá en la web. En el
+ejemplo sería `apps4all.app/es/blog/lo-que-sea/`. Sin acentos, sin eñes y sin
+espacios: guiones.
+
+**2. Escribirlo.** Arriba van los datos, después una línea con tres guiones, y
+debajo el texto:
+
+```
+titulo: Lo que sea
+fecha: 2026-09-14
+resumen: Una o dos frases. Es lo que se lee en el listado del blog.
+borrador: no
+---
+Aquí empieza el artículo.
+```
+
+Los cuatro datos de arriba son obligatorios menos `borrador`. Si pones
+`borrador: si`, el artículo se queda en el ordenador y no sale en la web: sirve
+para ir escribiendo sin publicar.
+
+### Cómo dar formato al texto
+
+No hace falta escribir HTML. Basta con esto:
+
+| Se escribe | Sale |
+|---|---|
+| Una línea en blanco entre bloques | Un párrafo nuevo |
+| `## Titular` | Un título de sección |
+| `### Titular` | Un título más pequeño |
+| `- cosa` (varias líneas seguidas) | Una lista de puntos |
+| `> frase` | Una cita destacada |
+| `**importante**` | **negrita** |
+| `*matiz*` | *cursiva* |
+| `` `código` `` | Texto en monoespaciada |
+| `[texto](https://ejemplo.com)` | Un enlace |
+
+Cualquier otra cosa se escribe tal cual y sale como un párrafo normal.
+
+### Sobre el estilo
+
+Los artículos los escribe él, no Claude. Existe una skill personal,
+`mi-estilo`, sacada de leer 145 mensajes suyos, que describe cómo escribe
+y qué tics de IA hay que quitar. Se activa sola al redactar o revisar
+cualquier texto que salga con su nombre.
+
+El reparto normal es: él manda el borrador y Claude corrige ortografía,
+parte párrafos largos y señala lo que no se entiende, **sin reescribir las
+frases que ya funcionan**. El blog existe para que coja el hábito de
+escribir; si se lo escribe Claude, deja de servir para eso.
+
+### Para verlo antes de publicar
+
+```
+python construir.py
+```
+
+Y abrir `publico/es/blog/` en el navegador. Si algo del archivo está mal
+—falta la línea de tres guiones, o falta el título— el programa lo dice por
+pantalla al construir y se salta ese artículo, en vez de romperse.
+
 ## Cómo se publica
 
 `git push` a `main`. GitHub Actions ejecuta `construir.py` y sube `publico/` a

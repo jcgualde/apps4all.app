@@ -1,0 +1,22 @@
+  <!-- BLOG: un articulo -->
+  <article class="articulo">
+    <header class="articulo__cabecera">
+      <div class="contenedor contenedor--estrecho">
+        <p class="antetitulo">
+          <a class="articulo__volver" href="{{base}}blog/">&larr; {{blog_volver}}</a>
+        </p>
+        <h1>{{articulo_titulo}}</h1>
+        <p class="articulo__fecha">
+          <time datetime="{{articulo_fecha_iso}}">{{articulo_fecha}}</time>
+        </p>
+      </div>
+    </header>
+
+    <div class="contenedor contenedor--estrecho articulo__cuerpo">
+{{articulo_cuerpo}}
+    </div>
+
+    <footer class="contenedor contenedor--estrecho articulo__pie">
+      <a class="boton boton--principal" href="{{base}}contacto/">{{nav_contacto}}</a>
+    </footer>
+  </article>

@@ -16,3 +16,7 @@ credenciales*
 Thumbs.db
 .DS_Store
 *.zip
+
+# Material de trabajo de los artículos: notas, citas sin verificar, apuntes
+# internos. El repositorio es PÚBLICO, así que esto no sale de aquí.
+articulos/_material/

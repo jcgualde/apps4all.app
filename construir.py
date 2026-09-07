@@ -25,6 +25,7 @@ from pathlib import Path
 RAIZ = Path(__file__).parent
 PLANTILLAS = RAIZ / "plantillas"
 TEXTOS = RAIZ / "textos"
+ARTICULOS = RAIZ / "articulos"
 SALIDA = RAIZ / "publico"
 
 
@@ -68,6 +69,116 @@ def huella(ruta):
     se ve el cambio".
     """
     return hashlib.sha256(ruta.read_bytes()).hexdigest()[:8]
+
+
+# --------------------------------------------------------------------------
+# Blog
+#
+# Cada artículo es un archivo de texto en la carpeta `articulos/`. Arriba van
+# los datos, luego una línea con tres guiones, y debajo el texto. Así:
+#
+#     titulo: Lo que aprendí con las licencias de las fotos
+#     fecha: 2026-09-07
+#     resumen: Una frase que se lee en el listado.
+#     borrador: no
+#     ---
+#     El texto del artículo empieza aquí.
+#
+# El cuerpo admite un markdown reducido a lo imprescindible, para escribir sin
+# pelearse con etiquetas: `##` y `###` para títulos, `- ` para listas, `> `
+# para citas, **negrita**, *cursiva*, `código` y [texto](enlace).
+#
+# Poner `borrador: si` deja el artículo fuera de la web sin borrarlo.
+# --------------------------------------------------------------------------
+
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+         "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def escapar_html(t):
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def sobre_la_linea(t):
+    """Lo que se sustituye dentro de una línea: negritas, enlaces y demás."""
+    t = escapar_html(t)
+    t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', t)
+    t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
+    t = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", t)
+    return t
+
+
+def md_a_html(cuerpo):
+    """Convierte el texto del artículo en HTML. A propósito hace poco: si
+    algún día hace falta más, se añade aquí y punto."""
+    salida = []
+    for bloque in re.split(r"\n\s*\n", cuerpo.strip()):
+        lineas = [l.rstrip() for l in bloque.strip().split("\n") if l.strip()]
+        if not lineas:
+            continue
+        if all(l.startswith("- ") for l in lineas):
+            items = "".join("<li>%s</li>" % sobre_la_linea(l[2:]) for l in lineas)
+            salida.append("<ul>%s</ul>" % items)
+        elif all(l.startswith(">") for l in lineas):
+            texto = " ".join(l.lstrip("> ").strip() for l in lineas)
+            salida.append("<blockquote><p>%s</p></blockquote>" % sobre_la_linea(texto))
+        elif lineas[0].startswith("### "):
+            salida.append("<h3>%s</h3>" % sobre_la_linea(lineas[0][4:]))
+        elif lineas[0].startswith("## "):
+            salida.append("<h2>%s</h2>" % sobre_la_linea(lineas[0][3:]))
+        else:
+            salida.append("<p>%s</p>" % sobre_la_linea(" ".join(lineas)))
+    return "\n".join("      " + s for s in salida)
+
+
+def fecha_larga(iso):
+    anyo, mes, dia = iso.split("-")
+    return "%d de %s de %s" % (int(dia), MESES[int(mes) - 1], anyo)
+
+
+def leer_articulos():
+    """Lee la carpeta de artículos y los devuelve del más nuevo al más viejo."""
+    if not ARTICULOS.is_dir():
+        return []
+    fichas = []
+    for ruta in sorted(ARTICULOS.glob("*.md")):
+        crudo = ruta.read_text(encoding="utf-8").replace("\r\n", "\n")
+        cabecera, separador, cuerpo = crudo.partition("\n---\n")
+        if not separador:
+            print("  AVISO — %s no tiene la línea de tres guiones; se salta." % ruta.name)
+            continue
+        datos = {}
+        for linea in cabecera.strip().split("\n"):
+            if ":" in linea:
+                clave, valor = linea.split(":", 1)
+                datos[clave.strip()] = valor.strip()
+        faltan = [c for c in ("titulo", "fecha", "resumen") if not datos.get(c)]
+        if faltan:
+            print("  AVISO — a %s le faltan datos: %s. Se salta." % (ruta.name, ", ".join(faltan)))
+            continue
+        if datos.get("borrador", "no").lower() in ("si", "sí", "yes", "true"):
+            continue
+        datos["slug"] = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", ruta.stem)
+        datos["cuerpo"] = md_a_html(cuerpo)
+        datos["fecha_larga"] = fecha_larga(datos["fecha"])
+        fichas.append(datos)
+    fichas.sort(key=lambda d: d["fecha"], reverse=True)
+    return fichas
+
+
+def tarjeta_articulo(a, base, texto_enlace):
+    return f"""        <li class="articulos__ficha">
+          <a href="{base}blog/{a['slug']}/">
+            <p class="articulos__fecha">
+              <time datetime="{a['fecha']}">{a['fecha_larga']}</time>
+            </p>
+            <h2>{a['titulo']}</h2>
+            <p class="articulos__resumen">{a['resumen']}</p>
+            <span class="tarjeta__flecha">{texto_enlace} &rarr;</span>
+          </a>
+        </li>
+"""
 
 
 def escribir(ruta_relativa, contenido):
@@ -142,6 +253,8 @@ def selector_idioma(idiomas, actual, ruta_sin_idioma, nombres):
 
 
 def alternates(idiomas, ruta_sin_idioma, por_defecto, dominio):
+    if por_defecto not in idiomas:
+        por_defecto = idiomas[0]
     filas = [
         f'<link rel="alternate" hreflang="{c}" href="{dominio}/{c}/{ruta_sin_idioma}">'
         for c in idiomas
@@ -174,6 +287,8 @@ def construir():
     t_vertical = leer_plantilla("vertical.html")
     t_contacto = leer_plantilla("contacto.html")
     t_legal = leer_plantilla("legal.html")
+    t_blog = leer_plantilla("blog.html")
+    t_articulo = leer_plantilla("articulo.html")
 
     # Se vacía el contenido en lugar de borrar la carpeta: si hay un servidor
     # local levantado sobre ella, Windows la tiene bloqueada y rmtree falla.
@@ -183,8 +298,15 @@ def construir():
 
     rutas_sitemap = []
 
-    def pagina(codigo, ruta_sin_idioma, contenido, titulo, clase_body=""):
-        """Envuelve un contenido en base.html y lo escribe en su carpeta."""
+    def pagina(codigo, ruta_sin_idioma, contenido, titulo, clase_body="",
+               idiomas_pagina=None):
+        """Envuelve un contenido en base.html y lo escribe en su carpeta.
+
+        `idiomas_pagina` dice en que idiomas existe esta pagina concreta.
+        Por defecto, en todos. El blog solo existe en castellano, y si no
+        se acota, las etiquetas hreflang y el selector de idioma apuntan a
+        direcciones que devuelven un 404."""
+        disponibles = idiomas_pagina or idiomas
         t = textos[codigo]
         ruta = f"/{codigo}/{ruta_sin_idioma}"
         valores = dict(t)
@@ -196,9 +318,12 @@ def construir():
             "v_marca": v_marca,
             "v_sitio": v_sitio,
             "clase_body": clase_body,
+            "nav_blog": (
+                f'<a href="/es/blog/">{t["nav_blog_texto"]}</a>'
+                if codigo == "es" else ""),
             "contenido": contenido,
-            "alternates": alternates(idiomas, ruta_sin_idioma, por_defecto, dominio),
-            "selector_idioma": selector_idioma(idiomas, codigo, ruta_sin_idioma, nombres_idioma),
+            "alternates": alternates(disponibles, ruta_sin_idioma, por_defecto, dominio),
+            "selector_idioma": selector_idioma(disponibles, codigo, ruta_sin_idioma, nombres_idioma),
         })
         html = rellenar(base_html, {k: v for k, v in valores.items() if isinstance(v, str)})
         escribir(f"{codigo}/{ruta_sin_idioma}index.html", html)
@@ -239,6 +364,35 @@ def construir():
             })
             pagina(codigo, f"{v['slug']}/", contenido,
                    f"{v['nombre']} — {v['titulo']} · apps4all", f"pagina-{v['slug']}")
+
+        # --- Blog (solo en castellano) ---
+        # Decidido el 07/09/2026: los artículos van solo en castellano. Si
+        # hubiera que escribirlos tres veces no se escribiría ninguno, y lo
+        # que se busca aquí es el hábito de publicar cada semana.
+        if codigo == "es":
+            articulos = leer_articulos()
+            lista = "".join(tarjeta_articulo(a, base, t["blog_leer"]) for a in articulos)
+            if not lista:
+                lista = f'        <li class="articulos__vacio">{t["blog_vacio"]}</li>\n'
+            contenido = rellenar(t_blog, {
+                **{k: v for k, v in t.items() if isinstance(v, str)},
+                "base": base,
+                "lista_articulos": lista,
+            })
+            pagina(codigo, "blog/", contenido, f'{t["blog_titulo"]} · apps4all', "pagina-blog", idiomas_pagina=["es"])
+
+            for a in articulos:
+                contenido = rellenar(t_articulo, {
+                    **{k: v for k, v in t.items() if isinstance(v, str)},
+                    "base": base,
+                    "articulo_titulo": a["titulo"],
+                    "articulo_fecha": a["fecha_larga"],
+                    "articulo_fecha_iso": a["fecha"],
+                    "articulo_cuerpo": a["cuerpo"],
+                })
+                pagina(codigo, f"blog/{a['slug']}/", contenido,
+                       f'{a["titulo"]} · apps4all', "pagina-articulo",
+                       idiomas_pagina=["es"])
 
         # --- Contacto ---
         opciones = "\n".join(
