@@ -1,6 +1,5 @@
 {
   "_comentario": "Textos legales. {{titular}}, {{nif}}, {{domicilio}}, {{correo}} y {{dominio}} se rellenan desde config.json.",
-
   "es": {
     "aviso": [
       "<h2>Titular del sitio</h2>",
@@ -32,9 +31,30 @@
       "<p>Este sitio <strong>no utiliza cookies</strong> ni herramientas de analítica o publicidad de terceros. No hay rastreo, y por eso no verás ningún aviso de consentimiento.</p>",
       "<h2>Tus derechos</h2>",
       "<p>Puedes pedir acceso a tus datos, su rectificación o su supresión, así como oponerte al tratamiento o solicitar su limitación o portabilidad, escribiendo a <a href=\"mailto:{{correo}}\">{{correo}}</a>. Si consideras que no se han atendido tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>"
+    ],
+    "privacidad_a4h": [
+      "<p>a4h (apps4habits) es una aplicación para crear hábitos. Cada hábito es una foto partida en piezas y cada día cumplido pone una. La hace apps4all, es decir, {{titular}}, con NIF {{nif}} y domicilio en {{domicilio}}. Para cualquier duda sobre tus datos puedes escribir a <a href=\"mailto:{{correo}}\">{{correo}}</a>.</p>",
+      "<h2>Lo importante, en dos líneas</h2>",
+      "<p>La aplicación no tiene cuenta de usuario, no pide registro y no envía nada a ningún servidor nuestro. Todo lo que haces en ella se guarda en tu móvil y solo ahí.</p>",
+      "<h2>Qué datos guarda y dónde</h2>",
+      "<p>Guarda los hábitos que creas, los días que los cumples, las fotos que eliges para ellos y tus ajustes (la hora del aviso, el tema, los interruptores de juego). Todo eso vive en la carpeta privada de la aplicación dentro de tu móvil. Nosotros no lo vemos ni podemos verlo.</p>",
+      "<p>Si pones una foto tuya a un hábito, la aplicación guarda una copia recortada en esa misma carpeta privada. No sube la foto a ningún sitio. Para elegirla usa el selector de fotos de Android, que no nos da acceso al resto de tu galería.</p>",
+      "<h2>Permisos que pide</h2>",
+      "<p>Solo uno: mostrar notificaciones, y solo si tú eliges una hora de aviso. El aviso lo programa el propio móvil; no hay ningún servidor detrás. Puedes quitarlo en Opciones o en los ajustes de Android cuando quieras.</p>",
+      "<h2>Lo que no hace</h2>",
+      "<p>No usa herramientas de analítica ni publicidad. No hay rastreo, no hay identificadores de usuario y no compartimos nada con terceros, porque no tenemos nada que compartir.</p>",
+      "<h2>Copias de seguridad</h2>",
+      "<p>En Opciones puedes exportar tus datos a un archivo y guardarlo donde quieras (tu correo, tu nube, otro móvil). Ese archivo es tuyo y va donde tú lo mandes; nosotros no lo recibimos.</p>",
+      "<h2>Compras</h2>",
+      "<p>Si la aplicación se descarga de Google Play y compras la versión premium, el pago lo gestiona Google Play con sus propias condiciones y su política de privacidad. Nosotros no vemos tus datos de pago.</p>",
+      "<h2>Cómo borrar tus datos</h2>",
+      "<p>Borra un hábito desde la propia aplicación, o desinstálala: con ella se van todos los datos, incluidas las fotos que hayas puesto. No queda nada en ningún otro sitio.</p>",
+      "<h2>Tus derechos</h2>",
+      "<p>Como no tratamos tus datos, no hay nada que pedirnos que rectifiquemos o borremos: lo tienes todo tú en el móvil. Aun así, si tienes cualquier pregunta, escríbenos a <a href=\"mailto:{{correo}}\">{{correo}}</a>. Si crees que no hemos respetado tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>",
+      "<h2>Cambios en esta política</h2>",
+      "<p>Si la aplicación cambia y empieza a tratar datos de otra manera, esta página cambiará antes, y lo diremos en la propia aplicación. La fecha de arriba indica la última versión.</p>"
     ]
   },
-
   "en": {
     "aviso": [
       "<h2>Site owner</h2>",
@@ -66,9 +86,30 @@
       "<p>This site uses <strong>no cookies</strong> and no third-party analytics or advertising tools. There is no tracking, which is why you will never see a consent banner.</p>",
       "<h2>Your rights</h2>",
       "<p>You may request access to your data, its correction or deletion, and you may object to processing or ask for it to be restricted or ported, by writing to <a href=\"mailto:{{correo}}\">{{correo}}</a>. If you believe your rights have not been respected, you can complain to the Spanish Data Protection Agency (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>"
+    ],
+    "privacidad_a4h": [
+      "<p>a4h (apps4habits) is an app for building habits. Each habit is a photo split into pieces, and every day you keep it you place one. It is made by apps4all, that is, {{titular}}, tax ID {{nif}}, address {{domicilio}}. For any question about your data, write to <a href=\"mailto:{{correo}}\">{{correo}}</a>.</p>",
+      "<h2>The short version</h2>",
+      "<p>The app has no user account, asks for no sign-up and sends nothing to any server of ours. Everything you do in it is stored on your phone and only there.</p>",
+      "<h2>What it stores and where</h2>",
+      "<p>It stores the habits you create, the days you keep them, the photos you choose for them and your settings (reminder time, theme, game switches). All of that lives in the app's private folder on your phone. We do not see it and cannot see it.</p>",
+      "<p>If you use a photo of your own for a habit, the app keeps a cropped copy in that same private folder. It does not upload the photo anywhere. To pick it, it uses the Android photo picker, which does not give us access to the rest of your gallery.</p>",
+      "<h2>Permissions</h2>",
+      "<p>Just one: showing notifications, and only if you choose a reminder time. The reminder is scheduled by the phone itself; there is no server behind it. You can turn it off in Options or in Android settings at any time.</p>",
+      "<h2>What it does not do</h2>",
+      "<p>No analytics, no advertising. No tracking, no user identifiers, and we share nothing with third parties, because there is nothing to share.</p>",
+      "<h2>Backups</h2>",
+      "<p>In Options you can export your data to a file and keep it wherever you like (your email, your cloud, another phone). That file is yours and goes where you send it; we do not receive it.</p>",
+      "<h2>Purchases</h2>",
+      "<p>If you install the app from Google Play and buy the premium version, the payment is handled by Google Play under its own terms and privacy policy. We do not see your payment details.</p>",
+      "<h2>Deleting your data</h2>",
+      "<p>Delete a habit from within the app, or uninstall the app: all data goes with it, including any photos you added. Nothing remains anywhere else.</p>",
+      "<h2>Your rights</h2>",
+      "<p>Since we do not process your data, there is nothing to ask us to correct or delete: it is all on your phone. Still, if you have any question, write to <a href=\"mailto:{{correo}}\">{{correo}}</a>. If you believe your rights have not been respected, you can file a complaint with the Spanish Data Protection Agency (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>",
+      "<h2>Changes to this policy</h2>",
+      "<p>If the app changes and starts handling data differently, this page will change first, and we will say so in the app. The date above shows the latest version.</p>"
     ]
   },
-
   "ca": {
     "aviso": [
       "<h2>Titular del lloc</h2>",
@@ -100,6 +141,28 @@
       "<p>Aquest lloc <strong>no utilitza galetes</strong> ni eines d'analítica o publicitat de tercers. No hi ha rastreig, i per això no veuràs cap avís de consentiment.</p>",
       "<h2>Els teus drets</h2>",
       "<p>Pots demanar accés a les teves dades, la rectificació o la supressió, i també oposar-te al tractament o sol·licitar-ne la limitació o portabilitat, escrivint a <a href=\"mailto:{{correo}}\">{{correo}}</a>. Si consideres que no s'han atès els teus drets, pots reclamar davant l'Agència Espanyola de Protecció de Dades (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>"
+    ],
+    "privacidad_a4h": [
+      "<p>a4h (apps4habits) és una aplicació per crear hàbits. Cada hàbit és una foto partida en peces i cada dia complert en posa una. La fa apps4all, és a dir, {{titular}}, amb NIF {{nif}} i domicili a {{domicilio}}. Per a qualsevol dubte sobre les teves dades pots escriure a <a href=\"mailto:{{correo}}\">{{correo}}</a>.</p>",
+      "<h2>L'important, en dues línies</h2>",
+      "<p>L'aplicació no té compte d'usuari, no demana registre i no envia res a cap servidor nostre. Tot el que hi fas es guarda al teu mòbil i només allà.</p>",
+      "<h2>Quines dades guarda i on</h2>",
+      "<p>Guarda els hàbits que crees, els dies que els compleixes, les fotos que tries per a ells i els teus ajustos (l'hora de l'avís, el tema, els interruptors de joc). Tot això viu a la carpeta privada de l'aplicació dins del teu mòbil. Nosaltres no ho veiem ni ho podem veure.</p>",
+      "<p>Si poses una foto teva a un hàbit, l'aplicació en guarda una còpia retallada en aquesta mateixa carpeta privada. No puja la foto enlloc. Per triar-la fa servir el selector de fotos d'Android, que no ens dona accés a la resta de la teva galeria.</p>",
+      "<h2>Permisos que demana</h2>",
+      "<p>Només un: mostrar notificacions, i només si tu tries una hora d'avís. L'avís el programa el mateix mòbil; no hi ha cap servidor al darrere. Pots treure'l a Opcions o als ajustos d'Android quan vulguis.</p>",
+      "<h2>El que no fa</h2>",
+      "<p>No fa servir eines d'analítica ni publicitat. No hi ha rastreig, no hi ha identificadors d'usuari i no compartim res amb tercers, perquè no tenim res a compartir.</p>",
+      "<h2>Còpies de seguretat</h2>",
+      "<p>A Opcions pots exportar les teves dades a un fitxer i guardar-lo on vulguis (el teu correu, el teu núvol, un altre mòbil). Aquest fitxer és teu i va on tu l'enviïs; nosaltres no el rebem.</p>",
+      "<h2>Compres</h2>",
+      "<p>Si l'aplicació es descarrega de Google Play i compres la versió premium, el pagament el gestiona Google Play amb les seves pròpies condicions i la seva política de privacitat. Nosaltres no veiem les teves dades de pagament.</p>",
+      "<h2>Com esborrar les teves dades</h2>",
+      "<p>Esborra un hàbit des de la mateixa aplicació, o desinstal·la-la: amb ella se'n van totes les dades, incloses les fotos que hi hagis posat. No queda res enlloc més.</p>",
+      "<h2>Els teus drets</h2>",
+      "<p>Com que no tractem les teves dades, no hi ha res que ens hagis de demanar rectificar o esborrar: ho tens tot tu al mòbil. Tot i així, si tens qualsevol pregunta, escriu-nos a <a href=\"mailto:{{correo}}\">{{correo}}</a>. Si creus que no hem respectat els teus drets, pots reclamar davant l'Agència Espanyola de Protecció de Dades (<a href=\"https://www.aepd.es\" rel=\"noopener\">www.aepd.es</a>).</p>",
+      "<h2>Canvis en aquesta política</h2>",
+      "<p>Si l'aplicació canvia i comença a tractar dades d'una altra manera, aquesta pàgina canviarà abans, i ho direm a la mateixa aplicació. La data de dalt indica l'última versió.</p>"
     ]
   }
 }

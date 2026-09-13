@@ -423,6 +423,8 @@ def construir():
         for clave, slug, titulo in (
             ("aviso", "legal/aviso-legal/", t["legal_aviso_titulo"]),
             ("privacidad", "legal/privacidad/", t["legal_privacidad_titulo"]),
+            # La de a4h: Google Play exige una URL de política por app.
+            ("privacidad_a4h", "legal/privacidad-a4h/", t["legal_privacidad_a4h_titulo"]),
         ):
             cuerpo = rellenar("\n".join(legales[codigo][clave]), datos_legales)
             contenido = rellenar(t_legal, {
