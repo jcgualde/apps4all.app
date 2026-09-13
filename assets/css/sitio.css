@@ -151,18 +151,42 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 }
 
 .navegacion { display: flex; align-items: center; gap: 1.75rem; }
-.navegacion a {
+.navegacion > a {
   color: var(--a4a-tinta); text-decoration: none;
   font-size: .9375rem; font-weight: 500;
 }
-.navegacion a:hover { color: var(--a4a-azul); }
+.navegacion > a:hover { color: var(--a4a-azul); }
 /* El botón de la cabecera va en tinta y no en azul: el logotipo está justo
    al lado y la marca pide que el azul no compita con él. */
 .navegacion a.boton--tinta,
 .navegacion a.boton--tinta:hover { color: var(--a4a-blanco); }
 
+/* Selector de idioma de la cabecera: un globo con el código del idioma que
+   despliega los otros dos. Va antes del botón de contacto y se queda
+   también en el móvil, que es donde más falta hace. */
+.idioma-cabecera { position: relative; }
+.idioma-cabecera summary {
+  display: inline-flex; align-items: center; gap: .375rem; min-height: 44px;
+  padding: .375rem .5rem; border-radius: 999px; cursor: pointer;
+  list-style: none; color: var(--a4a-tinta);
+  font-size: .875rem; font-weight: 600; letter-spacing: .04em;
+}
+.idioma-cabecera summary::-webkit-details-marker { display: none; }
+.idioma-cabecera summary:hover, .idioma-cabecera[open] summary { color: var(--a4a-azul); }
+.idioma-cabecera__menu {
+  position: absolute; right: 0; top: calc(100% + .25rem); z-index: 20;
+  min-width: 10rem; padding: .375rem;
+  background: var(--a4a-blanco); border: 1px solid var(--borde);
+  border-radius: 12px; box-shadow: 0 8px 24px rgba(18, 20, 28, .12);
+}
+.idioma-cabecera__menu a {
+  display: block; padding: .625rem .875rem; border-radius: 8px;
+  color: var(--a4a-tinta); font-weight: 500; text-decoration: none;
+}
+.idioma-cabecera__menu a:hover { background: var(--fondo-suave, #f3f4f6); color: var(--a4a-tinta); }
+
 @media (max-width: 760px) {
-  .navegacion a:not(.boton) { display: none; }
+  .navegacion > a:not(.boton) { display: none; }
   .cabecera__fila { gap: 1rem; }
 }
 

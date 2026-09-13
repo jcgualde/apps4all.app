@@ -252,6 +252,27 @@ def selector_idioma(idiomas, actual, ruta_sin_idioma, nombres):
     return "\n      ".join(partes)
 
 
+def selector_idioma_cabecera(idiomas, actual, ruta_sin_idioma, nombres, etiqueta):
+    """El selector de arriba: un globo con el idioma actual que despliega los
+    demas. Es un <details>, asi que funciona sin JavaScript. Si la pagina solo
+    existe en un idioma (el blog), no se pinta."""
+    if len(idiomas) < 2:
+        return ""
+    otros = "".join(
+        f'<a hreflang="{c}" lang="{c}" href="/{c}/{ruta_sin_idioma}">{nombres[c]}</a>'
+        for c in idiomas if c != actual
+    )
+    globo = ('<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+             'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'
+             '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>')
+    return (
+        f'<details class="idioma-cabecera">'
+        f'<summary aria-label="{etiqueta}">{globo}<span>{actual.upper()}</span></summary>'
+        f'<div class="idioma-cabecera__menu">{otros}</div>'
+        f'</details>'
+    )
+
+
 def alternates(idiomas, ruta_sin_idioma, por_defecto, dominio):
     if por_defecto not in idiomas:
         por_defecto = idiomas[0]
@@ -324,6 +345,7 @@ def construir():
             "contenido": contenido,
             "alternates": alternates(disponibles, ruta_sin_idioma, por_defecto, dominio),
             "selector_idioma": selector_idioma(disponibles, codigo, ruta_sin_idioma, nombres_idioma),
+            "selector_idioma_cabecera": selector_idioma_cabecera(disponibles, codigo, ruta_sin_idioma, nombres_idioma, t["pie_idioma"]),
         })
         html = rellenar(base_html, {k: v for k, v in valores.items() if isinstance(v, str)})
         escribir(f"{codigo}/{ruta_sin_idioma}index.html", html)
