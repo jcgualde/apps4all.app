@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · apps4all</title>
+<meta name="description" content="Estudio de aplicaciones a medida para comercios, fiestas populares y salud. Crear, añadir, mejorar.">
+<link rel="canonical" href="https://apps4all.app/es/contacto/">
+<link rel="alternate" hreflang="es" href="https://apps4all.app/es/contacto/">
+<link rel="alternate" hreflang="en" href="https://apps4all.app/en/contacto/">
+<link rel="alternate" hreflang="ca" href="https://apps4all.app/ca/contacto/">
+<link rel="alternate" hreflang="x-default" href="https://apps4all.app/es/contacto/">
+<link rel="icon" href="/assets/marca/a4a-icono-minimo-4.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/a4a-brand.css?v=0d51f91b">
+<link rel="stylesheet" href="/assets/css/sitio.css?v=7239dceb">
+</head>
+<body class="">
+
+<a class="saltar" href="#contenido">Ir al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="/es/" aria-label="apps4all — inicio">
+      <img src="/assets/marca/a4a-logotipo-horizontal.svg" alt="apps4all">
+    </a>
+    <nav class="navegacion" aria-label="Qué hacemos">
+      <a href="/es/#lineas">Qué hacemos</a>
+      <a href="/es/#como">Cómo trabajamos</a>
+      <a href="/es/blog/">Blog</a>
+      <a class="boton boton--tinta" href="/es/contacto/">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="heroe heroe--corto">
+    <div class="contenedor">
+      <p class="antetitulo">Contacto</p>
+      <h1>Cuéntanos qué necesitas.</h1>
+      <p class="entradilla">Cuatro líneas bastan para empezar. Contestamos en horas, no en semanas. Si tu caso no es para nosotros, te lo decimos y te ahorramos el tiempo.</p>
+    </div>
+    <div class="heroe__cinta" aria-hidden="true"></div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor contenedor--estrecho">
+
+      <form class="formulario" id="formulario" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="PENDIENTE-PEGAR-LA-CLAVE-DE-WEB3FORMS">
+        <input type="hidden" name="subject" value="Mensaje desde apps4all.app">
+        <input type="hidden" name="from_name" value="Web apps4all">
+        <input type="checkbox" name="botcheck" class="oculto-visualmente" tabindex="-1" autocomplete="off">
+
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required autocomplete="name">
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="email" required autocomplete="email">
+        </div>
+
+        <div class="campo">
+          <label for="asunto">Asunto</label>
+          <select id="asunto" name="asunto">
+            <option value="Un encargo para mi negocio">Un encargo para mi negocio</option>
+            <option value="Una fiesta o un evento">Una fiesta o un evento</option>
+            <option value="Producto propio y salud">Producto propio y salud</option>
+            <option value="Otra cosa">Otra cosa</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Cuéntanos</label>
+          <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+          <p class="campo__ayuda">Qué haces, qué tarea te está comiendo tiempo y para cuándo lo necesitas.</p>
+        </div>
+
+        <div class="campo campo--casilla">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <label for="privacidad">He leído y acepto la <a href="/es/legal/privacidad/">política de privacidad</a>.</label>
+        </div>
+
+        <button class="boton boton--principal" type="submit" id="enviar">Enviar mensaje</button>
+
+        <p class="formulario__aviso" id="aviso" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="contacto__correo">
+        O escríbenos directamente a <a href="mailto:jcgualde@apps4all.app">jcgualde@apps4all.app</a>
+      </p>
+
+    </div>
+  </section>
+
+<script>
+(function () {
+  var f = document.getElementById('formulario');
+  var boton = document.getElementById('enviar');
+  var aviso = document.getElementById('aviso');
+  var textos = {
+    enviando: "Enviando…",
+    ok: "Mensaje enviado. Te contestamos enseguida.",
+    error: "No se ha podido enviar. Escríbenos directamente a",
+    enviar: "Enviar mensaje",
+    correo: "jcgualde@apps4all.app"
+  };
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    boton.disabled = true;
+    boton.textContent = textos.enviando;
+    aviso.className = 'formulario__aviso';
+    aviso.textContent = '';
+
+    fetch(f.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(f)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (datos) {
+        if (datos.success) {
+          f.reset();
+          aviso.className = 'formulario__aviso formulario__aviso--ok';
+          aviso.textContent = textos.ok;
+        } else {
+          throw new Error(datos.message || 'error');
+        }
+      })
+      .catch(function () {
+        aviso.className = 'formulario__aviso formulario__aviso--error';
+        aviso.textContent = textos.error + ' ' + textos.correo;
+      })
+      .finally(function () {
+        boton.disabled = false;
+        boton.textContent = textos.enviar;
+      });
+  });
+})();
+</script>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__fila">
+      <p class="pie__marca">© 2026 apps4all</p>
+      <nav class="pie__enlaces" aria-label="Aviso legal">
+        <a href="/es/contacto/">Contacto</a>
+        <a href="/es/legal/aviso-legal/">Aviso legal</a>
+        <a href="/es/legal/privacidad/">Privacidad</a>
+      </nav>
+    </div>
+    <div class="idiomas">
+      <span class="idiomas__etiqueta">Idioma</span>
+      <a class="idiomas__enlace idiomas__enlace--activo" hreflang="es" href="/es/contacto/">Castellano</a>
+      <a class="idiomas__enlace" hreflang="en" href="/en/contacto/">English</a>
+      <a class="idiomas__enlace" hreflang="ca" href="/ca/contacto/">Català</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

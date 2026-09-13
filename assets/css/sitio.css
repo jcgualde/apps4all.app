@@ -1,0 +1,532 @@
+/* ==========================================================================
+   sitio.css — estilo propio de apps4all.app
+
+   Todo color sale de las variables de a4a-brand.css. Si aquí aparece un #hex
+   suelto, es un error: cámbialo por su var(--a4a-...).
+
+   Reglas de marca que gobiernan este archivo:
+   - El azul --a4a-azul es EXCLUSIVO del carácter 4. Nunca en la caja del
+     monograma, nunca en el resto de letras.
+   - Cada vertical cambia únicamente el color de su 4, a través de la
+     variable --color-linea que define la clase .vertical-*.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  /* Color de la línea de trabajo. Por defecto, el azul de marca. */
+  --color-linea: var(--a4a-azul);
+  --radio: 16px;
+  --borde: color-mix(in srgb, var(--a4a-gris-claro) 55%, transparent);
+}
+
+.vertical-business { --color-linea: var(--a4a-verde-business); }
+.vertical-events   { --color-linea: var(--a4a-coral-events); }
+.vertical-you     { --color-linea: var(--a4a-morado-producto); }
+.vertical-juegos    { --color-linea: var(--a4a-magenta-juegos); }
+
+/* El 4 toma el color de su línea. Es lo único que cambia entre verticales. */
+.vertical-business .a4a-cuatro,
+.vertical-events .a4a-cuatro,
+.vertical-you .a4a-cuatro,
+.vertical-juegos .a4a-cuatro { color: var(--color-linea); }
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+body {
+  margin: 0;
+  font-family: var(--a4a-font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--a4a-tinta);
+  background: var(--a4a-blanco);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; height: auto; }
+a { color: var(--a4a-azul); }
+
+.contenedor { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+.contenedor--estrecho { width: min(680px, 100% - 2.5rem); }
+
+.oculto-visualmente {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
+.saltar {
+  position: absolute; left: -9999px;
+  background: var(--a4a-blanco); color: var(--a4a-tinta);
+  padding: .75rem 1rem; border-radius: 8px; z-index: 100;
+}
+.saltar:focus { left: 1rem; top: 1rem; }
+
+:focus-visible { outline: 3px solid var(--a4a-azul-claro); outline-offset: 3px; }
+
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); font-weight: 600; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 600; }
+h3 { font-size: 1.1875rem; font-weight: 600; }
+
+.antetitulo {
+  font-size: .8125rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--color-linea); margin: 0 0 .875rem;
+}
+.antetitulo--claro { color: var(--a4a-gris-claro); }
+
+.entradilla {
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  color: var(--a4a-gris); max-width: 62ch;
+}
+.entradilla--clara { color: var(--a4a-gris-claro); }
+
+/* --------------------------------------------------------------------------
+   Botones
+   -------------------------------------------------------------------------- */
+
+.boton {
+  display: inline-block; padding: .8125rem 1.5rem; border-radius: 10px;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  border: 1px solid transparent; cursor: pointer;
+  font-family: inherit;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.boton--principal { background: var(--a4a-azul); color: var(--a4a-blanco); }
+.boton--principal:hover { background: var(--a4a-tinta); }
+.boton--principal:disabled { background: var(--a4a-gris-claro); cursor: progress; }
+
+/* Para la cabecera, sobre blanco. En tinta y no en azul porque el logotipo
+   está al lado y la marca pide que el azul no compita con él. */
+.boton--tinta { background: var(--a4a-tinta); color: var(--a4a-blanco); }
+.boton--tinta:hover { background: var(--a4a-azul); }
+
+/* Solo dentro del bloque oscuro del final de página. */
+.boton--claro { background: var(--a4a-blanco); color: var(--a4a-tinta); }
+.boton--claro:hover { background: var(--a4a-gris-claro); }
+
+/* Secundario sobre fondo claro. */
+.boton--secundario {
+  background: transparent; color: var(--a4a-tinta);
+  border-color: var(--a4a-gris-claro);
+}
+.boton--secundario:hover { border-color: var(--a4a-tinta); }
+
+/* --------------------------------------------------------------------------
+   Cabecera — blanca, con el logotipo en su versión normal
+   -------------------------------------------------------------------------- */
+
+.cabecera {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--a4a-blanco) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borde);
+}
+.cabecera__fila {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; padding: 1.125rem 0;
+}
+
+/* El logotipo se encuadra, no se retoca: el SVG es el de la guía de marca,
+   intacto. Lo que pasa es que su lienzo (420×150) lleva mucho aire alrededor
+   del dibujo, que ocupa 342×110 a partir de 20,20. Puesto tal cual, para que
+   el claim «Crear, añadir, mejorar» se leyera la barra tendría que medir
+   130 px y casi la mitad sería aire.
+   Así que el enlace hace de ventana con las proporciones del dibujo, y la
+   imagen se agranda dentro (420/342 = 122,807 %) y se desplaza para dejar el
+   aire fuera (20/342 = 5,848 %). Los márgenes en porcentaje se calculan
+   siempre sobre el ANCHO del contenedor, el de arriba también, así que el
+   recorte aguanta a cualquier tamaño.
+   Si algún día cambia el SVG, hay que rehacer estos tres números. */
+.cabecera__logo {
+  display: block; overflow: hidden;
+  width: clamp(160px, 50vw, 244px);   /* ancho del dibujo, ya sin el aire */
+  aspect-ratio: 342 / 110;
+}
+.cabecera__logo img {
+  display: block; height: auto;
+  width: 122.807%; max-width: none;
+  margin: -5.848% 0 0 -5.848%;
+}
+
+.navegacion { display: flex; align-items: center; gap: 1.75rem; }
+.navegacion a {
+  color: var(--a4a-tinta); text-decoration: none;
+  font-size: .9375rem; font-weight: 500;
+}
+.navegacion a:hover { color: var(--a4a-azul); }
+/* El botón de la cabecera va en tinta y no en azul: el logotipo está justo
+   al lado y la marca pide que el azul no compita con él. */
+.navegacion a.boton--tinta,
+.navegacion a.boton--tinta:hover { color: var(--a4a-blanco); }
+
+@media (max-width: 760px) {
+  .navegacion a:not(.boton) { display: none; }
+  .cabecera__fila { gap: 1rem; }
+}
+
+/* En pantallas muy estrechas el botón se aprieta para que el logotipo no
+   tenga que encogerse. Sigue midiendo más de 44 px de alto, el mínimo para
+   el dedo. */
+@media (max-width: 420px) {
+  .navegacion a.boton { padding: .6875rem 1.125rem; font-size: .9375rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Héroe — franja oscura teñida con el color de la línea
+
+   No es el negro tinta a secas: es tinta mezclada con el color de cada
+   línea, lo que da un azul marino en la portada, un verde profundo en
+   comercios, y así. Elegido por el usuario el 29/08/2026 comparando cinco
+   opciones. El color queda confinado a esta franja; el resto es blanco.
+   -------------------------------------------------------------------------- */
+
+.heroe {
+  position: relative;
+  background: color-mix(in srgb, var(--a4a-tinta) 62%, var(--color-linea));
+  color: var(--a4a-blanco);
+  padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(4rem, 9vw, 6rem);
+  overflow: hidden;
+}
+.heroe::before {
+  content: ""; position: absolute; inset: auto -20% -60% 25%;
+  height: 130%; pointer-events: none;
+  background: radial-gradient(closest-side,
+              color-mix(in srgb, var(--color-linea) 45%, transparent), transparent);
+  opacity: .35;
+}
+
+/* Textos y botones dentro de la franja oscura */
+.heroe .antetitulo { color: var(--a4a-azul-claro); }
+.heroe .entradilla { color: var(--a4a-gris-claro); }
+.heroe .boton--secundario { color: var(--a4a-blanco); border-color: var(--a4a-gris); }
+.heroe .boton--secundario:hover { border-color: var(--a4a-blanco); }
+/* Fondo fotográfico del héroe, solo en la portada.
+   La foto es de Pixabay (ver CREDITS.md) y es azul marino, así que se queda
+   en la portada: los héroes de las verticales llevan su propio color de
+   línea —verde, coral, morado— y chocarían con ella.
+   El degradado va por encima: tinta opaca a la izquierda, donde está el
+   texto, y se abre hacia la derecha para que se vea la red de puntos. */
+.pagina-portada .heroe {
+  background-image:
+    linear-gradient(95deg,
+      var(--a4a-tinta) 4%,
+      color-mix(in srgb, var(--a4a-tinta) 88%, transparent) 40%,
+      color-mix(in srgb, var(--a4a-tinta) 42%, transparent) 100%),
+    url("../img/heroe-red.jpg");
+  background-repeat: no-repeat;
+  background-position: center, right center;
+  background-size: cover, cover;
+}
+
+/* En móvil el texto ocupa todo el ancho, así que el degradado deja de ir de
+   izquierda a derecha y pasa a cubrir de arriba abajo. */
+@media (max-width: 760px) {
+  .pagina-portada .heroe {
+    background-image:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--a4a-tinta) 90%, transparent),
+        color-mix(in srgb, var(--a4a-tinta) 66%, transparent)),
+      url("../img/heroe-red.jpg");
+    background-position: center, center;
+  }
+}
+
+.heroe > * { position: relative; }
+.heroe h1 { max-width: 18ch; }
+.heroe .entradilla { margin: 1.25rem 0 2rem; }
+.heroe--corto { padding-bottom: clamp(2.5rem, 6vw, 3.5rem); }
+.heroe--corto h1 { max-width: 22ch; }
+.heroe__acciones { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+/* Cinta de color al pie del héroe: identifica la línea de un vistazo. */
+.heroe__cinta {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+  background: var(--color-linea);
+}
+
+/* Marca de la línea sobre el héroe */
+.marca-linea { display: flex; align-items: center; gap: .875rem; margin-bottom: 1.5rem; }
+.marca-linea__nombre { font-size: 1.375rem; font-weight: 600; letter-spacing: -.02em; }
+
+/* --------------------------------------------------------------------------
+   Secciones y rejillas
+   -------------------------------------------------------------------------- */
+
+.seccion { padding: clamp(3rem, 7vw, 5rem) 0; }
+.seccion--tenue { background: color-mix(in srgb, var(--a4a-gris-claro) 14%, var(--a4a-blanco)); }
+.seccion__cabecera { max-width: 62ch; margin-bottom: 2.5rem; }
+.seccion__cabecera .entradilla { margin-top: .875rem; }
+
+.rejilla { display: grid; gap: 1.25rem; }
+.rejilla--3 { grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); }
+.rejilla--2 { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+
+/* --------------------------------------------------------------------------
+   Tarjetas
+   -------------------------------------------------------------------------- */
+
+.tarjeta {
+  background: var(--a4a-blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  display: flex; flex-direction: column;
+  border-top: 3px solid var(--color-linea);
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.tarjeta h3 { margin-bottom: .625rem; }
+.tarjeta p { color: var(--a4a-gris); margin: 0 0 1.25rem; }
+.tarjeta__pie { margin-top: auto; font-size: .9375rem; font-weight: 500; color: var(--a4a-gris); }
+
+.tarjeta--lisa { border-top-color: var(--borde); }
+.tarjeta--lisa .punto {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--color-linea); display: block; margin-bottom: 1.125rem;
+}
+
+.tarjeta--enlace { text-decoration: none; color: inherit; }
+.tarjeta--enlace:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--a4a-tinta) 10%, transparent);
+}
+.tarjeta__marca {
+  font-weight: 600; font-size: 1.0625rem; letter-spacing: -.01em;
+  margin-bottom: .375rem; display: block;
+}
+.tarjeta__flecha {
+  margin-top: 1rem; font-size: .9375rem; font-weight: 600; color: var(--color-linea);
+}
+.tarjeta--enlace .tarjeta__pie { margin-top: auto; }
+
+/* Caja del monograma: tinta siempre. Solo cambia el color del 4. */
+.monograma {
+  width: 52px; height: 52px; border-radius: var(--a4a-radio-caja);
+  background: var(--a4a-tinta); color: var(--a4a-blanco);
+  display: inline-grid; place-items: center;
+  font-size: 1.375rem; font-weight: 500; letter-spacing: -.5px;
+  margin-bottom: 1.25rem; flex: none;
+}
+.monograma--grande {
+  width: 64px; height: 64px; font-size: 1.75rem; margin-bottom: 0;
+  outline: 1px solid color-mix(in srgb, var(--a4a-gris) 45%, transparent);
+}
+
+.paso__numero {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  color: var(--color-linea); margin: 0 0 .75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Muestras de aplicación
+   -------------------------------------------------------------------------- */
+
+.muestra {
+  display: grid; grid-template-columns: 128px 1fr; gap: 1.5rem;
+  background: var(--a4a-blanco); border: 1px solid var(--borde);
+  border-radius: var(--radio); padding: 1.75rem;
+}
+@media (max-width: 520px) { .muestra { grid-template-columns: 1fr; } }
+
+/* Marcador de pantalla. Es un hueco a la espera de capturas reales. */
+.muestra__pantalla {
+  aspect-ratio: 9 / 17; border-radius: 14px;
+  background: color-mix(in srgb, var(--color-linea) 12%, var(--a4a-blanco));
+  border: 1px solid color-mix(in srgb, var(--color-linea) 35%, transparent);
+  padding: .75rem; display: flex; flex-direction: column; gap: .75rem;
+  max-width: 128px;
+}
+.muestra__barra { height: 26px; border-radius: 7px; background: var(--color-linea); opacity: .85; }
+.muestra__lineas { display: flex; flex-direction: column; gap: .5rem; }
+.muestra__lineas span {
+  height: 8px; border-radius: 4px;
+  background: color-mix(in srgb, var(--color-linea) 40%, transparent);
+}
+.muestra__lineas span:nth-child(2) { width: 78%; }
+.muestra__lineas span:nth-child(3) { width: 90%; }
+.muestra__lineas span:nth-child(4) { width: 62%; }
+
+.muestra__texto h3 { margin: .5rem 0 .625rem; }
+.muestra__texto p { color: var(--a4a-gris); margin: 0 0 .875rem; }
+.muestra__detalle { font-size: .875rem; color: var(--a4a-gris-claro) !important; }
+
+.etiqueta-estado {
+  display: inline-block; font-size: .75rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--color-linea);
+  background: color-mix(in srgb, var(--color-linea) 12%, transparent);
+  border-radius: 999px; padding: .25rem .625rem; margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Llamada final
+   -------------------------------------------------------------------------- */
+
+.llamada {
+  position: relative; overflow: hidden;
+  background: var(--a4a-tinta); color: var(--a4a-blanco);
+  border-radius: 22px; padding: clamp(2.5rem, 6vw, 4rem); text-align: center;
+}
+.llamada::before {
+  content: ""; position: absolute; inset: -40% -10% auto -10%; height: 160%;
+  background: radial-gradient(closest-side,
+              color-mix(in srgb, var(--color-linea) 38%, transparent), transparent);
+  opacity: .5; pointer-events: none;
+}
+.llamada > * { position: relative; }
+.llamada .entradilla { margin: 1rem auto 2rem; }
+
+/* --------------------------------------------------------------------------
+   Formulario
+   -------------------------------------------------------------------------- */
+
+.formulario { display: flex; flex-direction: column; gap: 1.25rem; }
+.campo { display: flex; flex-direction: column; gap: .4375rem; }
+.campo label { font-size: .9375rem; font-weight: 600; }
+.campo input[type="text"], .campo input[type="email"], .campo select, .campo textarea {
+  font-family: inherit; font-size: 1rem; color: var(--a4a-tinta);
+  padding: .75rem .875rem; border-radius: 10px;
+  border: 1px solid var(--a4a-gris-claro); background: var(--a4a-blanco);
+}
+.campo textarea { resize: vertical; min-height: 8rem; }
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  border-color: var(--a4a-azul); outline-offset: 0;
+}
+.campo__ayuda { font-size: .875rem; color: var(--a4a-gris); margin: 0; }
+
+.campo--casilla { flex-direction: row; align-items: flex-start; gap: .625rem; }
+.campo--casilla input { margin-top: .3125rem; width: 1.125rem; height: 1.125rem; flex: none; }
+.campo--casilla label { font-weight: 400; font-size: .9375rem; color: var(--a4a-gris); }
+
+.formulario .boton { align-self: flex-start; }
+.formulario__aviso { margin: 0; font-size: .9375rem; }
+.formulario__aviso--ok { color: var(--a4a-verde-business); font-weight: 600; }
+.formulario__aviso--error { color: var(--a4a-coral-events); font-weight: 600; }
+
+.contacto__correo {
+  margin-top: 2.5rem; padding-top: 1.75rem;
+  border-top: 1px solid var(--borde); color: var(--a4a-gris);
+}
+
+/* --------------------------------------------------------------------------
+   Textos legales
+   -------------------------------------------------------------------------- */
+
+.texto-largo h2 { font-size: 1.375rem; margin: 2.25rem 0 .75rem; }
+.texto-largo h2:first-child { margin-top: 0; }
+.texto-largo p, .texto-largo li { color: var(--a4a-gris); }
+.texto-largo ul { padding-left: 1.25rem; }
+.texto-largo li { margin-bottom: .375rem; }
+
+/* --------------------------------------------------------------------------
+   Pie e idiomas
+   -------------------------------------------------------------------------- */
+
+.pie {
+  border-top: 1px solid var(--borde);
+  margin-top: clamp(3rem, 7vw, 5rem); padding: 2.5rem 0;
+  font-size: .9375rem; color: var(--a4a-gris);
+}
+.pie__fila {
+  display: flex; flex-wrap: wrap; gap: 1.5rem;
+  justify-content: space-between; align-items: center;
+}
+.pie__marca { margin: 0; }
+.pie a { color: var(--a4a-gris); text-decoration: none; }
+.pie a:hover { color: var(--a4a-tinta); text-decoration: underline; }
+.pie__enlaces { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+
+.idiomas {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .75rem;
+  margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--borde);
+}
+.idiomas__etiqueta {
+  font-size: .8125rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--a4a-gris-claro);
+}
+.idiomas__enlace {
+  /* min-height 44px: es el tamaño mínimo que se puede tocar con el dedo sin
+     fallar. Con el relleno de antes se quedaba en 38 px. */
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: .375rem .9375rem; border-radius: 999px;
+  border: 1px solid var(--borde); text-decoration: none;
+}
+.idiomas__enlace:hover { border-color: var(--a4a-gris); text-decoration: none; }
+.idiomas__enlace--activo {
+  background: var(--a4a-tinta); color: var(--a4a-blanco); border-color: var(--a4a-tinta);
+}
+.idiomas__enlace--activo:hover { color: var(--a4a-blanco); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* --------------------------------------------------------------------------
+   Franja de confianza
+   Va sobre fondo tinta porque el logotipo de SisquellaGrup que tenemos es la
+   versión en blanco. Si algún día hay versión en color, puede pasar a fondo
+   claro. Los logotipos son marca de su titular: ver CREDITS.md.
+   -------------------------------------------------------------------------- */
+
+.confianza {
+  background: var(--a4a-tinta);
+  color: var(--a4a-blanco);
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+  text-align: center;
+}
+.confianza .antetitulo { color: var(--a4a-azul-claro); }
+.confianza__logos {
+  list-style: none; margin: 1.5rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 2.5rem;
+  justify-content: center; align-items: center;
+}
+.confianza__logos img { height: 44px; width: auto; opacity: .92; }
+.confianza__nota {
+  margin: 1.25rem 0 0; color: var(--a4a-gris-claro); font-size: .9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   Blog: listado y artículo
+   La columna del texto va estrecha a propósito. Un artículo se lee mejor a
+   unos 65 caracteres por línea que a todo el ancho de la pantalla.
+   -------------------------------------------------------------------------- */
+
+.articulos { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.articulos__ficha > a {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid var(--color-borde, #E4E6EB); border-radius: 14px;
+  padding: 1.5rem 1.75rem; transition: border-color .15s, transform .15s;
+}
+.articulos__ficha > a:hover {
+  border-color: var(--a4a-azul); transform: translateY(-2px);
+}
+.articulos__ficha h2 { margin: .375rem 0 .5rem; font-size: 1.375rem; }
+.articulos__fecha {
+  margin: 0; font-size: .8125rem; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--a4a-gris, #707173);
+}
+.articulos__resumen { margin: 0 0 1rem; }
+.articulos__vacio {
+  list-style: none; padding: 2.5rem; text-align: center;
+  border: 1px dashed var(--color-borde, #E4E6EB); border-radius: 14px;
+  color: var(--a4a-gris, #707173);
+}
+
+.articulo__cabecera { padding: clamp(2.5rem, 6vw, 4rem) 0 0; }
+.articulo__volver { color: inherit; text-decoration: none; }
+.articulo__volver:hover { text-decoration: underline; }
+.articulo__cabecera h1 { margin: .5rem 0 .25rem; }
+.articulo__fecha { color: var(--a4a-gris, #707173); font-size: .9375rem; }
+.articulo__cuerpo { padding: 1.5rem 0 0; font-size: 1.0625rem; line-height: 1.75; }
+.articulo__cuerpo h2 { margin: 2.5rem 0 .75rem; font-size: 1.5rem; }
+.articulo__cuerpo h3 { margin: 2rem 0 .5rem; font-size: 1.1875rem; }
+.articulo__cuerpo p { margin: 0 0 1.25rem; }
+.articulo__cuerpo ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+.articulo__cuerpo li { margin-bottom: .5rem; }
+.articulo__cuerpo code {
+  background: #F1F2F5; border-radius: 4px; padding: .1em .35em; font-size: .9em;
+}
+.articulo__cuerpo blockquote {
+  margin: 0 0 1.25rem; padding: .25rem 0 .25rem 1.25rem;
+  border-left: 3px solid var(--a4a-azul); color: var(--a4a-gris, #707173);
+}
+.articulo__pie { padding: 1rem 0 clamp(3rem, 7vw, 5rem); }
