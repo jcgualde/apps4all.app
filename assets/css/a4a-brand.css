@@ -1,0 +1,41 @@
+:root {
+  /* Marca apps4all — colores base */
+  --a4a-tinta: #12141C;
+  --a4a-azul: #2B6FC2;
+  --a4a-azul-claro: #5C9BE0;
+  --a4a-gris: #6B6F7A;
+  --a4a-gris-claro: #A8ACB6;
+  --a4a-blanco: #FFFFFF;
+
+  /* Líneas de producto — solo para el carácter 4 */
+  --a4a-verde-business: #1D9E75;
+  --a4a-coral-events: #D85A30;
+  --a4a-morado-producto: #6F66D6;
+  /* Añadido el 29/08/2026 al abrir la vertical apps4games. Elegido por
+     descarte: es el único tono claramente distinto de los otros tres que
+     además mantiene contraste suficiente sobre blanco (5,1:1).
+     PENDIENTE: llevarlo también a la guía de marca maestra. */
+  --a4a-magenta-juegos: #C0348B;
+
+  /* Tipografía — sustituir la primera por la definitiva cuando se licencie */
+  --a4a-font: "Söhne", "Aeonik", "Helvetica Neue", Arial, sans-serif;
+
+  /* Radio de la caja del monograma: 27 % del lado */
+  --a4a-radio-caja: 27%;
+}
+
+/* El azul se reserva en exclusiva para el carácter 4 del logotipo.
+   No usarlo en la caja del monograma ni en el resto de letras. */
+.a4a-cuatro {
+  color: var(--a4a-azul);
+}
+
+/* Claim bajo el logotipo: se abre el interletraje hasta igualar
+   el ancho de "apps4all". Ajuste óptico, revisar si cambia la fuente. */
+.a4a-claim {
+  font-family: var(--a4a-font);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--a4a-gris);
+}
