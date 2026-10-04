@@ -20,7 +20,13 @@ import hashlib
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
+
+# Con «python construir.py --borradores» los artículos marcados como borrador también
+# se generan, para verlos en el ordenador antes de publicarlos. La web publicada se
+# construye sin esta opción, así que nunca salen fuera.
+CON_BORRADORES = "--borradores" in sys.argv
 
 RAIZ = Path(__file__).parent
 PLANTILLAS = RAIZ / "plantillas"
@@ -112,12 +118,25 @@ def sobre_la_linea(t):
 def md_a_html(cuerpo):
     """Convierte el texto del artículo en HTML. A propósito hace poco: si
     algún día hace falta más, se añade aquí y punto."""
+    # Bloques de código entre ``` y ```: se apartan antes de partir en párrafos,
+    # porque pueden llevar líneas en blanco, y se dejan tal cual (sin negritas ni enlaces).
+    codigos = []
+
+    def apartar(m):
+        codigos.append(m.group(1).strip("\n"))
+        return "\n\n@@CODIGO%d@@\n\n" % (len(codigos) - 1)
+
+    cuerpo = re.sub(r"```[^\n]*\n(.*?)\n```", apartar, cuerpo, flags=re.S)
+
     salida = []
     for bloque in re.split(r"\n\s*\n", cuerpo.strip()):
         lineas = [l.rstrip() for l in bloque.strip().split("\n") if l.strip()]
         if not lineas:
             continue
-        if all(l.startswith("- ") for l in lineas):
+        codigo = re.fullmatch(r"@@CODIGO(\d+)@@", lineas[0])
+        if codigo:
+            salida.append("<pre><code>%s</code></pre>" % escapar_html(codigos[int(codigo.group(1))]))
+        elif all(l.startswith("- ") for l in lineas):
             items = "".join("<li>%s</li>" % sobre_la_linea(l[2:]) for l in lineas)
             salida.append("<ul>%s</ul>" % items)
         elif all(l.startswith(">") for l in lineas):
@@ -157,7 +176,7 @@ def leer_articulos():
         if faltan:
             print("  AVISO — a %s le faltan datos: %s. Se salta." % (ruta.name, ", ".join(faltan)))
             continue
-        if datos.get("borrador", "no").lower() in ("si", "sí", "yes", "true"):
+        if datos.get("borrador", "no").lower() in ("si", "sí", "yes", "true") and not CON_BORRADORES:
             continue
         datos["slug"] = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", ruta.stem)
         datos["cuerpo"] = md_a_html(cuerpo)

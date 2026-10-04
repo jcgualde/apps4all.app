@@ -93,9 +93,20 @@ No hace falta escribir HTML. Basta con esto:
 | `**importante**` | **negrita** |
 | `*matiz*` | *cursiva* |
 | `` `código` `` | Texto en monoespaciada |
+| Una línea con ```` ``` ````, el código, y otra línea con ```` ``` ```` | Un bloque de código (respeta sangrías y líneas en blanco) |
 | `[texto](https://ejemplo.com)` | Un enlace |
 
 Cualquier otra cosa se escribe tal cual y sale como un párrafo normal.
+
+Para ver también los artículos con `borrador: si` antes de publicarlos:
+
+```bash
+python construir.py --borradores
+```
+
+Solo afecta a tu ordenador: la web publicada se construye sin esa opción, así que
+los borradores nunca salen fuera. Al terminar, vuelve a ejecutar `python construir.py`
+sin ella.
 
 ### Sobre el estilo
 
