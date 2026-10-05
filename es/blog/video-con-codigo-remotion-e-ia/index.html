@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vídeo hecho con código: Remotion y un asistente de IA, de cero a MP4 · apps4all</title>
+<meta name="description" content="Estudio de aplicaciones a medida para comercios, fiestas populares y salud. Crear, añadir, mejorar.">
+<link rel="canonical" href="https://apps4all.app/es/blog/video-con-codigo-remotion-e-ia/">
+<link rel="alternate" hreflang="es" href="https://apps4all.app/es/blog/video-con-codigo-remotion-e-ia/">
+<link rel="alternate" hreflang="x-default" href="https://apps4all.app/es/blog/video-con-codigo-remotion-e-ia/">
+<link rel="icon" href="/assets/marca/a4a-icono-minimo-4.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fuentes/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/a4a-brand.css?v=eefb40c4">
+<link rel="stylesheet" href="/assets/css/sitio.css?v=2325940f">
+</head>
+<body class="pagina-articulo">
+
+<a class="saltar" href="#contenido">Ir al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="/es/" aria-label="apps4all — inicio">
+      <img src="/assets/marca/a4a-logotipo-horizontal.svg" alt="apps4all">
+    </a>
+    <nav class="navegacion" aria-label="Qué hacemos">
+      <a href="/es/#lineas">Qué hacemos</a>
+      <a href="/es/#como">Cómo trabajamos</a>
+      <a href="/es/blog/">Blog</a>
+      
+      <a class="boton boton--tinta" href="/es/contacto/">Hablemos</a>
+    </nav>
+  </div>
+  <nav class="navegacion-movil" aria-label="Qué hacemos">
+    <div class="contenedor navegacion-movil__fila">
+      <a href="/es/#lineas">Qué hacemos</a>
+      <a href="/es/#como">Cómo trabajamos</a>
+      <a href="/es/blog/">Blog</a>
+      
+    </div>
+  </nav>
+</header>
+
+<main id="contenido">
+  <!-- BLOG: un articulo -->
+  <article class="articulo">
+    <header class="articulo__cabecera">
+      <div class="contenedor contenedor--estrecho">
+        <p class="antetitulo">
+          <a class="articulo__volver" href="/es/blog/">&larr; Todos los artículos</a>
+        </p>
+        <h1>Vídeo hecho con código: Remotion y un asistente de IA, de cero a MP4</h1>
+        <p class="articulo__fecha">
+          <time datetime="2026-10-04">4 de octubre de 2026</time>
+        </p>
+      </div>
+    </header>
+
+    <div class="contenedor contenedor--estrecho articulo__cuerpo">
+      <p>Llevo unas semanas haciendo vídeos sin abrir un editor de vídeo. Ni línea de tiempo, ni capas, ni exportaciones a mano. Cada vídeo es un proyecto de código, y el código lo escribe una IA mientras yo miro el resultado y pido cambios.</p>
+      <p>Esta es la primera de tres entradas sobre cómo lo hago. Aquí va la base: qué es Remotion, cómo se monta el entorno y cómo se trabaja con la IA sin que se invente la mitad de las cosas.</p>
+      <h2>Por qué vídeo con código</h2>
+      <p>La pregunta razonable es para qué complicarse, si existen CapCut y compañía. Mi respuesta es práctica: porque un vídeo hecho con código se puede repetir.</p>
+      <p>Si un dato cambia, cambio una línea y el vídeo se vuelve a generar. Si quiero la versión vertical y la horizontal, salen de la misma escena. Si quiero diez vídeos con la misma plantilla, la plantilla es una función. Y todo queda en Git, con su historial, como cualquier otro proyecto.</p>
+      <p>Yo no vengo del desarrollo, me estoy introduciendo en ello gracias a la IA. Una de las cosas que más rápido he aprendido es la importancia de crear un flujo de trabajo, y lo que explico aquí es justamente eso: un flujo de trabajo para crear vídeos gratis, rápidos y exportables.</p>
+      <h2>Qué es Remotion</h2>
+      <p><a href="https://www.remotion.dev">Remotion</a> es un framework para hacer vídeos con React. Cada fotograma es un componente que se pinta en un navegador sin ventana, y al final todo se codifica en un MP4 normal.</p>
+      <p>La idea central cabe en una frase: el vídeo es una función del número de fotograma. No hay animaciones que «corren»: hay un <code>frame</code> que va de 0 al final, y cada cosa decide cómo se ve en función de ese número.</p>
+      <pre><code>import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+
+export const MiVideo = () =&gt; {
+  const frame = useCurrentFrame();
+  const opacidad = interpolate(frame, [0, 30], [0, 1], { extrapolateRight: "clamp" });
+  return (
+    &lt;AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}&gt;
+      &lt;h1 style={{ opacity: opacidad }}&gt;¡Hola!&lt;/h1&gt;
+    &lt;/AbsoluteFill&gt;
+  );
+};</code></pre>
+      <p>Ese componente se registra como una composición, con su tamaño, sus fotogramas por segundo y su duración:</p>
+      <pre><code>&lt;Composition id="mi-video" component={MiVideo} width={1080} height={1920} fps={30} durationInFrames={150} /&gt;</code></pre>
+      <p>Y ya está. Eso es un vídeo vertical de cinco segundos donde un texto aparece fundiendo durante el primer segundo.</p>
+      <p>Un dato importante antes de seguir: la licencia. Remotion es gratis para particulares, para organizaciones sin ánimo de lucro y para empresas de hasta tres empleados, también para uso comercial. Por encima de eso hay que pagar licencia de empresa. Para un estudio pequeño como el mío, entra en lo gratuito.</p>
+      <h2>El entorno</h2>
+      <p>Hace falta Node.js. Con eso, cuatro órdenes:</p>
+      <pre><code>npx create-video@latest
+npx skills add remotion-dev/skills
+npx remotion studio
+npx remotion render mi-video out/mi-video.mp4</code></pre>
+      <p>La primera crea el proyecto. La tercera abre Remotion Studio, un editor en el navegador con el vídeo, su línea de tiempo y la posibilidad de avanzar fotograma a fotograma. La cuarta exporta el MP4.</p>
+      <p>La segunda es la que más me ha cambiado el resultado, y merece su propio apartado.</p>
+      <h2>Las skills: que la IA no adivine</h2>
+      <p>Mi primer intento fue pedirle a la IA el vídeo sin más contexto. Funcionó, pero con letra pequeña. La IA usaba un componente de audio que Remotion ya ha sustituido por otro, y escribía a mano las duraciones de cada escena cuando se pueden calcular a partir del propio audio.</p>
+      <p>Nada de eso rompía el vídeo. Pero cada detalle era una vuelta más, y en cuanto cambiaba una frase había que recolocar los números a mano.</p>
+      <p>Los propios autores de Remotion publican un conjunto de instrucciones pensadas para asistentes de IA: las llaman skills. Son documentos que la IA consulta antes de escribir código, con las buenas prácticas actuales de cada área: audio, subtítulos, fuentes, exportación, mapas. Se instalan con <code>npx skills add remotion-dev/skills</code>, y en mi caso fueron doce.</p>
+      <p>La diferencia se nota en la primera respuesta. Con las skills, la IA usa el componente de audio actual, carga las fuentes con el paquete oficial y te propone calcular la duración del vídeo a partir del audio en vez de escribir números a mano.</p>
+      <p>Sirven para cualquier asistente que trabaje con archivos en tu ordenador. Yo uso Claude Code, pero las skills están pensadas también para otros.</p>
+      <h2>El ciclo de trabajo</h2>
+      <p>Con todo montado, el trabajo diario es un ciclo corto:</p>
+      <ul><li>Le describo a la IA el vídeo que quiero, con formato, duración y texto concretos.</li><li>Ella escribe o cambia los componentes.</li><li>Lo miro en Studio y le pido correcciones con palabras, no con código: «más lento», «este texto más grande», «que la barra crezca cuando se nombra la cifra».</li></ul>
+      <p>Cuanto más concreta es la petición, menos vueltas. «Hazme un vídeo vertical de quince segundos que presente mi aplicación, con su logo y tres frases» funciona mucho mejor que «hazme un vídeo bonito de mi app».</p>
+      <p>Y una costumbre que me ha salvado varias veces: un commit por cada cambio que funciona. Probar ideas es barato cuando volver atrás cuesta un segundo.</p>
+      <h2>Lo que no te cuentan</h2>
+      <p>Dos cosas que aprendí por las malas en las primeras semanas.</p>
+      <p>La primera: lo que más delata un vídeo casero no es la animación, son los dibujos. Mi primera versión era una pizarra con dibujos hechos a base de líneas y cajas, y la opinión fue clara: demasiado casera. Lo que lo arregló fue usar iconos de una colección hecha por diseñadores, con licencia libre, en vez de dibujos improvisados. La IA dibuja geometría muy bien. Ilustra mal.</p>
+      <p>La segunda: exportar es lento si lo haces a ciegas. Un vídeo de tres minutos tarda unos tres o cuatro minutos en exportarse en mi ordenador, un i5 de hace unos años. Si exportas el vídeo entero para comprobar un detalle, pierdes la tarde. Hay una forma mucho mejor de revisar, y la cuento en la tercera entrada.</p>
+      <h2>Lo que viene</h2>
+      <p>En la segunda parte, la voz, los subtítulos y la música, todo sin pagar: una voz sintética que funciona en tu ordenador, subtítulos palabra a palabra sin transcribir nada, y la reclamación de derechos de autor que nos llevamos por una música que parecía gratis.</p>
+    </div>
+
+    <footer class="contenedor contenedor--estrecho articulo__pie">
+      <a class="boton boton--principal" href="/es/contacto/">Hablemos</a>
+    </footer>
+  </article>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__fila">
+      <p class="pie__marca">© 2026 apps4all</p>
+      <nav class="pie__enlaces" aria-label="Aviso legal">
+        <a href="/es/contacto/">Contacto</a>
+        <a href="/es/legal/aviso-legal/">Aviso legal</a>
+        <a href="/es/legal/privacidad/">Privacidad</a>
+      </nav>
+    </div>
+    <div class="idiomas">
+      <span class="idiomas__etiqueta">Idioma</span>
+      <a class="idiomas__enlace idiomas__enlace--activo" hreflang="es" href="/es/blog/video-con-codigo-remotion-e-ia/">Castellano</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

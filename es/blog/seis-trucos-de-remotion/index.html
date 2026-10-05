@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seis trucos de Remotion que usamos para trabajar rápido · apps4all</title>
+<meta name="description" content="Estudio de aplicaciones a medida para comercios, fiestas populares y salud. Crear, añadir, mejorar.">
+<link rel="canonical" href="https://apps4all.app/es/blog/seis-trucos-de-remotion/">
+<link rel="alternate" hreflang="es" href="https://apps4all.app/es/blog/seis-trucos-de-remotion/">
+<link rel="alternate" hreflang="x-default" href="https://apps4all.app/es/blog/seis-trucos-de-remotion/">
+<link rel="icon" href="/assets/marca/a4a-icono-minimo-4.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fuentes/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/a4a-brand.css?v=eefb40c4">
+<link rel="stylesheet" href="/assets/css/sitio.css?v=2325940f">
+</head>
+<body class="pagina-articulo">
+
+<a class="saltar" href="#contenido">Ir al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="/es/" aria-label="apps4all — inicio">
+      <img src="/assets/marca/a4a-logotipo-horizontal.svg" alt="apps4all">
+    </a>
+    <nav class="navegacion" aria-label="Qué hacemos">
+      <a href="/es/#lineas">Qué hacemos</a>
+      <a href="/es/#como">Cómo trabajamos</a>
+      <a href="/es/blog/">Blog</a>
+      
+      <a class="boton boton--tinta" href="/es/contacto/">Hablemos</a>
+    </nav>
+  </div>
+  <nav class="navegacion-movil" aria-label="Qué hacemos">
+    <div class="contenedor navegacion-movil__fila">
+      <a href="/es/#lineas">Qué hacemos</a>
+      <a href="/es/#como">Cómo trabajamos</a>
+      <a href="/es/blog/">Blog</a>
+      
+    </div>
+  </nav>
+</header>
+
+<main id="contenido">
+  <!-- BLOG: un articulo -->
+  <article class="articulo">
+    <header class="articulo__cabecera">
+      <div class="contenedor contenedor--estrecho">
+        <p class="antetitulo">
+          <a class="articulo__volver" href="/es/blog/">&larr; Todos los artículos</a>
+        </p>
+        <h1>Seis trucos de Remotion que usamos para trabajar rápido</h1>
+        <p class="articulo__fecha">
+          <time datetime="2026-10-05">5 de octubre de 2026</time>
+        </p>
+      </div>
+    </header>
+
+    <div class="contenedor contenedor--estrecho articulo__cuerpo">
+      <p>En las dos primeras partes monté el entorno y le puse voz, subtítulos y música a los vídeos. Esta última va de oficio: seis cosas de Remotion que, juntas, son la diferencia entre hacer un vídeo y poder hacer veinte.</p>
+      <p>Todas las hemos usado en los vídeos de esta misma serie.</p>
+      <p>Aviso: es la parte más técnica de las tres. Yo no entiendo todo el código que hay aquí, y no ha hecho falta. Lo que sí hace falta es saber qué pedir. Cada uno de estos trucos nació de una petición mía con el vídeo delante: «¿podemos tener versión horizontal para YouTube?», «sácame también las verticales sin música», «no puede ser que lo primero que se vea sea una pantalla en blanco». La IA pone el código. El criterio lo tienes que poner tú.</p>
+      <h2>1. Revisar sin exportar</h2>
+      <p>Exportar un vídeo de tres minutos me lleva tres o cuatro minutos. Si para comprobar un detalle hay que exportarlo entero, el día se va en esperas.</p>
+      <p>Remotion puede sacar un solo fotograma como imagen, en segundos:</p>
+      <pre><code>npx remotion still mi-video out/mi-video.png --frame=0</code></pre>
+      <p>Mi rutina antes de exportar nada: saco el final de cada escena, cuando ya está todo dibujado, y los junto en una sola imagen. Con un vistazo veo si algo se monta encima de otra cosa o se sale de la pantalla.</p>
+      <p>Y hay un fotograma que hay que mirar siempre: el primero. Lo aprendí con un vídeo en el que el 90 % de la gente se fue antes de cinco segundos. Empezaba con una pantalla en blanco y en silencio, porque la primera escena entraba fundiendo y la voz arrancaba tarde. Desde entonces, el fotograma 0 de cada vídeo ya tiene el titular, la imagen clave y la voz sonando.</p>
+      <h2>2. Un vídeo, dos formatos</h2>
+      <p>YouTube quiere horizontal. TikTok, Instagram y los Shorts, vertical. Hacer dos vídeos es duplicar trabajo y equivocarse en uno de los dos.</p>
+      <p>En Remotion, el mismo componente puede registrarse dos veces, con tamaños distintos y una prop que le dice en qué formato está:</p>
+      <pre><code>&lt;Composition id="tutorial" component={Tutorial} defaultProps={{ formato: "vertical" }}
+  width={1080} height={1920} fps={30} durationInFrames={total} /&gt;
+&lt;Composition id="tutorial-youtube" component={Tutorial} defaultProps={{ formato: "horizontal" }}
+  width={1920} height={1080} fps={30} durationInFrames={total} /&gt;</code></pre>
+      <p>Cada escena dibuja su contenido en un lienzo fijo, y un componente de disposición lo coloca: arriba y abajo en vertical, a izquierda y derecha en horizontal. Escribo la escena una vez y salen las dos versiones.</p>
+      <h2>3. Variantes sin duplicar nada</h2>
+      <p>Las props no sirven solo para el formato. Son interruptores. Nuestros vídeos tienen dos más: <code>subtitulos</code> y <code>musica</code>.</p>
+      <p>Para YouTube saco el horizontal sin subtítulos grabados, porque los subo aparte como archivo <code>.srt</code>. Para el móvil, el vertical con ellos. Y cuando YouTube nos reclamó la música de un vídeo, la versión sin música salió con una sola orden:</p>
+      <pre><code>npx remotion render tutorial-youtube out/sin-musica.mp4 --props='{"formato":"horizontal","musica":false}'</code></pre>
+      <p>Ni una línea de código nueva.</p>
+      <h2>4. Que el vídeo se ajuste a la voz</h2>
+      <p>Al principio escribía a mano en qué fotograma empezaba cada escena. Funcionaba hasta que cambiaba una frase del guion. Entonces había que recolocarlo todo.</p>
+      <p>Ahora la duración sale del audio. El programa que genera la voz guarda lo que dura cada frase, y una función calcula a partir de ahí dónde empieza cada escena y cada frase:</p>
+      <pre><code>const planificar = (escenas: EscenaPlan[], duraciones: number[], fps: number) =&gt; {
+  let t = 0;
+  let frase = 0;
+  const calculadas = escenas.map((e) =&gt; {
+    const desde = t;
+    let cursor = desde + (e.antes ?? 10);
+    const voces = [];
+    for (let k = 0; k &lt; e.frases; k++) {
+      const dura = Math.ceil(duraciones[frase] * fps);
+      voces.push({ frase, desde: cursor, dura });
+      cursor += dura + (k &lt; e.frases - 1 ? (e.entre ?? 8) : 0);
+      frase++;
+    }
+    t = cursor + (e.despues ?? 24);
+    return { desde, largo: t - desde, voces };
+  });
+  return { escenas: calculadas, total: t };
+};</code></pre>
+      <p>Dentro de cada escena, los dibujos no se colocan en fotogramas fijos, sino en momentos de la voz: «cuando la frase va por la mitad» o «cuando dice la palabra <em>música</em>», que se busca en los subtítulos. Si la voz cambia, todo se recoloca solo.</p>
+      <p>Remotion tiene además <code>calculateMetadata</code>, que permite que la duración total de la composición se calcule al cargar. Para vídeos que dependen de archivos externos es la forma recomendada.</p>
+      <h2>5. Animaciones suaves</h2>
+      <p>En Remotion no hay transiciones automáticas. Si mueves algo de un fotograma al siguiente, salta. Las dos funciones que lo arreglan son <code>interpolate</code>, que convierte un tramo de fotogramas en un tramo de valores, y <code>spring</code>, que simula un muelle:</p>
+      <pre><code>const frame = useCurrentFrame();
+const { fps } = useVideoConfig();
+const crece = spring({ frame: frame - inicio, fps, config: { damping: 200 } });
+const alto = valor * escala * crece;</code></pre>
+      <p>Con eso, una barra de un gráfico crece con naturalidad y una cifra puede contar de cero a su valor mientras la voz la nombra. La regla que sigo: nada entra ni sale de golpe. Todo funde, crece o se desliza, aunque sea en un tercio de segundo.</p>
+      <h2>6. La miniatura, con el mismo código</h2>
+      <p>La miniatura de YouTube es una imagen de 1280×720. En Remotion, una imagen fija es una composición de un solo fotograma: un <code>Still</code>.</p>
+      <pre><code>&lt;Still id="miniatura" component={Miniatura} width={1280} height={720} /&gt;</code></pre>
+      <pre><code>npx remotion still miniatura out/miniatura.jpg --image-format=jpeg</code></pre>
+      <p>La ventaja es que la miniatura usa los mismos componentes, letras y colores que el vídeo. Si cambio el título de un capítulo, cambian a la vez el vídeo y su miniatura. Y una regla de diseño que conviene programar: dejar libre la esquina de abajo a la derecha, porque ahí YouTube pone la duración.</p>
+      <h2>Para cerrar</h2>
+      <p>Ninguno de estos trucos es complicado por separado. Lo que cambia las cosas es tenerlos todos a la vez: una escena se escribe una vez, se revisa en segundos, sale en dos formatos y con las variantes que haga falta, se ajusta sola a la voz y trae su miniatura.</p>
+      <p>Una confesión: la primera versión de esta tercera parte no hablaba de Remotion, sino de consejos generales para hacer vídeos. La descarté, porque eso ya lo cuenta mucha gente. Probar, mirar el resultado y tirar lo que no sirve también forma parte del método. Sin miedo a experimentar: con Git, volver atrás cuesta un segundo.</p>
+      <p>Con esto, la serie está completa. Todo lo que hemos usado es gratis, y el código lo ha escrito una IA.</p>
+    </div>
+
+    <footer class="contenedor contenedor--estrecho articulo__pie">
+      <a class="boton boton--principal" href="/es/contacto/">Hablemos</a>
+    </footer>
+  </article>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__fila">
+      <p class="pie__marca">© 2026 apps4all</p>
+      <nav class="pie__enlaces" aria-label="Aviso legal">
+        <a href="/es/contacto/">Contacto</a>
+        <a href="/es/legal/aviso-legal/">Aviso legal</a>
+        <a href="/es/legal/privacidad/">Privacidad</a>
+      </nav>
+    </div>
+    <div class="idiomas">
+      <span class="idiomas__etiqueta">Idioma</span>
+      <a class="idiomas__enlace idiomas__enlace--activo" hreflang="es" href="/es/blog/seis-trucos-de-remotion/">Castellano</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
