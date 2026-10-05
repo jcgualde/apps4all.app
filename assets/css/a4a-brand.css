@@ -17,8 +17,10 @@
      PENDIENTE: llevarlo también a la guía de marca maestra. */
   --a4a-magenta-juegos: #C0348B;
 
-  /* Tipografía — sustituir la primera por la definitiva cuando se licencie */
-  --a4a-font: "Söhne", "Aeonik", "Helvetica Neue", Arial, sans-serif;
+  /* Tipografía de marca: Urbanist (SIL OFL 1.1), elegida el 05/10/2026.
+     Geométrica con «a» de un piso, como pedía la guía. La página que la use
+     tiene que cargarla con @font-face; sin eso se ve la de reserva. */
+  --a4a-font: "Urbanist", "Helvetica Neue", Arial, sans-serif;
 
   /* Radio de la caja del monograma: 27 % del lado */
   --a4a-radio-caja: 27%;

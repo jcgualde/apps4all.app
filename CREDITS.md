@@ -8,6 +8,20 @@ Al añadir una imagen nueva, copiar el bloque de abajo y rellenarlo.
 
 ---
 
+## assets/fuentes/urbanist-*.woff2
+
+- **Qué es:** Urbanist, la tipografía de la marca desde el 05/10/2026, en
+  fuente variable (pesos 400 a 800), partida en dos archivos: latín básico y
+  latín extendido.
+- **Origen:** Google Fonts — https://fonts.google.com/specimen/Urbanist
+  (proyecto original: https://github.com/coreyhu/Urbanist).
+- **Licencia:** SIL Open Font License 1.1. Libre, también para uso comercial,
+  y permite guardar los archivos en la web y en el repositorio. La licencia
+  obliga a acompañarlos de su texto: está en `assets/fuentes/OFL-Urbanist.txt`.
+- **Fecha de descarga:** 2026-10-05.
+
+---
+
 ## assets/img/heroe-red.jpg
 
 - **Qué es:** fondo de la cabecera de la portada. Red abstracta de puntos y
