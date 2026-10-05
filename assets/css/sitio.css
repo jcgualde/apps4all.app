@@ -185,9 +185,28 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 }
 .idioma-cabecera__menu a:hover { background: var(--fondo-suave, #f3f4f6); color: var(--a4a-tinta); }
 
+/* En el móvil los enlaces no caben junto al logotipo, así que bajan a una
+   segunda fila, siempre visible. Son tres y caben; con un menú desplegable
+   nadie vería que existe el blog. */
+.navegacion-movil { display: none; }
+
 @media (max-width: 760px) {
-  .navegacion > a:not(.boton) { display: none; }
-  .cabecera__fila { gap: 1rem; }
+  /* El selector de idioma también baja a la segunda fila, a la derecha: arriba
+     solo quedan el logotipo y el botón, que así no se parte en dos líneas
+     («Parlem-ne» lo hacía). */
+  .navegacion > a:not(.boton), .navegacion > .idioma-cabecera { display: none; }
+  .navegacion a.boton { white-space: nowrap; }
+  .cabecera__fila { gap: 1rem; padding-bottom: .75rem; }
+  .navegacion-movil { display: block; border-top: 1px solid var(--borde); }
+  .navegacion-movil__fila { display: flex; align-items: center; gap: clamp(.75rem, 4vw, 1.5rem); }
+  .navegacion-movil .idioma-cabecera { margin-left: auto; }
+  .navegacion-movil .idioma-cabecera summary { padding-right: 0; }
+  .navegacion-movil a {
+    display: inline-flex; align-items: center; min-height: 44px;
+    color: var(--a4a-tinta); text-decoration: none;
+    font-size: .9375rem; font-weight: 500; white-space: nowrap;
+  }
+  .navegacion-movil a:hover { color: var(--a4a-azul); }
 }
 
 /* En pantallas muy estrechas el botón se aprieta para que el logotipo no
@@ -195,6 +214,11 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
    el dedo. */
 @media (max-width: 420px) {
   .navegacion a.boton { padding: .6875rem 1.125rem; font-size: .9375rem; }
+}
+@media (max-width: 359px) {
+  .navegacion-movil a { font-size: .8125rem; }
+  .navegacion-movil__fila { gap: .625rem; }
+  .navegacion-movil .idioma-cabecera summary { padding-left: 0; }
 }
 
 /* --------------------------------------------------------------------------
