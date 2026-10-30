@@ -1,31 +1,14 @@
   <!-- PORTADA: NUESTRAS APPS -->
   <section class="escaparate" id="apps">
     <div class="contenedor">
+      <a class="marca-linea vertical-you escaparate__marca" href="{{base}}you/">
+        <span class="monograma" aria-hidden="true"><span>a<span class="a4a-cuatro">4</span>y</span></span>
+        <span class="marca-linea__nombre">apps<span class="a4a-cuatro">4</span>you</span>
+      </a>
       <h1>{{apps_titulo}}</h1>
       <p class="entradilla">{{apps_entradilla}}</p>
       <div class="escaparate__apps">
-        <a class="panel-app panel-app--a4g app-a4g" href="{{url_a4g}}">
-          <div class="panel-app__texto">
-            <img class="panel-app__icono" src="/assets/apps/a4g/icono.png" alt="" width="64" height="64">
-            <h2>a<span class="cuatro-a4g">4</span>g</h2>
-            <p>{{apps_a4g_texto}}</p>
-            <span class="panel-app__enlace">{{apps_ver}} a4g <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <div class="movil">
-            <img src="/assets/apps/a4g/02-puzle.webp" alt="{{apps_alt_a4g}}" width="600" height="1164">
-          </div>
-        </a>
-        <a class="panel-app panel-app--wwl" href="{{url_wwl}}">
-          <div class="panel-app__texto">
-            <img class="panel-app__icono" src="/assets/apps/wwl/icono.png" alt="" width="64" height="64">
-            <h2>Weather with love</h2>
-            <p>{{apps_wwl_texto}}</p>
-            <span class="panel-app__enlace">{{apps_ver}} Weather with love <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <div class="movil">
-            <img src="/assets/apps/wwl/tiempo.webp" alt="{{apps_alt_wwl}}" width="600" height="1194">
-          </div>
-        </a>
+{{paneles_apps}}
       </div>
       <p class="escaparate__nota">{{apps_nota}}</p>
     </div>

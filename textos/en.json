@@ -139,42 +139,29 @@
       "mono": "a4y",
       "color": "you",
       "nombre": "apps4you",
-      "titulo": "Health and habits",
-      "resumen": "Our own product. Applications born here, with no client behind them, because the problem seemed worth solving.",
-      "etiqueta": "Own product",
-      "hero_titulo": "Small things, kept up over time.",
-      "hero_texto": "This is the own-product line: applications nobody commissioned. The first one is about habits, because almost everything to do with health comes down to repeating small things on many consecutive days.",
-      "que_titulo": "What it is about",
+      "titulo": "Our apps",
+      "resumen": "Our own products: apps nobody commissioned. We make them because we thought the problem was worth solving.",
+      "etiqueta": "Our own products",
+      "hero_titulo": "Apps nobody asked us to make.",
+      "hero_texto": "apps4you is our own product line. The first two launch together on Android and iPhone: a4g, for reaching goals one piece at a time, and Weather with love, the weather with your love notes inside.",
+      "que_titulo": "How we make them",
       "que": [
         {
-          "titulo": "One habit at a time",
-          "texto": "No endless lists, no point systems. What actually sustains a habit is seeing it, ticking it, and not breaking the streak."
-        },
-        {
           "titulo": "Your data is yours",
-          "texto": "No compulsory accounts, no profiles to sell. What you record stays on your phone unless you decide otherwise."
+          "texto": "No profiles to sell, no ads, no analytics. What's yours stays on your phone or travels encrypted."
         },
         {
           "titulo": "Not built to hook you",
-          "texto": "The goal is ten seconds a day. A habit app that keeps you inside it is a habit app that has failed."
-        }
-      ],
-      "muestras_titulo": "Samples",
-      "muestras_entradilla": "Product in development. It will show up here as soon as there is something to try.",
-      "muestras": [
-        {
-          "estado": "In development",
-          "titulo": "Habit tracker",
-          "texto": "Daily habit logging with streaks, reminders and a month view you can read at a glance. No advertising and no compulsory account.",
-          "detalle": "Mobile app · Works offline · First version in preparation"
+          "texto": "An app that keeps you longer than it should has failed. They open, do their job and let you get on with your day."
         },
         {
-          "estado": "Idea",
-          "titulo": "Whatever comes next",
-          "texto": "The health line is open: medication reminders, tracking vital signs, notebooks to take to appointments. If you miss something that does not exist, or exists badly, tell us.",
-          "detalle": "Suggestions welcome"
+          "titulo": "Clear payments",
+          "texto": "Free to start and, if you pay, a one-off payment. No subscriptions that renew by themselves."
         }
-      ]
+      ],
+      "muestras_titulo": "The first two",
+      "muestras_entradilla": "Launching together on Android and iPhone. Coming soon to Google Play and the App Store.",
+      "muestras": []
     },
     {
       "slug": "juegos",

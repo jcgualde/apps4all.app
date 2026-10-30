@@ -50,6 +50,11 @@
   padding: clamp(3rem, 7vw, 5rem) 0 clamp(3rem, 7vw, 4.5rem);
 }
 .escaparate h1 { max-width: 16ch; }
+.escaparate__marca { color: var(--a4a-blanco); text-decoration: none; width: fit-content; }
+.escaparate__marca .monograma { margin-bottom: 0; outline: 1px solid rgba(255, 255, 255, .2); }
+.escaparate__marca:hover .marca-linea__nombre { text-decoration: underline; text-underline-offset: 4px; }
+/* En la página de apps4you los paneles van en la rejilla de muestras */
+.rejilla .panel-app { min-height: 24rem; }
 .escaparate .entradilla { color: var(--a4a-gris-claro); margin: 1.25rem 0 2.5rem; }
 
 .escaparate__apps {

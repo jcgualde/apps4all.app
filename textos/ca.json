@@ -139,42 +139,29 @@
       "mono": "a4y",
       "color": "you",
       "nombre": "apps4you",
-      "titulo": "Salut i hàbits",
-      "resumen": "Producte propi. Aplicacions que neixen aquí, sense cap client al darrere, perquè el problema ens va semblar que valia la pena resoldre'l.",
+      "titulo": "Les nostres apps",
+      "resumen": "Producte propi: aplicacions que no ens ha encarregat ningú. Les fem perquè el problema ens semblava que valia la pena.",
       "etiqueta": "Producte propi",
-      "hero_titulo": "El que és petit, sostingut en el temps.",
-      "hero_texto": "Aquesta és la línia de producte propi: aplicacions que no ens ha encarregat ningú. La primera va d'hàbits, perquè gairebé tot el que té a veure amb la salut es juga a repetir coses petites molts dies seguits.",
-      "que_titulo": "De què va",
+      "hero_titulo": "Aplicacions que no ens ha encarregat ningú.",
+      "hero_texto": "apps4you és la nostra línia de producte propi. Les dues primeres surten alhora per a Android i iPhone: a4g, per aconseguir metes peça a peça, i Weather with love, el temps amb les teves notes d'amor a dins.",
+      "que_titulo": "Com les fem",
       "que": [
         {
-          "titulo": "Un hàbit cada vegada",
-          "texto": "Sense llistes infinites ni sistemes de punts. El que de veritat sosté un hàbit és veure'l, marcar-lo i no trencar la ratxa."
-        },
-        {
           "titulo": "Les teves dades són teves",
-          "texto": "Sense comptes obligatoris ni perfils per vendre. El que registres es queda al teu mòbil llevat que tu decideixis una altra cosa."
+          "texto": "Sense perfils per vendre, sense publicitat i sense analítica. El que és teu es queda al mòbil o viatja xifrat."
         },
         {
           "titulo": "Sense enganxar ningú",
-          "texto": "L'objectiu és que l'obris deu segons al dia. Una aplicació d'hàbits que et reté és una aplicació que ha fallat."
-        }
-      ],
-      "muestras_titulo": "Mostres",
-      "muestras_entradilla": "Producte en desenvolupament. Hi apareixerà tan aviat com hi hagi alguna cosa que es pugui provar.",
-      "muestras": [
-        {
-          "estado": "En desenvolupament",
-          "titulo": "Aplicació d'hàbits",
-          "texto": "Registre diari d'hàbits amb ratxes, recordatoris i una vista de mes que s'entén d'una ullada. Sense publicitat i sense compte obligatori.",
-          "detalle": "Aplicació mòbil · Sense connexió · Primera versió en preparació"
+          "texto": "Una aplicació que et reté més del compte ha fallat. S'obren, fan la seva feina i et deixen continuar."
         },
         {
-          "estado": "Idea",
-          "titulo": "El que vingui després",
-          "texto": "La línia de salut està oberta: recordatoris de medicació, seguiment de constants, quaderns per a consultes. Si trobes a faltar alguna cosa que no existeix o existeix malament, digues-nos-ho.",
-          "detalle": "Suggeriments benvinguts"
+          "titulo": "Pagaments clars",
+          "texto": "Gratis per començar i, si pagues, un pagament únic. Sense subscripcions que es renoven soles."
         }
-      ]
+      ],
+      "muestras_titulo": "Les dues primeres",
+      "muestras_entradilla": "Surten alhora per a Android i iPhone. Les pàgines de les aplicacions són en castellà i anglès.",
+      "muestras": []
     },
     {
       "slug": "juegos",

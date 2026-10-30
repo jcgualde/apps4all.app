@@ -139,42 +139,29 @@
       "mono": "a4y",
       "color": "you",
       "nombre": "apps4you",
-      "titulo": "Salud y hábitos",
-      "resumen": "Producto propio. Aplicaciones que nacen aquí, sin cliente detrás, porque el problema nos parecía que merecía la pena resolverlo.",
+      "titulo": "Nuestras apps",
+      "resumen": "Producto propio: aplicaciones que no nos ha encargado nadie. Las hacemos porque el problema nos parecía que merecía la pena.",
       "etiqueta": "Producto propio",
-      "hero_titulo": "Lo pequeño, sostenido en el tiempo.",
-      "hero_texto": "Esta es la línea de producto propio: aplicaciones que no nos ha encargado nadie. La primera va de hábitos, porque casi todo lo que tiene que ver con la salud se juega en repetir cosas pequeñas muchos días seguidos.",
-      "que_titulo": "De qué va",
+      "hero_titulo": "Aplicaciones que no nos ha encargado nadie.",
+      "hero_texto": "apps4you es nuestra línea de producto propio. Las dos primeras salen a la vez para Android e iPhone: a4g, para conseguir metas pieza a pieza, y Weather with love, el tiempo con tus notas de amor dentro.",
+      "que_titulo": "Cómo las hacemos",
       "que": [
         {
-          "titulo": "Un hábito cada vez",
-          "texto": "Sin listas infinitas ni sistemas de puntos. Lo que de verdad sostiene un hábito es verlo, marcarlo y no romper la racha."
-        },
-        {
           "titulo": "Tus datos son tuyos",
-          "texto": "Sin cuentas obligatorias ni perfiles que vender. Lo que registras se queda en tu móvil salvo que tú decidas otra cosa."
+          "texto": "Sin perfiles que vender, sin publicidad y sin analítica. Lo tuyo se queda en tu móvil o viaja cifrado."
         },
         {
           "titulo": "Sin enganchar a nadie",
-          "texto": "El objetivo es que la abras diez segundos al día. Una aplicación de hábitos que te retiene es una aplicación que ha fallado."
-        }
-      ],
-      "muestras_titulo": "Muestras",
-      "muestras_entradilla": "Producto en desarrollo. Aquí aparecerá en cuanto haya algo que se pueda probar.",
-      "muestras": [
-        {
-          "estado": "En desarrollo",
-          "titulo": "Aplicación de hábitos",
-          "texto": "Registro diario de hábitos con rachas, recordatorios y una vista de mes que se entiende de un vistazo. Sin publicidad y sin cuenta obligatoria.",
-          "detalle": "Aplicación móvil · Sin conexión · Primera versión en preparación"
+          "texto": "Una aplicación que te retiene más de la cuenta ha fallado. Se abren, hacen su trabajo y te dejan seguir con lo tuyo."
         },
         {
-          "estado": "Idea",
-          "titulo": "Lo que venga después",
-          "texto": "La línea de salud está abierta: recordatorios de medicación, seguimiento de constantes, cuadernos para consultas. Si echas de menos algo que no existe o existe mal, dínoslo.",
-          "detalle": "Sugerencias bienvenidas"
+          "titulo": "Pagos claros",
+          "texto": "Gratis para empezar y, si pagas, un pago único. Sin suscripciones que se renuevan solas."
         }
-      ]
+      ],
+      "muestras_titulo": "Las dos primeras",
+      "muestras_entradilla": "Salen a la vez para Android e iPhone. Próximamente en Google Play y App Store.",
+      "muestras": []
     },
     {
       "slug": "juegos",

@@ -411,6 +411,32 @@ def tarjeta_diseno(i, nombre):
       </li>"""
 
 
+def paneles_apps(t, codigo):
+    """Los dos paneles de nuestras apps: en la portada y en la página de apps4you."""
+    return f"""        <a class="panel-app panel-app--a4g app-a4g" href="{url_app(codigo, 'a4g')}">
+          <div class="panel-app__texto">
+            <img class="panel-app__icono" src="/assets/apps/a4g/icono.png" alt="" width="64" height="64">
+            <h2>a<span class="cuatro-a4g">4</span>g</h2>
+            <p>{t['apps_a4g_texto']}</p>
+            <span class="panel-app__enlace">{t['apps_ver']} a4g <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <div class="movil">
+            <img src="/assets/apps/a4g/02-puzle.webp" alt="{t['apps_alt_a4g']}" width="600" height="1164">
+          </div>
+        </a>
+        <a class="panel-app panel-app--wwl" href="{url_app(codigo, 'wwl')}">
+          <div class="panel-app__texto">
+            <img class="panel-app__icono" src="/assets/apps/wwl/icono.png" alt="" width="64" height="64">
+            <h2>Weather with love</h2>
+            <p>{t['apps_wwl_texto']}</p>
+            <span class="panel-app__enlace">{t['apps_ver']} Weather with love <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <div class="movil">
+            <img src="/assets/apps/wwl/tiempo.webp" alt="{t['apps_alt_wwl']}" width="600" height="1194">
+          </div>
+        </a>"""
+
+
 def con_icono(icono, texto):
     return f"        <li>{icono}<span>{texto}</span></li>"
 
@@ -497,15 +523,15 @@ def construir():
         verticales = t["verticales"]
 
         # --- Portada ---
-        tarjetas = "".join(tarjeta_vertical(v, base, t["lineas_enlace"]) for v in verticales)
+        tarjetas = "".join(tarjeta_vertical(v, base, t["lineas_enlace"])
+                           for v in verticales if v["slug"] != "you")
         pasos = "".join(bloque_paso(i, p, t["paso"]) for i, p in enumerate(t["pasos"], 1))
         contenido = rellenar(t_portada, {
             **{k: v for k, v in t.items() if isinstance(v, str)},
             "base": base,
             "tarjetas_verticales": tarjetas,
             "pasos": pasos,
-            "url_a4g": url_app(codigo, "a4g"),
-            "url_wwl": url_app(codigo, "wwl"),
+            "paneles_apps": paneles_apps(t, codigo),
         })
         pagina(codigo, "", contenido, t["meta_titulo"], "pagina-portada")
 
@@ -522,7 +548,8 @@ def construir():
                 "mono_html": resaltar_cuatro(v["mono"]),
                 "nombre_html": resaltar_cuatro(v["nombre"]),
                 "bloques_que": "".join(bloque_que(q) for q in v["que"]),
-                "muestras": "".join(bloque_muestra(m) for m in v["muestras"]),
+                "muestras": (paneles_apps(t, codigo) if v["slug"] == "you"
+                             else "".join(bloque_muestra(m) for m in v["muestras"])),
                 "otras_verticales": otras,
             })
             pagina(codigo, f"{v['slug']}/", contenido,
