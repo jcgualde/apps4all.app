@@ -488,7 +488,7 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 .texto-largo li { margin-bottom: .375rem; }
 
 /* --------------------------------------------------------------------------
-   Pie e idiomas
+   Pie
    -------------------------------------------------------------------------- */
 
 .pie {
@@ -504,27 +504,6 @@ h3 { font-size: 1.1875rem; font-weight: 600; }
 .pie a { color: var(--a4a-gris); text-decoration: none; }
 .pie a:hover { color: var(--a4a-tinta); text-decoration: underline; }
 .pie__enlaces { display: flex; flex-wrap: wrap; gap: 1.25rem; }
-
-.idiomas {
-  display: flex; flex-wrap: wrap; align-items: center; gap: .75rem;
-  margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--borde);
-}
-.idiomas__etiqueta {
-  font-size: .8125rem; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--a4a-gris-claro);
-}
-.idiomas__enlace {
-  /* min-height 44px: es el tamaño mínimo que se puede tocar con el dedo sin
-     fallar. Con el relleno de antes se quedaba en 38 px. */
-  display: inline-flex; align-items: center; min-height: 44px;
-  padding: .375rem .9375rem; border-radius: 999px;
-  border: 1px solid var(--borde); text-decoration: none;
-}
-.idiomas__enlace:hover { border-color: var(--a4a-gris); text-decoration: none; }
-.idiomas__enlace--activo {
-  background: var(--a4a-tinta); color: var(--a4a-blanco); border-color: var(--a4a-tinta);
-}
-.idiomas__enlace--activo:hover { color: var(--a4a-blanco); }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 

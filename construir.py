@@ -265,18 +265,6 @@ def bloque_muestra(m):
 """
 
 
-def selector_idioma(idiomas, actual, ruta_sin_idioma, nombres):
-    partes = []
-    for codigo in idiomas:
-        clase = "idiomas__enlace"
-        if codigo == actual:
-            clase += " idiomas__enlace--activo"
-        partes.append(
-            f'<a class="{clase}" hreflang="{codigo}" href="/{codigo}/{ruta_sin_idioma}">{nombres[codigo]}</a>'
-        )
-    return "\n      ".join(partes)
-
-
 def selector_idioma_cabecera(idiomas, actual, ruta_sin_idioma, nombres, etiqueta):
     """El selector de arriba: un globo con el idioma actual que despliega los
     demas. Es un <details>, asi que funciona sin JavaScript. Si la pagina solo
@@ -507,7 +495,6 @@ def construir():
                 if codigo == "es" else ""),
             "contenido": contenido,
             "alternates": alternates(disponibles, ruta_sin_idioma, por_defecto, dominio),
-            "selector_idioma": selector_idioma(disponibles, codigo, ruta_sin_idioma, nombres_idioma),
             "selector_idioma_cabecera": selector_idioma_cabecera(disponibles, codigo, ruta_sin_idioma, nombres_idioma, t["pie_idioma"]),
         })
         if descripcion:
