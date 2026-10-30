@@ -1,5 +1,5 @@
 {
-  "_comentario": "Textos legales de nuestras apps, en castellano e inglés. Cada texto es una lista de líneas de HTML (atributos con comillas simples). Huecos: {{titular}}, {{nif}}, {{domicilio}}, {{correo}} y {{base}}, que salen de config.json. Borrador del 30/10/2026 a partir de la guía legal: TODO(publicar) que lo revise el abogado antes del lanzamiento, y cambiar el titular cuando exista la S.L.",
+  "_comentario": "Textos legales de nuestras apps, en castellano e inglés. Cada texto es una lista de líneas de HTML (atributos con comillas simples). Huecos: {{titular}}, {{nif}}, {{domicilio}}, {{correo}} y {{base}}, que salen de config.json. Escritos el 30/10/2026 a partir de la guía legal. Sin abogado de momento (decisión de José Carlos). TODO(publicar): cambiar el titular cuando exista la S.L.",
   "es": {
     "a4g_privacidad": [
       "<p>a4g (app4goals) es una aplicación para conseguir metas: un hábito nuevo, un proyecto, lo que te propongas. Cada meta es una foto partida en piezas y cada día que avanzas pones una. La hace apps4all, es decir, {{titular}}, con NIF {{nif}} y domicilio en {{domicilio}}. Para cualquier duda sobre tus datos puedes escribir a <a href='mailto:{{correo}}'>{{correo}}</a>.</p>",
@@ -82,7 +82,7 @@
       "<p>Si la aplicación empieza a tratar datos de otra manera, esta página cambiará antes y lo diremos en la propia aplicación. La fecha de arriba indica la última versión.</p>"
     ],
     "wwl_condiciones": [
-      "<p>Estas son las condiciones de uso de Weather with love. Al crear un usuario de Notas de amor, las aceptas. Las ofrece apps4all: {{titular}}, con NIF {{nif}} y domicilio en {{domicilio}}. Contacto: <a href='mailto:{{correo}}'>{{correo}}</a>.</p>",
+      "<p>Estas son las condiciones de uso de las Notas de amor, la parte de Weather with love para mandar mensajes. Se aceptan al crear un usuario. Para mirar el tiempo no hace falta aceptar nada. Las ofrece apps4all: {{titular}}, con NIF {{nif}} y domicilio en {{domicilio}}. Contacto: <a href='mailto:{{correo}}'>{{correo}}</a>.</p>",
       "<h2>Qué es</h2>",
       "<p>Weather with love es una aplicación del tiempo. Dentro lleva Notas de amor, para mandar notas, fotos y vídeos cifrados a las personas que quieres. El tiempo es gratis y funciona igual uses o no las notas.</p>",
       "<h2>Quién puede usar las Notas de amor</h2>",
@@ -214,7 +214,7 @@
       "<p>If the app starts handling data differently, this page will change first and we'll say so in the app. The date above shows the latest version.</p>"
     ],
     "wwl_condiciones": [
-      "<p>These are the terms of use of Weather with love. By creating a Love notes user, you accept them. They are offered by apps4all: {{titular}}, tax ID {{nif}}, based at {{domicilio}}, Spain. Contact: <a href='mailto:{{correo}}'>{{correo}}</a>.</p>",
+      "<p>These are the terms of use of Love notes, the messaging part of Weather with love. You accept them when you create a user. Checking the weather requires no acceptance at all. They are offered by apps4all: {{titular}}, tax ID {{nif}}, based at {{domicilio}}, Spain. Contact: <a href='mailto:{{correo}}'>{{correo}}</a>.</p>",
       "<h2>What it is</h2>",
       "<p>Weather with love is a weather app. Inside it there are Love notes, for sending encrypted notes, photos and videos to the people you love. The weather is free and works the same whether or not you use the notes.</p>",
       "<h2>Who can use Love notes</h2>",
