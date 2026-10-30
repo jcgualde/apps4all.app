@@ -1,0 +1,185 @@
+{
+  "_comentario": "Textos de las páginas de nuestras apps (a4g y Weather with love), solo en castellano e inglés, como las propias apps. Los textos legales de cada app están en legal_apps.json. Borrador de Claude del 30/10/2026: pasarlo por la voz de José Carlos.",
+  "es": {
+    "tienda_proximamente": "Próximamente en",
+    "plataformas": "Para Android e iPhone.",
+    "ayuda_titulo": "¿Dudas o algo que no va?",
+    "ayuda_texto": "Escríbenos y te contestamos lo antes posible.",
+    "privacidad": "Política de privacidad",
+    "condiciones": "Condiciones de uso",
+    "seguridad_infantil": "Normas de seguridad infantil",
+    "legal_otros_titulo": "Más sobre",
+    "a4g": {
+      "meta_titulo": "a4g · Cada día que avanzas, una pieza",
+      "meta_descripcion": "a4g es una aplicación para conseguir metas: tu foto se parte en piezas y cada día que avanzas pones una. Sin cuenta y sin rachas que castigan. Para Android e iPhone.",
+      "h1": "Cada día que avanzas, una pieza.",
+      "entradilla": "Ponte una meta y elige una foto de lo que quieres conseguir. La foto se parte en tantas piezas como días te das: 21, 30 o 66. Cuando está entera, la meta es tuya.",
+      "alt_heroe": "Pantalla de a4g: la foto de una meta a medio completar y la pieza de hoy esperando abajo",
+      "puzle_titulo": "Así crece una meta de 21 días.",
+      "puzle_texto": "Cada pieza es un día en que avanzaste. Un día malo no quita ninguna: solo retrasa la foto.",
+      "puzle_fin": "Foto entera. Meta conseguida.",
+      "puzle_otra": "Verlo otra vez",
+      "pasos_titulo": "Cómo funciona",
+      "pasos": [
+        {
+          "titulo": "Pon una meta",
+          "texto": "Dale nombre y elige su foto. Hay 31 para elegir, pero funciona mejor una tuya: la de lo que quieres conseguir.",
+          "imagen": "01-hoy.webp",
+          "alt": "Pantalla de inicio de a4g con tres metas en curso"
+        },
+        {
+          "titulo": "Coloca la pieza de hoy",
+          "texto": "Cada día que avanzas, arrastras la pieza a su hueco. El hueco se ilumina y la pieza encaja con un clac.",
+          "imagen": "02-puzle.webp",
+          "alt": "La pieza de hoy, abajo, lista para arrastrarla a su sitio en la foto"
+        },
+        {
+          "titulo": "Decide tú",
+          "texto": "Con la foto entera, eliges: meta conseguida, a la galería de logros. O aún no, dame más días.",
+          "imagen": "03-foto-entera.webp",
+          "alt": "La foto completa y los dos botones para decidir si la meta está conseguida"
+        }
+      ],
+      "castigo_titulo": "Un mal día no te quita piezas.",
+      "castigo_texto": "No hay rachas que se rompen ni castigos. Un día sin cumplir solo retrasa el puzle. Y si avanzaste pero se te olvidó abrir la aplicación, puedes poner las piezas de la última semana.",
+      "privado_titulo": "Tu meta no sale de tu móvil.",
+      "privado_texto": "Sin cuenta, sin registro y sin conexión. No hay servidor, ni analítica, ni publicidad. Para cambiar de móvil, haces una copia de seguridad y te la llevas tú.",
+      "precio_titulo": "Gratis para empezar.",
+      "precio_texto": "La versión gratuita permite tres metas a la vez y una foto tuya. Premium quita los límites con un pago único, sin suscripción.",
+      "trae": [
+        "Un aviso al día, a la hora que digas. O ninguno.",
+        "Una frase o un dato sobre hábitos cada día, con su fuente.",
+        "La galería de logros, con las fotos que has completado.",
+        "Copia de seguridad para cambiar de móvil sin perder nada."
+      ]
+    },
+    "wwl": {
+      "meta_titulo": "Weather with love · El tiempo, y tus notas de amor",
+      "meta_descripcion": "Una aplicación del tiempo de verdad, con widget y una frase para cada día, que además guarda tus Notas de amor: mensajes, fotos y vídeos cifrados de extremo a extremo. Para Android e iPhone.",
+      "h1": "Una aplicación del tiempo con algo más dentro.",
+      "entradilla": "Weather with love te da el tiempo de verdad, con su widget y una frase para empezar el día. Y guarda tus Notas de amor: mensajes, fotos y vídeos cifrados para las personas que quieres.",
+      "alt_heroe": "Pantalla del tiempo de Weather with love: 10 grados y despejado, con la frase del día",
+      "tiempo_titulo": "Primero, el tiempo.",
+      "tiempo_texto": "Funciona sin cuenta, sin registro y sin pedirte la ubicación. Buscas tu ciudad y listo.",
+      "tiempo_lista": [
+        "Temperatura, sensación, humedad, viento y presión.",
+        "La previsión de 3 o 7 días, como prefieras.",
+        "Grados Celsius o Fahrenheit, y kilómetros o millas por hora.",
+        "Un widget para la pantalla de inicio que se pone al día solo.",
+        "Una frase para cada día. Si no te gusta, la tocas y sale otra."
+      ],
+      "gente_titulo": "Tu gente, aunque esté lejos.",
+      "gente_texto": "Añade a las personas que quieres con su ciudad. Verás qué tiempo hace allí y una frase según el día que les toca. Si llueve en Berlín, igual es buen día para llamar a Hugo.",
+      "alt_gente": "La sección Tu gente: dos personas con su ciudad, el tiempo que hace allí y una frase de cariño",
+      "notas_titulo": "Y tus Notas de amor, solo para ti.",
+      "notas_texto": "Al crear tu usuario eliges una ciudad secreta. Cuando la buscas en el tiempo, se abren tus notas. Cada uno elige la suya, y no la guardamos en ningún sitio.",
+      "notas_busqueda": "Tu ciudad secreta",
+      "notas_lista": [
+        ["Cifradas de extremo a extremo.", "Solo el móvil de quien las recibe puede abrirlas. Nosotros tampoco."],
+        ["Se borran del servidor al llegar.", "Lo hablado se queda en los móviles, nunca en la galería de fotos."],
+        ["Sin teléfono ni correo.", "Te unes a alguien con un código de invitación."],
+        ["Un aviso que solo tú entiendes.", "Cuando te escriben, el widget cambia un detalle que solo tú conoces. Sin notificaciones."],
+        ["Fotos, vídeos y grupos.", "Hasta 20 personas por grupo."]
+      ],
+      "tarjetas_titulo": "Tarjetas de amor para coleccionar.",
+      "tarjetas_texto": "Para enviar notas usas una tarjeta de amor de 1, 3 o 12 meses. Se paga una vez y no se renueva sola. Para empezar, una de 7 días gratis. Hay 20 diseños, cada uno con una pareja de animalitos en un tiempo distinto, y se pueden regalar a tus contactos.",
+      "tarjetas_lista": "Los 20 diseños de las tarjetas de amor",
+      "tarjetas_ayuda": "Desliza para ver los 20. Las ilustraciones las hemos dibujado nosotros.",
+      "disenos": ["Amanecer", "Lluvia de besos", "Arcoíris", "Noche estrellada", "Copos de nieve", "Tormenta de pasión", "Brisa de mar", "Atardecer", "Luna de miel", "Primavera", "Bajo el mismo paraguas", "Otoño", "Chocolate caliente", "Entre nubes", "Aurora boreal", "Cerezo en flor", "Mar de corazones", "Viento a favor", "Calor de hogar", "Para siempre"],
+      "seguridad_titulo": "Para mayores de 18, con normas claras.",
+      "seguridad_texto": "Puedes bloquear a quien te moleste y denunciar un mensaje desde la propia conversación. Quien incumple las normas se queda sin poder enviar. Y con los abusos a menores, tolerancia cero.",
+      "seguridad_enlace": "Nuestras normas de seguridad infantil"
+    }
+  },
+  "en": {
+    "tienda_proximamente": "Coming soon to",
+    "plataformas": "For Android and iPhone.",
+    "ayuda_titulo": "Questions, or something not working?",
+    "ayuda_texto": "Write to us and we'll get back to you as soon as we can.",
+    "privacidad": "Privacy policy",
+    "condiciones": "Terms of use",
+    "seguridad_infantil": "Child safety standards",
+    "legal_otros_titulo": "More about",
+    "a4g": {
+      "meta_titulo": "a4g · One piece for every day you move forward",
+      "meta_descripcion": "a4g is an app for reaching goals: your photo is cut into pieces and you place one for every day you move forward. No account, no streaks that punish you. For Android and iPhone.",
+      "h1": "One piece for every day you move forward.",
+      "entradilla": "Set a goal and pick a photo of what you want to achieve. The photo is cut into as many pieces as days you give yourself: 21, 30 or 66. When it's complete, the goal is yours.",
+      "alt_heroe": "a4g screen: a goal's photo halfway done, with today's piece waiting below",
+      "puzle_titulo": "This is how a 21-day goal grows.",
+      "puzle_texto": "Every piece is a day you moved forward. A bad day doesn't take any away: it only delays the photo.",
+      "puzle_fin": "Photo complete. Goal reached.",
+      "puzle_otra": "Watch it again",
+      "pasos_titulo": "How it works",
+      "pasos": [
+        {
+          "titulo": "Set a goal",
+          "texto": "Give it a name and pick its photo. There are 31 to choose from, but your own works best: a picture of what you want to achieve.",
+          "imagen": "01-hoy.webp",
+          "alt": "a4g home screen with three goals in progress"
+        },
+        {
+          "titulo": "Place today's piece",
+          "texto": "Every day you move forward, you drag the piece into its gap. The gap lights up and the piece clicks into place.",
+          "imagen": "02-puzle.webp",
+          "alt": "Today's piece at the bottom, ready to be dragged into the photo"
+        },
+        {
+          "titulo": "You decide",
+          "texto": "When the photo is complete, you choose: goal reached, off to your gallery of achievements. Or not yet, give me more days.",
+          "imagen": "03-foto-entera.webp",
+          "alt": "The complete photo and the two buttons to decide whether the goal is reached"
+        }
+      ],
+      "castigo_titulo": "A bad day doesn't take pieces away.",
+      "castigo_texto": "No streaks to break, no punishments. A missed day only delays the puzzle. And if you moved forward but forgot to open the app, you can add the pieces for the past week.",
+      "privado_titulo": "Your goal never leaves your phone.",
+      "privado_texto": "No account, no sign-up, no connection. No server, no analytics, no ads. To switch phones, you make a backup and take it with you.",
+      "precio_titulo": "Free to start.",
+      "precio_texto": "The free version lets you have three goals at a time and one photo of your own. Premium removes the limits with a one-off payment, no subscription.",
+      "trae": [
+        "One reminder a day, at the time you choose. Or none.",
+        "A quote or a fact about habits every day, with its source.",
+        "A gallery of achievements with the photos you've completed.",
+        "Backups, to switch phones without losing anything."
+      ]
+    },
+    "wwl": {
+      "meta_titulo": "Weather with love · The weather, and your love notes",
+      "meta_descripcion": "A real weather app, with a widget and a line for every day, that also keeps your Love notes: end-to-end encrypted messages, photos and videos. For Android and iPhone.",
+      "h1": "A weather app with something more inside.",
+      "entradilla": "Weather with love gives you the real weather, with a widget and a line to start your day. And it keeps your Love notes: encrypted messages, photos and videos for the people you love.",
+      "alt_heroe": "Weather with love weather screen: 10 degrees and clear, with the line of the day",
+      "tiempo_titulo": "The weather comes first.",
+      "tiempo_texto": "It works with no account, no sign-up and without asking for your location. Search for your city and you're done.",
+      "tiempo_lista": [
+        "Temperature, feels-like, humidity, wind and pressure.",
+        "A 3 or 7-day forecast, whichever you prefer.",
+        "Celsius or Fahrenheit, and kilometres or miles per hour.",
+        "A home screen widget that keeps itself up to date.",
+        "A line for every day. Don't like it? Tap it for another."
+      ],
+      "gente_titulo": "Your people, even when they're far away.",
+      "gente_texto": "Add the people you love with their city. You'll see the weather there, with a line that suits their day. If it's raining in Berlin, it might be a good day to call Hugo.",
+      "alt_gente": "The Your people section: two people with their city, the weather there and a loving line",
+      "notas_titulo": "And your Love notes, just for you.",
+      "notas_texto": "When you create your user, you choose a secret city. Search for it in the weather and your notes open. Everyone picks their own, and we don't store it anywhere.",
+      "notas_busqueda": "Your secret city",
+      "notas_lista": [
+        ["End-to-end encrypted.", "Only the recipient's phone can open them. Not even us."],
+        ["Deleted from the server on arrival.", "Your conversations stay on the phones, never in the photo gallery."],
+        ["No phone number or email.", "You connect with someone using an invitation code."],
+        ["A signal only you understand.", "When someone writes to you, the widget changes a detail only you know. No notifications."],
+        ["Photos, videos and groups.", "Up to 20 people per group."]
+      ],
+      "tarjetas_titulo": "Love cards worth collecting.",
+      "tarjetas_texto": "To send notes you use a love card for 1, 3 or 12 months. You pay once and it never renews by itself. To start, a 7-day one for free. There are 20 designs, each with a pair of little animals in a different kind of weather, and you can give them to your contacts.",
+      "tarjetas_lista": "The 20 love card designs",
+      "tarjetas_ayuda": "Swipe to see all 20. We drew the illustrations ourselves.",
+      "disenos": ["Sunrise", "Rain of kisses", "Rainbow", "Starry night", "Snowflakes", "Storm of passion", "Sea breeze", "Sunset", "Honeymoon", "Springtime", "Under one umbrella", "Autumn", "Hot chocolate", "Head in the clouds", "Northern lights", "Cherry blossom", "Sea of hearts", "Tailwind", "Warm at heart", "Forever"],
+      "seguridad_titulo": "For over-18s, with clear rules.",
+      "seguridad_texto": "You can block anyone who bothers you and report a message right from the conversation. Whoever breaks the rules loses the ability to send. And when it comes to child abuse, zero tolerance.",
+      "seguridad_enlace": "Our child safety standards"
+    }
+  }
+}

@@ -54,3 +54,18 @@ Al añadir una imagen nueva, copiar el bloque de abajo y rellenarlo.
   razonando que el trabajo hecho para ellos es real y lo hizo gratis en su
   tiempo libre. Se le advirtió dos veces. Queda aquí como recordatorio de
   pedirlo, no como objeción.
+
+---
+
+## assets/apps/
+
+- **Qué es:** iconos, capturas de pantalla y tarjetas de nuestras apps a4g y
+  Weather with love.
+- **Origen:** propios. Iconos y tarjetas salen de los repositorios de cada app
+  (`a4h/marca/`, `tiempo/assets/icono/`, `tiempo/assets/tarjetas/`, dibujados
+  por sus scripts); las capturas, de la propia app en el móvil y el emulador.
+- **Excepción:** `a4g/meta-bici.webp`, la foto del puzle de la página de a4g,
+  es `ir_en_bici.jpg` de las fotos de a4g: Pixabay, `bike-ride-8408035`,
+  Pixabay Content License (ver `a4h/assets/fotos/FUENTES.md`). Las fotos que
+  salen dentro de las capturas de a4g son también de ese banco.
+- **Fecha:** 2026-10-30.

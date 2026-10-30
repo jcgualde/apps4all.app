@@ -1,15 +1,34 @@
-  <!-- PORTADA -->
-  <section class="heroe">
+  <!-- PORTADA: NUESTRAS APPS -->
+  <section class="escaparate" id="apps">
     <div class="contenedor">
-      <p class="antetitulo">{{portada_antetitulo}}</p>
-      <h1>{{portada_titulo}}</h1>
-      <p class="entradilla">{{portada_entradilla}}</p>
-      <div class="heroe__acciones">
-        <a class="boton boton--principal" href="{{base}}contacto/">{{portada_boton_1}}</a>
-        <a class="boton boton--secundario" href="#lineas">{{portada_boton_2}}</a>
+      <h1>{{apps_titulo}}</h1>
+      <p class="entradilla">{{apps_entradilla}}</p>
+      <div class="escaparate__apps">
+        <a class="panel-app panel-app--a4g app-a4g" href="{{url_a4g}}">
+          <div class="panel-app__texto">
+            <img class="panel-app__icono" src="/assets/apps/a4g/icono.png" alt="" width="64" height="64">
+            <h2>a<span class="cuatro-a4g">4</span>g</h2>
+            <p>{{apps_a4g_texto}}</p>
+            <span class="panel-app__enlace">{{apps_ver}} a4g <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <div class="movil">
+            <img src="/assets/apps/a4g/02-puzle.webp" alt="{{apps_alt_a4g}}" width="600" height="1164">
+          </div>
+        </a>
+        <a class="panel-app panel-app--wwl" href="{{url_wwl}}">
+          <div class="panel-app__texto">
+            <img class="panel-app__icono" src="/assets/apps/wwl/icono.png" alt="" width="64" height="64">
+            <h2>Weather with love</h2>
+            <p>{{apps_wwl_texto}}</p>
+            <span class="panel-app__enlace">{{apps_ver}} Weather with love <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <div class="movil">
+            <img src="/assets/apps/wwl/tiempo.webp" alt="{{apps_alt_wwl}}" width="600" height="1194">
+          </div>
+        </a>
       </div>
+      <p class="escaparate__nota">{{apps_nota}}</p>
     </div>
-    <div class="heroe__cinta" aria-hidden="true"></div>
   </section>
 
   <!-- TRES LÍNEAS -->
@@ -19,6 +38,9 @@
         <p class="antetitulo">{{lineas_antetitulo}}</p>
         <h2>{{lineas_titulo}}</h2>
         <p class="entradilla">{{lineas_entradilla}}</p>
+        <div class="heroe__acciones" style="margin-top:1.5rem">
+          <a class="boton boton--principal" href="{{base}}contacto/">{{portada_boton_1}}</a>
+        </div>
       </div>
       <div class="rejilla rejilla--3">
 {{tarjetas_verticales}}

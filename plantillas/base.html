@@ -11,6 +11,7 @@
 <link rel="preload" href="/assets/fuentes/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/a4a-brand.css?v={{v_marca}}">
 <link rel="stylesheet" href="/assets/css/sitio.css?v={{v_sitio}}">
+<link rel="stylesheet" href="/assets/css/apps.css?v={{v_apps}}">
 </head>
 <body class="{{clase_body}}">
 
@@ -22,6 +23,7 @@
       <img src="/assets/marca/a4a-logotipo-horizontal.svg" alt="apps4all">
     </a>
     <nav class="navegacion" aria-label="{{nav_verticales}}">
+      <a href="{{base}}#apps">{{nav_apps}}</a>
       <a href="{{base}}#lineas">{{nav_verticales}}</a>
       <a href="{{base}}#como">{{nav_como}}</a>
       {{nav_blog}}
@@ -31,8 +33,8 @@
   </div>
   <nav class="navegacion-movil" aria-label="{{nav_verticales}}">
     <div class="contenedor navegacion-movil__fila">
+      <a href="{{base}}#apps">{{nav_apps}}</a>
       <a href="{{base}}#lineas">{{nav_verticales}}</a>
-      <a href="{{base}}#como">{{nav_como}}</a>
       {{nav_blog}}
       {{selector_idioma_cabecera}}
     </div>
@@ -48,6 +50,8 @@
     <div class="pie__fila">
       <p class="pie__marca">{{pie_derechos}}</p>
       <nav class="pie__enlaces" aria-label="{{pie_aviso}}">
+        <a href="{{url_a4g}}">a4g</a>
+        <a href="{{url_wwl}}">Weather with love</a>
         <a href="{{base}}contacto/">{{pie_contacto}}</a>
         <a href="{{base}}legal/aviso-legal/">{{pie_aviso}}</a>
         <a href="{{base}}legal/privacidad/">{{pie_privacidad}}</a>

@@ -1,0 +1,124 @@
+  <!-- a4g: HÉROE -->
+  <section class="app-heroe">
+    <div class="contenedor app-heroe__fila">
+      <div class="app-heroe__texto">
+        <div class="app-marca">
+          <img src="/assets/apps/a4g/icono.png" alt="" width="56" height="56">
+          <span>a<span class="cuatro-a4g">4</span>g</span>
+        </div>
+        <h1>{{h1}}</h1>
+        <p class="entradilla">{{entradilla}}</p>
+{{tiendas}}
+      </div>
+      <div class="movil">
+        <img src="/assets/apps/a4g/02-puzle.webp" alt="{{alt_heroe}}" width="600" height="1164">
+      </div>
+    </div>
+  </section>
+
+  <!-- a4g: EL PUZLE -->
+  <section class="app-bloque">
+    <div class="contenedor puzle">
+      <div class="puzle__tablero" data-puzle aria-hidden="true">
+{{piezas}}
+      </div>
+      <div>
+        <h2>{{puzle_titulo}}</h2>
+        <p>{{puzle_texto}}</p>
+        <p class="puzle__cuenta" aria-live="polite"><span data-cuenta>21</span> / 21</p>
+        <p class="puzle__pie" data-pie data-pie-fin="{{puzle_fin}}">{{puzle_fin}}</p>
+        <button class="puzle__otra" type="button" data-otra>{{puzle_otra}}</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- a4g: CÓMO FUNCIONA -->
+  <section class="app-bloque" style="padding-top:0">
+    <div class="contenedor">
+      <div class="app-bloque__intro">
+        <h2>{{pasos_titulo}}</h2>
+      </div>
+      <ol class="pasos-app">
+{{pasos}}
+      </ol>
+    </div>
+  </section>
+
+  <!-- a4g: SIN CASTIGOS Y PRIVACIDAD -->
+  <section class="app-bloque a4g-oscuro">
+    <div class="contenedor a-dos">
+      <div>
+        <h2>{{castigo_titulo}}</h2>
+        <p>{{castigo_texto}}</p>
+      </div>
+      <div>
+        <h2>{{privado_titulo}}</h2>
+        <p>{{privado_texto}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- a4g: PRECIO Y LO QUE TRAE -->
+  <section class="app-bloque">
+    <div class="contenedor a-dos">
+      <div>
+        <h2>{{precio_titulo}}</h2>
+        <p>{{precio_texto}}</p>
+      </div>
+      <ul class="lista-limpia">
+{{trae}}
+      </ul>
+    </div>
+  </section>
+
+{{ayuda}}
+
+<script>
+/* El puzle se completa una pieza tras otra cuando entra en pantalla.
+   Sin JavaScript, o con «reducir movimiento», se ve ya completo. */
+(function () {
+  var tablero = document.querySelector("[data-puzle]");
+  if (!tablero) return;
+  var piezas = Array.prototype.slice.call(tablero.children);
+  var cuenta = document.querySelector("[data-cuenta]");
+  var pie = document.querySelector("[data-pie]");
+  var otra = document.querySelector("[data-otra]");
+  var quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var orden = piezas.map(function (_, i) { return i; });
+  var temporizador;
+
+  function barajar() {
+    for (var i = orden.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = orden[i]; orden[i] = orden[j]; orden[j] = t;
+    }
+  }
+  function jugar() {
+    clearTimeout(temporizador);
+    if (quieto) { tablero.classList.remove("puzle--espera"); return; }
+    barajar();
+    piezas.forEach(function (p) { p.classList.remove("esta"); });
+    tablero.classList.add("puzle--espera", "puzle--jugando");
+    cuenta.textContent = "0";
+    pie.textContent = " ";
+    var n = 0;
+    (function siguiente() {
+      piezas[orden[n]].classList.add("esta");
+      n++;
+      cuenta.textContent = String(n);
+      if (n < piezas.length) temporizador = setTimeout(siguiente, 170);
+      else pie.textContent = pie.getAttribute("data-pie-fin");
+    })();
+  }
+  if (!quieto && "IntersectionObserver" in window) {
+    tablero.classList.add("puzle--espera");
+    cuenta.textContent = "0";
+    pie.textContent = " ";
+    var visto = new IntersectionObserver(function (e) {
+      if (e[0].isIntersecting) { visto.disconnect(); jugar(); }
+    }, { threshold: .45 });
+    visto.observe(tablero);
+  }
+  otra.addEventListener("click", jugar);
+})();
+</script>

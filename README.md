@@ -36,6 +36,9 @@ Y abrir <http://localhost:4322>.
 | Un texto, un titular, una muestra de trabajo | `textos/es.json`, `textos/en.json`, `textos/ca.json` |
 | El correo, el dominio, la clave de Web3Forms, el NIF | `textos/config.json` |
 | El aviso legal o la política de privacidad | `textos/legal.json` |
+| Las páginas de a4g y Weather with love | `textos/apps.json` (castellano e inglés) |
+| Privacidad, condiciones y seguridad infantil de cada app | `textos/legal_apps.json` |
+| Colores y estilo de las páginas de app | `assets/css/apps.css` |
 | La estructura de una página | `plantillas/*.html` |
 | Colores, tipografías, espaciados | `assets/css/sitio.css` |
 | Los colores de la marca | `assets/css/a4a-brand.css` — **no se edita** |
@@ -44,6 +47,30 @@ Y abrir <http://localhost:4322>.
 **`publico/` no se edita nunca.** Se borra y se vuelve a escribir en cada
 ejecución de `construir.py`; cualquier cambio hecho ahí se pierde. Por eso está
 en `.gitignore`.
+
+## Las páginas de nuestras apps
+
+Desde el 30/10/2026 la portada abre con nuestras dos apps, y cada una tiene
+su sitio, solo en castellano e inglés (como las propias apps):
+
+| Página | Dirección |
+|---|---|
+| a4g | `/es/a4g/` y `/en/a4g/` |
+| Su privacidad y condiciones | `/es/a4g/privacidad/`, `/es/a4g/condiciones/` |
+| Weather with love | `/es/weather-with-love/` y `/en/weather-with-love/` |
+| Su privacidad, condiciones y seguridad infantil | `/es/weather-with-love/privacidad/`, `.../condiciones/`, `.../seguridad-infantil/` |
+
+**Estas direcciones van en las fichas de Google Play y App Store: no se
+cambian nunca.** La antigua `/es/legal/privacidad-a4g/` sigue funcionando y
+lleva a la nueva.
+
+Mientras las apps no estén publicadas, los botones dicen «Próximamente en
+Google Play / App Store». Al publicarlas, se cambian por los enlaces a las
+fichas en `bloque_tiendas` de `construir.py`.
+
+Las capturas están en `assets/apps/`. Las de a4g son de septiembre (aún dicen
+«hábito»), y la de Weather with love sale del emulador con nombres en inglés:
+cambiarlas por las mismas de las fichas de las tiendas cuando estén.
 
 ## Cómo escribir un artículo del blog
 

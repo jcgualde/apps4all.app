@@ -151,8 +151,14 @@ def md_a_html(cuerpo):
     return "\n".join("      " + s for s in salida)
 
 
-def fecha_larga(iso):
+MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"]
+
+
+def fecha_larga(iso, idioma="es"):
     anyo, mes, dia = iso.split("-")
+    if idioma == "en":
+        return "%d %s %s" % (int(dia), MONTHS[int(mes) - 1], anyo)
     return "%d de %s de %s" % (int(dia), MESES[int(mes) - 1], anyo)
 
 
@@ -306,12 +312,118 @@ def alternates(idiomas, ruta_sin_idioma, por_defecto, dominio):
 
 
 # --------------------------------------------------------------------------
+# Páginas de nuestras apps (a4g y Weather with love)
+#
+# Solo en castellano e inglés, como las propias apps. Cada app tiene su
+# página de producto y sus textos legales en direcciones fijas, que son las
+# que se ponen en las fichas de Google Play y App Store: no cambiarlas.
+# --------------------------------------------------------------------------
+
+IDIOMAS_APPS = ["es", "en"]
+
+# Por app: dirección en la web, nombre (con el 4 de a4g en su color) y sus
+# textos legales como (dirección, clave en legal_apps.json, etiqueta en apps.json).
+# La clave de cada app es también su carpeta en assets/apps.
+APPS = {
+    "a4g": {"slug": "a4g", "nombre": "a4g",
+            "nombre_html": 'a<span class="cuatro-a4g">4</span>g',
+            "legales": [("privacidad", "a4g_privacidad", "privacidad"),
+                        ("condiciones", "a4g_condiciones", "condiciones")]},
+    "wwl": {"slug": "weather-with-love", "nombre": "Weather with love",
+            "nombre_html": "Weather with love",
+            "legales": [("privacidad", "wwl_privacidad", "privacidad"),
+                        ("condiciones", "wwl_condiciones", "condiciones"),
+                        ("seguridad-infantil", "wwl_seguridad", "seguridad_infantil")]},
+}
+
+ICONO_HECHO = ('<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" '
+               'stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+               '<path d="M5 12.5l4.5 4.5L19 7.5"/></svg>')
+ICONO_CORAZON = ('<svg aria-hidden="true" class="corazon" viewBox="0 0 24 24" width="20" height="20" '
+                 'fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.2 0 3.6 '
+                 '1.2 5.3 3.1 1.7-1.9 3.1-3.1 5.3-3.1 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>')
+
+
+def url_app(codigo, clave):
+    """La página de cada app solo existe en castellano e inglés; desde el
+    catalán se enlaza a la de castellano."""
+    idioma = codigo if codigo in IDIOMAS_APPS else "es"
+    return f"/{idioma}/{APPS[clave]['slug']}/"
+
+
+def bloque_tiendas(ta):
+    """Mientras las apps no estén publicadas, «Próximamente en…», sin enlace.
+    Al publicarlas, cambiar por los enlaces a cada ficha."""
+    tiendas = "".join(
+        f'          <li class="tienda"><small>{ta["tienda_proximamente"]}</small><strong>{t}</strong></li>\n'
+        for t in ("Google Play", "App Store"))
+    return (f'        <ul class="tiendas">\n{tiendas}        </ul>\n'
+            f'        <p class="plataformas">{ta["plataformas"]}</p>')
+
+
+def lista_legales(ta, app, base, menos=None):
+    return "".join(
+        f'        <li><a href="{base}{app["slug"]}/{slug}/">{ta[etiqueta]} <span aria-hidden="true">&rarr;</span></a></li>\n'
+        for slug, _, etiqueta in app["legales"] if slug != menos)
+
+
+def bloque_ayuda(ta, clave, base, correo):
+    app = APPS[clave]
+    asunto = app["nombre"].replace(" ", "%20")
+    return f"""  <section class="app-ayuda" id="contacto">
+    <div class="contenedor app-ayuda__fila">
+      <div>
+        <h2>{ta["ayuda_titulo"]}</h2>
+        <p>{ta["ayuda_texto"]}</p>
+        <p><a class="app-ayuda__correo" href="mailto:{correo}?subject={asunto}">{correo}</a></p>
+      </div>
+      <ul class="app-ayuda__legal">
+{lista_legales(ta, app, base)}      </ul>
+    </div>
+  </section>"""
+
+
+def piezas_puzle():
+    """21 piezas, 7 columnas por 3 filas, cada una con su trozo de la foto."""
+    trozos = []
+    for i in range(21):
+        col, fila = i % 7, i // 7
+        trozos.append(f'        <span class="puzle__pieza" style="background-position:{col * 100 / 6:.4f}% {fila * 50}%"></span>')
+    return "\n".join(trozos)
+
+
+def paso_app(i, p):
+    return f"""        <li>
+          <div class="movil"><img src="/assets/apps/a4g/{p['imagen']}" alt="{p['alt']}" width="600" height="1164" loading="lazy"></div>
+          <div>
+            <h3><span>{i}</span> {p['titulo']}</h3>
+            <p>{p['texto']}</p>
+          </div>
+        </li>"""
+
+
+def tarjeta_diseno(i, nombre):
+    return f"""      <li>
+        <figure>
+          <img src="/assets/apps/wwl/tarjetas/{i:02d}.svg" alt="" width="632" height="400" loading="lazy">
+          <figcaption><span>{i:02d}</span> {nombre}</figcaption>
+        </figure>
+      </li>"""
+
+
+def con_icono(icono, texto):
+    return f"        <li>{icono}<span>{texto}</span></li>"
+
+
+# --------------------------------------------------------------------------
 # Construcción
 # --------------------------------------------------------------------------
 
 def construir():
     config = leer_json(TEXTOS / "config.json")
     legales = leer_json(TEXTOS / "legal.json")
+    textos_apps = leer_json(TEXTOS / "apps.json")
+    legales_apps = leer_json(TEXTOS / "legal_apps.json")
     idiomas = config["idiomas"]
     por_defecto = config["idioma_por_defecto"]
     dominio = config["dominio"].rstrip("/")
@@ -321,6 +433,7 @@ def construir():
 
     v_marca = huella(RAIZ / "assets" / "css" / "a4a-brand.css")
     v_sitio = huella(RAIZ / "assets" / "css" / "sitio.css")
+    v_apps = huella(RAIZ / "assets" / "css" / "apps.css")
 
     base_html = leer_plantilla("base.html")
     t_portada = leer_plantilla("portada.html")
@@ -329,6 +442,8 @@ def construir():
     t_legal = leer_plantilla("legal.html")
     t_blog = leer_plantilla("blog.html")
     t_articulo = leer_plantilla("articulo.html")
+    t_app = {"a4g": leer_plantilla("app-a4g.html"), "wwl": leer_plantilla("app-wwl.html")}
+    t_app_legal = leer_plantilla("app-legal.html")
 
     # Se vacía el contenido en lugar de borrar la carpeta: si hay un servidor
     # local levantado sobre ella, Windows la tiene bloqueada y rmtree falla.
@@ -339,7 +454,7 @@ def construir():
     rutas_sitemap = []
 
     def pagina(codigo, ruta_sin_idioma, contenido, titulo, clase_body="",
-               idiomas_pagina=None):
+               idiomas_pagina=None, descripcion=None):
         """Envuelve un contenido en base.html y lo escribe en su carpeta.
 
         `idiomas_pagina` dice en que idiomas existe esta pagina concreta.
@@ -357,6 +472,9 @@ def construir():
             "titulo_pagina": titulo,
             "v_marca": v_marca,
             "v_sitio": v_sitio,
+            "v_apps": v_apps,
+            "url_a4g": url_app(codigo, "a4g"),
+            "url_wwl": url_app(codigo, "wwl"),
             "clase_body": clase_body,
             "nav_blog": (
                 f'<a href="/es/blog/">{t["nav_blog_texto"]}</a>'
@@ -366,6 +484,8 @@ def construir():
             "selector_idioma": selector_idioma(disponibles, codigo, ruta_sin_idioma, nombres_idioma),
             "selector_idioma_cabecera": selector_idioma_cabecera(disponibles, codigo, ruta_sin_idioma, nombres_idioma, t["pie_idioma"]),
         })
+        if descripcion:
+            valores["meta_descripcion"] = descripcion
         html = rellenar(base_html, {k: v for k, v in valores.items() if isinstance(v, str)})
         escribir(f"{codigo}/{ruta_sin_idioma}index.html", html)
         rutas_sitemap.append((ruta, ruta_sin_idioma))
@@ -384,6 +504,8 @@ def construir():
             "base": base,
             "tarjetas_verticales": tarjetas,
             "pasos": pasos,
+            "url_a4g": url_app(codigo, "a4g"),
+            "url_wwl": url_app(codigo, "wwl"),
         })
         pagina(codigo, "", contenido, t["meta_titulo"], "pagina-portada")
 
@@ -464,8 +586,6 @@ def construir():
         for clave, slug, titulo in (
             ("aviso", "legal/aviso-legal/", t["legal_aviso_titulo"]),
             ("privacidad", "legal/privacidad/", t["legal_privacidad_titulo"]),
-            # La de a4g: Google Play exige una URL de política por app.
-            ("privacidad_a4g", "legal/privacidad-a4g/", t["legal_privacidad_a4g_titulo"]),
         ):
             cuerpo = rellenar("\n".join(legales[codigo][clave]), datos_legales)
             contenido = rellenar(t_legal, {
@@ -476,6 +596,79 @@ def construir():
                 "cuerpo_legal": cuerpo,
             })
             pagina(codigo, slug, contenido, f"{titulo} · apps4all")
+
+        # La privacidad de a4g vivió en /legal/privacidad-a4g/ hasta el
+        # 30/10/2026 y así está en el borrador de la ficha de Google Play.
+        # Esa dirección sigue funcionando: lleva a la nueva.
+        destino = f"{dominio}{url_app(codigo, 'a4g')}privacidad/"
+        escribir(f"{codigo}/legal/privacidad-a4g/index.html", f"""<!doctype html>
+<html lang="{codigo}">
+<head>
+<meta charset="utf-8">
+<title>a4g</title>
+<meta http-equiv="refresh" content="0; url={destino}">
+<link rel="canonical" href="{destino}">
+<meta name="robots" content="noindex">
+<script>location.replace({json.dumps(destino)});</script>
+</head>
+<body><p><a href="{destino}">a4g</a></p></body>
+</html>
+""")
+
+    # --- Páginas de las apps, en castellano e inglés ---
+    for codigo in IDIOMAS_APPS:
+        t = textos[codigo]
+        ta = textos_apps[codigo]
+        base = f"/{codigo}/"
+        datos_legales = {
+            "titular": config["titular"], "nif": config["nif"],
+            "domicilio": config["domicilio"], "correo": config["correo"],
+            "base": base,
+        }
+        for clave, app in APPS.items():
+            a = ta[clave]
+            valores = {k: v for k, v in a.items() if isinstance(v, str)}
+            valores.update({
+                "base": base,
+                "tiendas": bloque_tiendas(ta),
+                "ayuda": bloque_ayuda(ta, clave, base, config["correo"]),
+            })
+            if clave == "a4g":
+                valores.update({
+                    "piezas": piezas_puzle(),
+                    "pasos": "\n".join(paso_app(i, p) for i, p in enumerate(a["pasos"], 1)),
+                    "trae": "\n".join(con_icono(ICONO_HECHO, x) for x in a["trae"]),
+                })
+            else:
+                valores.update({
+                    "tiempo_lista": "\n".join(con_icono(ICONO_HECHO, x) for x in a["tiempo_lista"]),
+                    "notas_lista": "\n".join(
+                        con_icono(ICONO_CORAZON, f"<strong>{x}</strong> {y}") for x, y in a["notas_lista"]),
+                    "tarjetas": "\n".join(tarjeta_diseno(i, n) for i, n in enumerate(a["disenos"], 1)),
+                })
+            pagina(codigo, f"{app['slug']}/", rellenar(t_app[clave], valores), a["meta_titulo"],
+                   f"pagina-app app-{clave}", idiomas_pagina=IDIOMAS_APPS,
+                   descripcion=a["meta_descripcion"])
+
+            # Sus textos legales, en la dirección que se pone en las tiendas
+            for slug, clave_texto, etiqueta in app["legales"]:
+                titulo = ta[etiqueta]
+                otros = lista_legales(ta, app, base, menos=slug)
+                otros += f'        <li><a href="{base}{app["slug"]}/">{app["nombre"]} <span aria-hidden="true">&rarr;</span></a></li>\n'
+                contenido = rellenar(t_app_legal, {
+                    "url_app": f"{base}{app['slug']}/",
+                    "carpeta": clave,
+                    "nombre_app_html": app["nombre_html"],
+                    "titulo_legal": titulo,
+                    "legal_actualizado": t["legal_actualizado"],
+                    "fecha": fecha_larga(config["fecha_legal_apps"], codigo),
+                    "cuerpo_legal": rellenar("\n".join(legales_apps[codigo][clave_texto]), datos_legales),
+                    "otros_legales": otros,
+                })
+                pagina(codigo, f"{app['slug']}/{slug}/", contenido,
+                       f"{titulo} · {app['nombre']}", f"pagina-app app-{clave}",
+                       idiomas_pagina=IDIOMAS_APPS,
+                       descripcion=f"{titulo} · {app['nombre']} · apps4all")
 
     # --- Assets ---
     shutil.copytree(RAIZ / "assets", SALIDA / "assets")

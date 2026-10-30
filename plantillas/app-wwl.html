@@ -1,0 +1,85 @@
+  <!-- WEATHER WITH LOVE: HÉROE -->
+  <section class="app-heroe">
+    <div class="contenedor app-heroe__fila">
+      <div class="app-heroe__texto">
+        <div class="app-marca">
+          <img src="/assets/apps/wwl/icono.png" alt="" width="56" height="56">
+          <span>Weather with love</span>
+        </div>
+        <h1>{{h1}}</h1>
+        <p class="entradilla">{{entradilla}}</p>
+{{tiendas}}
+      </div>
+      <div class="movil">
+        <img src="/assets/apps/wwl/tiempo.webp" alt="{{alt_heroe}}" width="600" height="1194">
+      </div>
+    </div>
+  </section>
+
+  <!-- EL TIEMPO -->
+  <section class="app-bloque">
+    <div class="contenedor a-dos">
+      <div>
+        <h2>{{tiempo_titulo}}</h2>
+        <p>{{tiempo_texto}}</p>
+      </div>
+      <ul class="lista-limpia">
+{{tiempo_lista}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="app-bloque wwl-blanco">
+    <div class="contenedor a-dos a-dos--invertido">
+      <div>
+        <h2>{{gente_titulo}}</h2>
+        <p>{{gente_texto}}</p>
+      </div>
+      <div class="movil">
+        <img src="/assets/apps/wwl/tu-gente.webp" alt="{{alt_gente}}" width="600" height="1194" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTAS DE AMOR -->
+  <section class="app-bloque wwl-noche">
+    <div class="contenedor a-dos">
+      <div>
+        <h2>{{notas_titulo}}</h2>
+        <p>{{notas_texto}}</p>
+        <div class="busqueda" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="busqueda__texto">{{notas_busqueda}}<span class="busqueda__cursor"></span></span>
+          <svg class="corazon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.2 0 3.6 1.2 5.3 3.1 1.7-1.9 3.1-3.1 5.3-3.1 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>
+        </div>
+      </div>
+      <ul class="lista-limpia">
+{{notas_lista}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- TARJETAS DE AMOR -->
+  <section class="app-bloque">
+    <div class="contenedor app-bloque__intro">
+      <h2>{{tarjetas_titulo}}</h2>
+      <p>{{tarjetas_texto}}</p>
+    </div>
+    <ul class="coleccion" aria-label="{{tarjetas_lista}}" tabindex="0">
+{{tarjetas}}
+    </ul>
+    <div class="contenedor">
+      <p class="coleccion__ayuda">{{tarjetas_ayuda}}</p>
+    </div>
+  </section>
+
+  <!-- SEGURIDAD -->
+  <section class="app-bloque wwl-seguridad">
+    <div class="contenedor">
+      <h2>{{seguridad_titulo}}</h2>
+      <p>{{seguridad_texto}}</p>
+      <p><a href="{{base}}weather-with-love/seguridad-infantil/">{{seguridad_enlace}} &rarr;</a></p>
+    </div>
+  </section>
+
+{{ayuda}}
