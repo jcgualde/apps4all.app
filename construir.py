@@ -596,6 +596,9 @@ def construir():
             "domicilio": config["domicilio"],
             "correo": config["correo"],
             "dominio": dominio,
+            "registro_li": (
+                f'<li><strong>{t["legal_registro"]}:</strong> {config["registro"]}</li>'
+                if config.get("registro") else ""),
         }
         for clave, slug, titulo in (
             ("aviso", "legal/aviso-legal/", t["legal_aviso_titulo"]),

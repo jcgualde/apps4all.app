@@ -4,7 +4,7 @@
     "aviso": [
       "<h2>Titular del sitio</h2>",
       "<p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>",
-      "<ul><li><strong>Titular:</strong> {{titular}}</li><li><strong>NIF:</strong> {{nif}}</li><li><strong>Domicilio:</strong> {{domicilio}}</li><li><strong>Correo electrónico:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Sitio web:</strong> {{dominio}}</li></ul>",
+      "<ul><li><strong>Titular:</strong> {{titular}}</li><li><strong>NIF:</strong> {{nif}}</li>{{registro_li}}<li><strong>Domicilio:</strong> {{domicilio}}</li><li><strong>Correo electrónico:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Sitio web:</strong> {{dominio}}</li></ul>",
       "<h2>Objeto</h2>",
       "<p>Este sitio web tiene por objeto dar a conocer los servicios de desarrollo de aplicaciones que presta apps4all y facilitar el contacto con personas interesadas en ellos.</p>",
       "<h2>Condiciones de uso</h2>",
@@ -37,7 +37,7 @@
     "aviso": [
       "<h2>Site owner</h2>",
       "<p>In compliance with article 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), the details of the owner of this website are:</p>",
-      "<ul><li><strong>Owner:</strong> {{titular}}</li><li><strong>Tax number:</strong> {{nif}}</li><li><strong>Address:</strong> {{domicilio}}</li><li><strong>Email:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Website:</strong> {{dominio}}</li></ul>",
+      "<ul><li><strong>Owner:</strong> {{titular}}</li><li><strong>Tax number:</strong> {{nif}}</li>{{registro_li}}<li><strong>Address:</strong> {{domicilio}}</li><li><strong>Email:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Website:</strong> {{dominio}}</li></ul>",
       "<h2>Purpose</h2>",
       "<p>This website exists to present the application development services provided by apps4all and to make it easy to get in touch.</p>",
       "<h2>Terms of use</h2>",
@@ -70,7 +70,7 @@
     "aviso": [
       "<h2>Titular del lloc</h2>",
       "<p>En compliment de l'article 10 de la Llei 34/2002, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSI-CE), s'informa de les dades del titular d'aquest lloc web:</p>",
-      "<ul><li><strong>Titular:</strong> {{titular}}</li><li><strong>NIF:</strong> {{nif}}</li><li><strong>Domicili:</strong> {{domicilio}}</li><li><strong>Correu electrònic:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Lloc web:</strong> {{dominio}}</li></ul>",
+      "<ul><li><strong>Titular:</strong> {{titular}}</li><li><strong>NIF:</strong> {{nif}}</li>{{registro_li}}<li><strong>Domicili:</strong> {{domicilio}}</li><li><strong>Correu electrònic:</strong> <a href=\"mailto:{{correo}}\">{{correo}}</a></li><li><strong>Lloc web:</strong> {{dominio}}</li></ul>",
       "<h2>Objecte</h2>",
       "<p>Aquest lloc web té per objecte donar a conèixer els serveis de desenvolupament d'aplicacions que presta apps4all i facilitar el contacte amb les persones interessades.</p>",
       "<h2>Condicions d'ús</h2>",

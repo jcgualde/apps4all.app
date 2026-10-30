@@ -179,8 +179,9 @@ necesita tres *secrets* configurados en el repositorio: `FTP_SERVER`,
 
 ## Lo que falta
 
-- Rellenar `titular`, `nif` y `domicilio` en `textos/config.json`: sin eso, el
-  aviso legal no cumple la LSSI.
+- Rellenar `registro` en `textos/config.json` con la inscripción de APPS 4 ALL,
+  S. L. en el Registro Mercantil (registro, tomo, folio y hoja): la LSSI la pide
+  en el aviso legal. Mientras esté vacío, esa línea no sale.
 - Pegar la clave de Web3Forms en `textos/config.json`, o el formulario no envía.
 - Dar de alta el buzón `jcgualde@apps4all.app` en Hostinger.
 - Sustituir los marcadores de pantalla de las muestras por capturas reales.
