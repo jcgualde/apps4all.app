@@ -717,8 +717,7 @@ def construir():
     # Prueba de que la web es nuestra para Google Search Console y Play Console.
     # No borrarlo: Google lo sigue comprobando.
     escribir("google0ce8b28a2e103b1e.html",
-             "google-site-verification: google0ce8b28a2e103b1e.html
-")
+             "google-site-verification: google0ce8b28a2e103b1e.html\n")
 
     # --- Avisos ---
     paginas = len(rutas_sitemap)
