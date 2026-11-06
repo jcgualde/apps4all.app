@@ -714,6 +714,12 @@ def construir():
              f"{urls}\n</urlset>\n")
     escribir("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {dominio}/sitemap.xml\n")
 
+    # Prueba de que la web es nuestra para Google Search Console y Play Console.
+    # No borrarlo: Google lo sigue comprobando.
+    escribir("google0ce8b28a2e103b1e.html",
+             "google-site-verification: google0ce8b28a2e103b1e.html
+")
+
     # --- Avisos ---
     paginas = len(rutas_sitemap)
     print(f"Listo: {paginas} páginas en {len(idiomas)} idiomas -> {SALIDA}")
